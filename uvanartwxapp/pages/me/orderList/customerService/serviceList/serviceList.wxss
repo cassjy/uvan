@@ -1,0 +1,79 @@
+.header {
+  width: 100%;
+  height: 100rpx;
+  color: #a9a9a9;
+  font-size: 22rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25rpx 0 40rpx;
+  box-sizing: border-box;
+  background-color: #fafafa;
+  border-top: 1rpx solid #eeeeee;
+}
+
+.goodsItem {
+  width: 100%;
+  padding: 40rpx 40rpx 35rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1rpx solid #eeeeee;
+}
+
+.goodsItem .goodsImage {
+  width: 136rpx;
+  height: 136rpx;
+  margin-right: 40rpx;
+}
+
+.goodsImage image {
+  width: 136rpx;
+  height: 136rpx;
+}
+.goodsItem  .goodsInfo{
+  width: 494rpx;
+}
+.goodsItem  .goodsInfo .up {
+  color: #424242;
+  font-size: 24rpx;
+  line-height: 38rpx;
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.goodsItem  .goodsInfo .dowm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 18rpx;
+}
+
+.goodsInfo .dowm .number {
+  color: #a6a6a6;
+  font-size: 22rpx;
+}
+
+.goodsInfo .dowm  .btn {
+  width: 145rpx;
+  height: 46rpx;
+  font-size: 26rpx;
+  color: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1rpx solid #eeeeee;
+}
+.goodsInfo .dowm  .addState{
+  color: #d71826;
+}
+
+/*点击触发按钮高亮  */
+
+.highLight {
+  background-color: #dedede !important;
+}

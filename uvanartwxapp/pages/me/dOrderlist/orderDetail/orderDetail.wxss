@@ -1,0 +1,227 @@
+page{
+	height: 100%;
+	background-color: #eef2f5;
+}
+.container{
+	width: 100%;
+	background-color: #eef2f5;
+}
+.container .personal{
+	width: 100%;
+	background-color: #fff; 
+	font-size: 28rpx;
+	position: relative;
+	margin-bottom: 20rpx;
+}
+.container .personal .status{
+	width: 100%;
+	box-sizing: border-box;
+	padding: 30rpx 20rpx;
+	background-color: #917253;
+	color: #fff;
+}
+.container .personal .status .icon{
+	display: inline-block;
+	line-height: 40rpx;
+	padding: 0rpx 12rpx;
+	border: 2rpx solid #fff;
+	border-radius: 4rpx;
+	margin-right: 20rpx;
+}
+.container .personal .status .text{
+	
+}
+.container .personal .wechat{
+	overflow: hidden;
+	margin-left: 20rpx;
+	margin-top: 20rpx; 
+}
+.container .personal .wechat .iconfont{
+	float: left;
+	font-size: 52rpx;
+}
+.container .personal .wechat image{
+	width: 40rpx;
+	height: 40rpx;
+	float: left;
+	margin-right: 10rpx;
+	background-color: #ccc;
+}
+.container .personal .wechat .wxname{
+	float: left;
+	line-height: 56rpx;
+	color: #666;
+}
+.container .personal .info{
+	box-sizing: border-box;
+	overflow: hidden;
+	margin-top: 20rpx;
+	margin-left: 20rpx;
+	padding-bottom: 32rpx;
+}
+.container .personal .info .iconfont{
+	float: left;
+	font-size: 40rpx;
+	margin-right: 10rpx;
+}
+.container .personal .info .content{
+	float: left;
+}
+.container .personal .info .content .name{
+	display: inline-block;
+	margin-right: 10rpx;
+	font-size: 32rpx;
+}
+.container .personal .info .content .phone{
+
+}
+.container .personal .info .content .address{
+	color: #888;
+}
+.container .personal .icon-shang2{
+	position: absolute;
+	bottom: 70rpx;
+	right: 20rpx;
+	font-size: 40rpx;
+}
+
+.container .order{
+	box-sizing: border-box;
+	width: 100%;
+	overflow: hidden;
+	background-color: #fff;
+	padding: 20rpx;
+	margin-bottom: 20rpx;
+}
+.container .order .talk{
+	font-size: 28rpx;
+	text-align: right;
+}
+.container .order .talk .iconfont{
+	display: inline-block;
+	margin-right: 10rpx;
+	color: #169bd5;
+}
+.container .order .talk .kefu{
+	font-size: 24rpx;
+	color: #888;
+}
+.container .order .left{
+	float: left;
+	width: 75%;
+	margin-top: 10rpx;
+	font-size: 28rpx;
+}
+.container .order .left image{
+	width: 160rpx;
+	height: 160rpx;
+	float: left;
+	background-color: #ccc;
+	margin-right: 10rpx;
+}
+.container .order .left .goods{
+	float: left;
+}
+.container .order .left .goods .goodsname{
+
+}
+.container .order .left .goods .goodsattr{
+
+}
+.container .order .right{
+	float: right;
+	width: 25%;
+	font-size: 28rpx;
+	text-align: right;
+	margin-top: 10rpx;
+}
+.container .order .right .price{
+	
+}
+.container .order .right .count{
+
+}
+
+.container .money{
+	width: 100%;
+	box-sizing: border-box;
+	padding: 20rpx;
+	background-color: #fff;
+	font-size: 28rpx;
+	margin-bottom: 20rpx;
+}
+.container .money .top{
+	width: 100%;
+	border-bottom: 2rpx solid #eee;
+}
+.container .money .top .view{
+	padding-top: 10rpx;
+	padding-bottom: 10rpx;
+	overflow: hidden;
+}
+.container .money .top .view .text{
+	float: left;
+}
+.container .money .top .view .orderprice{
+	float: right;
+}
+.container .money .bottom{
+	margin-top: 20rpx;
+	text-align: right;
+}
+.container .money .bottom text{
+	font-size: 36rpx;
+	color: #917253;
+	font-weight: bold;
+}
+.container .money .bottom .iconfont{
+	width: 100%;
+	margin-top: 20rpx;
+	font-size: 40rpx;
+	text-align: center;
+}
+
+.container .infomation{
+	font-size: 28rpx;
+	background-color: #fff;
+	padding: 20rpx;
+	margin-bottom: 20rpx;
+}
+.container .infomation .info1{
+	padding-top: 10rpx;
+	padding-bottom: 10rpx;  
+}
+.container .infomation .info1 .title{
+	
+}
+.container .infomation .info1 .num{
+
+}
+.container .infomation .info1 .copy{
+	display: inline-block;
+	border: 2rpx solid #000;
+	margin-left: 10rpx;
+	padding-left: 10rpx;
+	padding-right: 10rpx; 
+}
+
+.container .operation{
+	box-sizing: border-box;
+	width: 100%;
+	padding: 20rpx;
+	font-size: 28rpx;
+	text-align: right;
+	background-color: #fff;
+}
+.container .operation .delete{
+	border: 2rpx solid #000;
+	display: inline-block;
+	padding-left: 10rpx;
+	padding-right: 10rpx;
+}
+
+
+
+
+
+

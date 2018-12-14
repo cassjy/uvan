@@ -1,0 +1,166 @@
+/* pages/brand/play/prize/prize.wxss */
+
+page {
+  background-color: #eef2f5;
+}
+
+.record {
+  width: 100%;
+  font-size: 28rpx;
+  background-color: #fff;
+}
+
+.record .header {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 20rpx;
+  background-color: #eee;
+  overflow: hidden;
+}
+
+.record .header .month {
+  float: left;
+}
+
+.record .header .all {
+  float: right;
+}
+
+.record .header .all text {
+  color: #917253;
+  font-weight: bold;
+}
+
+.record .list {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 20rpx;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  overflow: hidden;
+  border-bottom: 2rpx solid #eee;
+}
+
+.record .list .left {
+  float: left;
+}
+
+.record .list .left .name {
+  font-size: 32rpx;
+  margin-bottom: 6rpx;
+}
+
+.record .list .left .date {
+  font-size: 26rpx;
+  color: #888;
+}
+
+.record .list .get {
+  float: right;
+  font-weight: bold;
+}
+
+.onMore {
+  color: #aeacac;
+  font-size: 26rpx;
+  display: flex;
+  margin: 6rpx 0;
+  justify-content: center;
+}
+
+.notRecord {
+  width: 100%;
+  color: #aeacac;
+  font-size: 26rpx;
+  display: flex;
+  margin-top: 10rpx;
+  justify-content: center;
+  position: fixed;
+  top: 30%;
+}
+
+/*加载动画  */
+
+.loadingMore {
+  width: 100%;
+  height: 42rpx;
+  padding: 8rpx 0;
+  background: #eef2f5;
+}
+
+.loadingMore image {
+  width: 200rpx;
+  height: 42rpx;
+  margin-left: 37%;
+  display: inherit;
+}
+
+/* 兑奖按钮 */
+
+.get button {
+  height: 70rpx;
+  display: inline-block;
+  font-size: 28rpx;
+  line-height: 70rpx;
+}
+
+/* 弹窗样式 */
+
+.modal-input {
+  display: flex;
+  flex-direction: row;
+  margin: 20rpx 0;
+  justify-content: flex-start;
+  height: 60rpx;
+  align-content: center;
+  font-size: 26rpx;
+}
+
+.modal-input.date .region {
+  padding: 15rpx 0;
+  height: 66rpx;
+  line-height: 60rpx;
+  font-size: 40rpx;
+}
+
+.modal-textarea {
+  height: 120rpx;
+}
+
+textarea {
+  background-color: #fafafc;
+  border: 1rpx #3b3b3b solid;
+  width: 400rpx;
+  padding-left: 15rpx;
+  height: 120rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
+}
+
+.modal-input text:nth-of-type(1) {
+  width: 130rpx;
+  line-height: 60rpx;
+  height: 60rpx;
+}
+
+.modal-input input {
+  font-size: 24rpx;
+  background-color: #fafafc;
+  border: 1rpx #3b3b3b solid;
+  width: 400rpx;
+  padding-left: 15rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.modal-input input#recommend{
+  font-size: 26rpx !important;
+}
+.modal-input .region {
+  background-color: #fafafc;
+  border: 1rpx #3b3b3b solid;
+  width: 400rpx;
+  height: 60rpx;
+  padding-left: 15rpx;
+  font-size: 24rpx;
+  line-height: 60rpx;
+}

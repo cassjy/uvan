@@ -1,0 +1,307 @@
+.nav {
+  border-top: 1rpx solid #f2f2f2;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: #fff;
+}
+
+.nav .tab {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 107rpx;
+  background-color: #fff;
+}
+
+.nav .tab .navTab {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32rpx;
+  color: #888;
+  height: 107rpx;
+  line-height: 107rpx;
+}
+
+.nav .tab .navTab .borderBottom {
+  color: #222;
+  border-bottom: 4rpx solid #222;
+}
+
+.nav .tab .navTab text {
+  height: 107rpx;
+  box-sizing: border-box;
+}
+
+/*灰色块  */
+
+.grayWrapper {
+  width: 100%;
+  height: 20rpx;
+  background-color: #f4f4f4;
+}
+
+/*切换动画  */
+
+.hide-body {
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.hide {
+  display: none;
+}
+
+/*提交反馈意见  */
+
+.submitContent, .historyContent {
+  border-top: 1rpx solid #f2f2f2;
+}
+
+/* .submitContent, .historyContent {
+  padding-top: 128rpx;
+  z-index: 9;
+} */
+
+.header {
+  width: 100%;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+  position: fixed;
+  /* top: 128rpx;
+  left: 0;
+  z-index: 10; */
+  background-color: #fff;
+}
+
+.header .border {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 107rpx;
+  color: #888;
+  font-size: 28rpx;
+  border-bottom: 1rpx solid #dedede;
+}
+
+.historyContent .hisFeedBack {
+  padding: 167rpx 40rpx 0;
+  box-sizing: border-box;
+}
+
+/* 
+.historyContent .border {
+  padding: 0 40rpx;
+} */
+
+/* .historyContent .border>view {
+  border-bottom: 1rpx solid #dedede;
+} */
+
+.header .item {
+  flex: 1;
+  text-align: center;
+}
+
+.header .item:first-child {
+  text-align: left;
+}
+
+.header .item:last-child {
+  text-align: right;
+}
+
+.myFeedBack {
+  padding: 40rpx;
+  background-color: #fff;
+}
+
+.myFeedBack textarea, .reply textarea {
+  font-size: 28rpx;
+  color: #333;
+  width: 100%;
+  line-height: 40rpx;
+  height: 32vh;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border-radius: 8rpx;
+}
+
+.userreply textarea {
+  font-size: 28rpx;
+  color: #aaa;
+  width: 100%;
+  line-height: 40rpx;
+  height: 10vh;
+  padding: 12rpx;
+  box-sizing: border-box;
+  border-radius: 8rpx;
+}
+
+.textarea-body {
+  position: relative;
+}
+
+.banset {
+  height: 418rpx;
+  background-color: #f8f8f8;
+}
+
+.number {
+  position: absolute;
+  right: 16rpx;
+  bottom: 8rpx;
+  color: #ccc;
+  font-size: 22rpx;
+}
+
+.number .green {
+  color: #34cc34;
+  margin-right: 2rpx;
+}
+
+/*历史反馈意见  */
+
+.scroll {
+  height: 1098rpx;
+  padding: 40rpx 40rpx 0;
+  box-sizing: border-box;
+}
+
+.iphoneXHeight {
+  height: 1212rpx !important;
+}
+
+.historyContent .data {
+  padding-bottom: 64rpx;
+}
+
+.historyContent  .data>view {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.hightLight {
+  background-color: #f8f8f8;
+}
+
+.data .opinion, .substance, .state {
+  /* justify-content: center;
+  align-items: center; */
+  color: #424242;
+  /* text-align: center; */
+  font-size: 24rpx;
+  font-weight: 500;
+  /* padding-bottom: 64rpx; */
+}
+
+.opinion {
+  flex: 3;
+  text-align: left;
+}
+
+.substance {
+  flex: 5;
+  text-align: left;
+}
+
+.state {
+  color: #888;
+  flex: 2;
+  text-align: right;
+}
+
+.data .substance, .data .opinion {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mesg {
+  color: #e43746 !important;
+}
+
+.btn {
+  position: fixed;
+  left: 0;
+  bottom: 40rpx;
+  width: 100%;
+}
+
+.btn .submit, .btn .hisFeedback {
+  color: #fff;
+  background-color: #424242;
+  border-radius: 40rpx;
+  width: 90%;
+  margin: 0 5%;
+  font-size: 28rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.btn .hisFeedback {
+  color: #424242 !important;
+  background-color: #fff !important;
+  border: 1rpx solid #e5e5e5;
+  margin-top: 40rpx;
+}
+
+.btn .move {
+  bottom: 420rpx !important;
+}
+
+/*我的反馈详情  */
+
+.mineFeedBack {
+  padding: 168rpx 40rpx 92rpx;
+}
+
+.mineFeedBack .title {
+  color: #424242;
+  font-size: 28rpx;
+  margin-bottom: 40rpx;
+}
+
+.textarea1 {
+  margin-bottom: 70rpx;
+}
+
+.textarea1>view, .textarea2>view, .textarea3>view {
+  width: 100%;
+  height: 330rpx;
+  color: #666;
+  font-size: 24rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border: 1rpx solid #dedede;
+}
+
+.userEvaluate {
+  color: #424242;
+  font-size: 28rpx;
+  margin-bottom: 40rpx;
+  margin-top: 70rpx;
+}
+
+.textarea3 textarea {
+  height: 180rpx;
+}
+
+/*暂无反馈意见  */
+
+.haveNotFeedBack {
+  position: fixed;
+  top: 40%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #abaaaa;
+  font-size: 24rpx;
+}

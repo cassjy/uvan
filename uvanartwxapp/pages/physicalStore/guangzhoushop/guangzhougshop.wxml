@@ -1,0 +1,3 @@
+<!--pages/physicalStore/guangzhoushop/guangzhougshop.wxml-->
+<!-- https://uvanhd.uvanart.com/ -->
+<web-view src="https://uvanhd.uvanart.com/?{{id}}"></web-view>

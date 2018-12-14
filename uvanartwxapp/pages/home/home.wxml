@@ -1,0 +1,523 @@
+<view wx:if="{{scrollTop}}" class=" top-nav fixedTop" id='nav'>
+  <view class='nav-out'>
+    <scroll-view scroll-x="true" scroll-y="false" bindscroll="scroll" scroll-left="{{leftNavNum}}" scroll-with-animation="true">
+      <view class='nav-in'>
+        <block wx:for="{{navList}}" wx:key="index">
+          <view bindtap="scrollToViewFn" data-id="{{index}}" class='{{navChoose===index?"navChoose":""}}'>{{item}}</view>
+        </block>
+        <view></view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class='iconfont icon-caidan' bindtap='showNavList'></view>
+</view>
+
+<!--蒲公英首页  B  -->
+<scroll-view scroll-y bindscroll="scroll" style="height:100vh" lower-threshold="20" upper-threshold="{{top}}" bindscrolltoupper="scrolltoupper" bindscrolltolower="scrolltolower" scroll-into-view="{{toView}}" scroll-with-animation="true" hidden='{{!pageShow}}'>
+  <view class="home">
+    <!--蒲公英bg图  -->
+    <view class="pgyBackground">
+      <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/4077f5fc4c3c4790a1624545c61065d7' lazy-load></image>
+    </view>
+    <!--优梵艺术商城入口  -->
+    <view class="mallEntrance">
+      <view class="mwrapper">
+        <view class="left">
+          <text class="icon-youfanyishulogotest2 iconfont"></text>
+        </view>
+        <view class="right" bindtap='enterShop' hover-class='highLight'>
+          <text>进入商城</text>
+        </view>
+      </view>
+    </view>
+    <!-- 浏览导航 -->
+    <view class="top-nav" id='nav'>
+      <view class='nav-out' id='to1'>
+        <scroll-view scroll-x="true" scroll-y="false" bindscroll="scroll" scroll-left="{{leftNavNum}}" scroll-with-animation="true">
+          <view class='nav-in'>
+            <block wx:for="{{navList}}" wx:key="index">
+              <view bindtap="scrollToViewFn" data-id="{{index}}" class='{{navChoose===index?"navChoose":""}}'>{{item}}</view>
+            </block>
+            <view></view>
+          </view>
+        </scroll-view>
+      </view>
+      <view class='iconfont icon-caidan' bindtap='showNavList'></view>
+    </view>
+    <!-- 关于优梵 -->
+    <view class='aboutYF'>
+      <view class='about-title'>
+        <view class='title-font-pic'>
+          <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/smnQsYbFQKudjL9Ilo9KqwAAAT1wZDIE'>
+          </image>
+        </view>
+      </view>
+      <view class='about-pic'>
+        <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/af79792b690b4f35a9234146ced3bb4b'></image>
+      </view>
+      <view class='about-content'>
+        <view>
+          <view>怀揣梦想的创始人,</view>
+          <view>有故事的设计师,</view>
+          <view>成长路上遇见的艺术家;</view>
+        </view>
+        <view style='margin-top:32rpx;'>
+          <view>让更多人拥有其向往的美好生活,</view>
+          <view>是这个共同的情怀、目标、愿景,</view>
+          <view>成就与众不同的优梵艺术。</view>
+        </view>
+      </view>
+      <view class='about-button' data-id="0" bindtap="artRun">做生活的艺术家</view>
+      <view class='about-page'>
+        <view class='aboutYF-page' data-tab="0" bindtap="tab1">
+          <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/TNA7Ej2bTmq2kQIm2YoMGQAAAT1wZDIE'></image>
+        </view>
+        <view class='aboutYF-page' data-tab="1" bindtap="tab1">
+          <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/ijakiwgEQHifeZMpyovSEAAAAT1wZDIE'></image>
+        </view>
+        <view class='aboutYF-page' data-tab="2" bindtap="tab1">
+          <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/2_4JQbcZQcOoofTw20ugLAAAAT1wZDIE'></image>
+        </view>
+      </view>
+      <view class='maodian' id='to2'></view>
+    </view>
+    <!-- 国际设计师合作 -->
+    <view class='about-designer'>
+      <view class='about-title'>
+        <view class='title-font-pic'>
+          <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/V6uUVF5cQMGKGxGJP097wAAAAT1wZDIE'>
+          </image>
+        </view>
+      </view>
+      <view class='about-pic'>
+        <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/4tZm0AaERfOPEdHh-Cv_JAAAAT1wZDIE'></image>
+      </view>
+      <view class='about-content'>
+        <view>
+          <view>文艺/时尚/创新,</view>
+          <view>传播有格调的生活美学;</view>
+        </view>
+        <view style='margin-top:32rpx;'>
+          <view>优梵艺术在米兰国际家居展&意大利一流设计院校几经寻觅,</view>
+          <view>接洽世界顶级家居品牌的合作设计师,</view>
+          <view>构筑优梵艺术的美学智囊团。</view>
+        </view>
+      </view>
+      <view class='about-button' bindtap='toDesign'>更多合作设计师</view>
+      <view class='designer-group'>
+        <view class='designer-index'>{{num + 1}}/5</view>
+        <view class='designer-swiper'>
+          <swiper circular="true" bindchange="changeheight" next-margin="20rpx" bindchange="cutPage">
+            <block wx:for="{{designerGroup}}" wx:key="index">
+              <swiper-item bindtap="" data-id="{{index}}" data-url="{{item}}">
+                <image src="{{item}}" class='designer-pic' bindtap='toDesign' />
+              </swiper-item>
+            </block>
+          </swiper>
+        </view>
+      </view>
+      <view class='maodian' id='to3'></view>
+    </view>
+    <!-- 供应链管理专家 -->
+    <view class='aboutGYL'>
+      <view class='about-title'>
+        <view class='title-font-pic'>
+          <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/QdWLKfBdTqu4063U9ruHywAAAT1wZDIE'>
+          </image>
+        </view>
+      </view>
+      <view class='about-pic'>
+        <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/nx3W_2x-Q3WDt-hDOFsX6AAAAT1wZDIE'></image>
+      </view>
+      <view class='about-content' style='margin-bottom:0;'>
+        <view>
+          <view>家具,</view>
+          <view>不是一时的英雄主义,而是长久的生活伴侣,</view>
+          <view>TA,从何而来，很重要。</view>
+        </view>
+        <view style='margin-top:32rpx;'>
+          <view>专注外贸数十年的优质工厂,</view>
+          <view>是优梵艺术的战略合作伙伴;</view>
+        </view>
+        <view style='margin-top:32rpx;'>
+          <view>与欧美市场共享大型制造工厂,</view>
+          <view>意味着去往您家的家具,</view>
+          <view>品质普遍高于国内标准，与欧美知名品牌比肩。</view>
+        </view>
+      </view>
+      <view class='about-page'>
+        <view class='aboutGYL-page' bindtap='toFactory'>
+          <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/X2MiD6T7TpyGv1n-poP8ggAAAT1wZDIE'></image>
+        </view>
+        <view class='aboutGYL-page' bindtap='toBrandServise' data-id="0">
+          <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/2gXbZDBQRzmz1thpQriIHQAAAT1wZDIE'></image>
+        </view>
+      </view>
+      <view class='maodian' id='to4'></view>
+    </view>
+    <!-- 品质 -->
+    <view class='aboutPZ'>
+      <view class='about-title'>
+        <view class='title-font-pic'>
+          <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/Ix7ZI4tWTdKat_ar14LLIAAAAT1wZDIE'>
+          </image>
+        </view>
+      </view>
+      <view class='about-pic'>
+        <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/qTXsT2IYTOyZNLJoU4mhNAAAAT1wZDIE'></image>
+      </view>
+      <view class='about-content' style='margin-bottom:0;'>
+        <view>
+          <view>除了工厂本身,</view>
+          <view>少有家具企业,会在办公大楼自建实验室,</view>
+          <view>优梵艺术崇尚这一有必要的特立独行。</view>
+        </view>
+        <view style='margin-top:32rpx;'>
+          <view>产品进入购物车之前,</view>
+          <view>必先进入优梵实验室抽检；</view>
+        </view>
+        <view style='margin-top:32rpx;'>
+          <view>精确而完整的合格数据，才是产品的最佳名片。</view>
+        </view>
+      </view>
+      <view class='about-page'>
+        <view class='aboutGYL-page' bindtap='toLaboratory'>
+          <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/H883ri7tRe2Lv4-cnOrm0wAAAT1wZDIE'></image>
+        </view>
+        <view class='aboutGYL-page' bindtap='toQuanity'>
+          <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/qHx4a3qnTN-Cz8bFVGK44wAAAT1wZDIE'></image>
+        </view>
+      </view>
+      <view class='maodian' id='to5'></view>
+    </view>
+    <!-- 家具 -->
+    <view class='aboutGJ'>
+      <view class='about-title'>
+        <view class='title-font-pic'>
+          <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/ghCGR7IEQUCAFax4f29WPwAAAT1wZDIE'>
+          </image>
+        </view>
+      </view>
+      <view class='about-pic'>
+        <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/NMKeI57tSXyJ3ClE9G7fSAAAAT1wZDIE'></image>
+      </view>
+      <view class='about-content'>
+        <view>
+          <view>设计/艺术/品质 ≠ 价格水涨船高,</view>
+          <view>大牌同厂,直接供货,消减品牌溢价;</view>
+          <view>渠道创新,流量自营,省去卖场加价;</view>
+          <view>供应链协同,数据化管理,降低流量成本;</view>
+          <view>不可见的效率提升,可见的高性价比。</view>
+        </view>
+      </view>
+      <view class='about-button' bindtap="toNewlist">查看新品优惠</view>
+      <view class='maodian' id='to6'></view>
+    </view>
+    <!-- 全屋设计服务 -->
+    <view class='about3D'>
+      <view class='about-title'>
+        <view class='title-font-pic'>
+          <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/5x4FsBGARCGSP6HZTikWTQAAAT1wZDIE'>
+          </image>
+        </view>
+      </view>
+      <view class='about-pic'>
+        <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/McC9UB7WTY6eSKy58G1a7gAAAT1wZDIE'></image>
+      </view>
+      <view class='about-content' style='margin-bottom:70rpx;'>
+        <view>
+          <view>过去4年,</view>
+          <view>优梵艺术已为超过2万户家庭,</view>
+          <view>免费提供全屋软装设计方案。</view>
+        </view>
+        <view style='margin-top:32rpx;'>
+          <view>360°全景设计效果,逼真空间视觉体验,</view>
+          <view>向新家 Say Yes!</view>
+        </view>
+      </view>
+      <view class='scroll-title'>
+        <view class='scroll-title-word'>3D视效全屋设计</view>
+        <view class='scroll-title-icon' bindtap='toBrandServise' data-id="1">MORE
+          <i class="iconfont icon-more"></i>
+        </view>
+      </view>
+      <view class='scroll-pic'>
+        <view class='scroll-pic-in2'>
+          <view bindtap="open3DPage" data-id="0">
+            <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/8eca80c9c9a9486eb5c02f9d19d02058'></image>
+          </view>
+          <view bindtap="open3DPage" data-id="1">
+            <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/2668643d6984479fa55646b9267ac612'></image>
+          </view>
+          <view bindtap="open3DPage" data-id="2">
+            <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/c9afb94f97834301ac730002a6bb4ed9'></image>
+          </view>
+          <view bindtap="open3DPage" data-id="3">
+            <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/2923434360994be9a1d5abf88c00df8c'></image>
+          </view>
+        </view>
+      </view>
+      <view class='maodian' id='to7'></view>
+    </view>
+    <!-- 广州体验馆 -->
+    <view class='aboutGJD'>
+      <view class='about-title'>
+        <view class='title-font-pic'>
+          <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/YbO7C0EdSv2GXv3kINyoTwAAAT1wZDIE'>
+          </image>
+        </view>
+      </view>
+      <view class='about-pic'>
+        <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/h-x-U7mGR4KKsVPcAwdANwAAAT1wZDIE'></image>
+      </view>
+      <view class='about-content' style='margin-bottom:70rpx;'>
+        <view>
+          <view>您可能正考虑换掉陈旧的沙发,</view>
+          <view>寻一周末亲子活动的去处,</view>
+          <view>赴一场同好之约,</view>
+          <view>心无旁骛闲坐一下午......</view>
+        </view>
+        <view style='margin-top:32rpx;'>
+          <view>享受艺术,体验生活,</view>
+          <view>尽在广州艺术生活馆。</view>
+        </view>
+      </view>
+      <view style='font-size:36rpx; color:#424242;font-weight:bold;'>艺术元素</view>
+      <view class='about-GZ-out'>
+        <view class='about-GZ-page'>
+          <view class='aboutGZD-page' bindtap="guangzhou">
+            <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/x275Mdr2QoarwDiZpKOb-QAAAT1wZDIE'></image>
+          </view>
+          <view class='aboutGZD-page' bindtap="guangzhou">
+            <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/OL6-6i94T4uf48PWDu-TpAAAAT1wZDIE'></image>
+          </view>
+          <view class='aboutGZD-page' bindtap="guangzhou">
+            <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/Mpk2xhCiRO-IcBbO8zLybgAAAT1wZDIE'></image>
+          </view>
+          <view class='aboutGZD-page' bindtap="guangzhou">
+            <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/Kv8YKrRnSCCqXtWnd10mnQAAAT1wZDIE'></image>
+          </view>
+
+          <view class='aboutGZD-page' bindtap="guangzhou">
+            <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/aqHUETCtRtSAYTaDfdXLzwAAAT1wZDIE'></image>
+          </view>
+          <view class='aboutGZD-page' bindtap="guangzhou">
+            <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/Mf5X7_rrRb6XkZhDOhkTaQAAAT1wZDIE'></image>
+          </view>
+          <view class='aboutGZD-page' bindtap="guangzhou">
+            <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/Y3Y3pfCvReuRYv2OMxQLYAAAAT1wZDIE'></image>
+          </view>
+          <view class='aboutGZD-page' bindtap="guangzhou">
+            <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/7pjl5lLeTUqjQRwNhU1QKgAAAT1wZDIE'></image>
+          </view>
+        </view>
+      </view>
+      <view class='about-button' bindtap="guangzhou">广州艺术生活馆</view>
+    </view>
+    <!-- 全国艺术生活馆 -->
+    <view class='aboutQG'>
+      <view class='about-title'>
+        <view class='title-font-pic'>
+          <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/Mcz9xPNUTVaGuee2WgBG4AAAAT1wZDIE'>
+          </image>
+        </view>
+      </view>
+      <view class='about-pic' style='height:510rpx;'>
+        <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/KhQBApQ7SKSLYH87PxjmbgAAAT1wZDIE' bindload="loadLastImg"></image>
+      </view>
+      <view class='about-content'>
+        <view>
+          <view>2017年，优梵艺术开设12家新零售艺术生活馆，并与阿里银泰进行新零售探索，所有店铺其盈利能力和坪效均大幅超出传统家具店铺同时得到阿里巴巴集团的战略支持</view>
+          <view>2018年，优梵艺术计划在一二三线城市扩大部署新零售艺术生活馆。</view>
+        </view>
+      </view>
+      <view class='about-button' bindtap="physicalStore">全国艺术生活馆</view>
+      <view class='maodian maodianbuttom' id='to8'></view>
+    </view>
+    <!-- 快速导航 -->
+   
+  </view>
+</scroll-view>
+<!--蒲公英首页  E  -->
+<!--梵星首页    B -->
+<scroll-view class="scroll-start" scroll-with-animation="true" hidden='{{pageShow}}'>
+  <view class="Fstart">
+    <!-- 轮播图 -->
+    <view class='carousel'>
+      <swiper indicator-dots="true" autoplay="true" circular="true" indicator-color="#fff" indicator-active-color="#222">
+        <block wx:for="{{imgUrlsNew}}" wx:key="index">
+          <swiper-item bindtap="Topage" data-id="{{index}}" data-url="{{item.F_Url}}">
+            <image src="{{item.F_Image}}" class="slide-image" />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class="Fnav">
+      <view class="navItem firstItem" bindtap='toBrandServise' data-id="1">
+        <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/eaf7eef25ca14d0f9ea1d8c0a720263b' mode="aspectFit"></image>
+        <text>设计师服务</text>
+      </view>
+      <view class="navItem secondItem" bindtap='toPhysicalStore'>
+        <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/2d8acf95b65f4ab4a8afe7c120cd5e71' mode="aspectFit"></image>
+        <text>艺术生活馆</text>
+      </view>
+      <view class="navItem thirdItem" bindtap='toBeanShop'>
+        <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/61581f555dba4760bed170e51ffb5431' mode="aspectFit"></image>
+        <text>梵豆商城</text>
+      </view>
+      <view class="navItem lastItem" bindtap='toSignIn'>
+        <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/578abfea8f004210ba5ffb6cb9d1248c' mode="aspectFit"></image>
+        <text>签到有礼</text>
+      </view>
+    </view>
+    <view class="grayWrapper"></view>
+    <!--蒲公英入口  -->
+    <view class="mallEntrance">
+      <view class="mwrapper">
+        <view class="left">
+          <text class="icon-youfanyishulogotest2 iconfont"></text>
+        </view>
+        <view class="right" bindtap='learnAbout' hover-class='highLight'>
+          <text>了解我们</text>
+        </view>
+      </view>
+    </view>
+    <view class='about-good'>
+      <view class="F3dDesign">
+        <view class='scroll-title'>
+          <view class='scroll-title-word'>3D案例</view>
+          <view class='scroll-title-icon' bindtap='toBrandServise' data-id="1">MORE
+            <i class="iconfont icon-jiantou"></i>
+          </view>
+        </view>
+        <view class='scroll-pic-start'>
+          <view class='scroll-pic-in'>
+            <view class="case3D" bindtap="open3DPage" data-id="0">
+              <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/8cd0b6367482463791065521130dc1d5'></image>
+              <view class="case">
+                <view class="chineseName">伊丽莎白</view>
+                <view class="englishName">Elizabeth</view>
+              </view>
+            </view>
+            <view class="case3D" bindtap="open3DPage" data-id="1">
+              <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/75630cbb9dad489a98f6c9043ccb068e'></image>
+              <view class="case">
+                <view class="chineseName">塞纳河畔</view>
+                <view class="englishName">Senna River</view>
+              </view>
+            </view>
+            <view class="case3D" bindtap="open3DPage" data-id="2">
+              <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/68852ae230c843609c7cea1d84b2f758'></image>
+              <view class="case">
+                <view class="chineseName">浅憩ins风</view>
+                <view class="englishName">Northern European</view>
+              </view>
+            </view>
+            <view class="case3D" bindtap="open3DPage" data-id="3">
+              <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/6410804fa7244a3190c755727dd6a8eb'></image>
+              <view class="case">
+                <view class="chineseName">海底总动员</view>
+                <view class="englishName">Finding Nemo</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="grayWrapper"></view>
+      <view class='good1'>
+        <view class='scroll-title'>
+          <view class='scroll-title-word'>全屋搭配方案</view>
+          <view class='scroll-title-icon' bindtap="toQuanwugou">
+            <i>MORE</i>
+            <i class="iconfont icon-jiantou"></i>
+          </view>
+        </view>
+        <view class="productImg" bindtap="toQuanwugou">
+          <image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/8f6814dae63941658e3a8333b67a7170"></image>
+        </view>
+      </view>
+      <view class="grayWrapper"></view>
+      <view class='good1'>
+        <view class='scroll-title'>
+          <view class='scroll-title-word'>客厅</view>
+          <view class='scroll-title-icon' bindtap="toNewlist">
+            <i>MORE</i>
+            <i class="iconfont icon-jiantou"></i>
+          </view>
+        </view>
+        <view class='goodList'>
+          <block wx:for="{{newimgurl}}" wx:key="index">
+            <view data-id="{{item.F_ProductID}}" data-url="{{item.F_Url}}" bindtap="toproductdetail">
+              <view class='good-pic'>
+                <image src="{{item.F_Image}}"></image>
+              </view>
+              <view class='good-name'>{{item.F_ProductName}}</view>
+              <view class='good-price {{item.CategoryName =="梵豆" ?"good-fandou-price":""}}'>{{item.CategoryName =="梵豆" ?"梵豆 ":"￥"}}{{item.F_Price}}</view>
+            </view>
+          </block>
+        </view>
+      </view>
+      <view class="grayWrapper"></view>
+      <view class='good2'>
+        <view class='scroll-title'>
+          <view class='scroll-title-word'>卧室</view>
+          <view class='scroll-title-icon' bindtap="toHotlist">
+            <i>MORE</i>
+            <i class="iconfont icon-jiantou"></i>
+          </view>
+        </view>
+        <view class='goodList'>
+          <block wx:for="{{hotimgurl}}" wx:key="index">
+            <view data-id="{{item.F_ProductID}}" data-url="{{item.F_Url}}" bindtap="toproductdetail">
+              <view class='good-pic'>
+                <image src="{{item.F_Image}}"></image>
+              </view>
+              <view class='good-name'>{{item.F_ProductName}}</view>
+              <view class='good-price {{item.CategoryName =="梵豆" ?"good-fandou-price":""}}'>{{item.CategoryName =="梵豆" ?"梵豆 ":"￥"}}{{item.F_Price}}</view>
+            </view>
+          </block>
+        </view>
+      </view>
+      <view class="grayWrapper"></view>
+      <view class='good3'>
+        <view class='scroll-title'>
+          <view class='scroll-title-word'>餐厅</view>
+          <view class='scroll-title-icon' bindtap="toFanDouShop">
+            <i>MORE</i>
+            <i class="iconfont icon-jiantou"></i>
+          </view>
+        </view>
+        <view class='goodList'>
+          <block wx:for="{{bedimgurl}}" wx:key="index">
+            <view data-id="{{item.F_ProductID}}" data-url="{{item.F_Url}}" bindtap="toproductdetail">
+              <view class='good-pic'>
+                <image src="{{item.F_Image}}"></image>
+              </view>
+              <view class='good-name'>{{item.F_ProductName}}</view>
+              <view class='good-price {{item.CategoryName =="梵豆" ?"good-fandou-price":""}}'> {{item.CategoryName =="梵豆" ?"梵豆 ":"￥"}}{{item.F_Price}}</view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<!--梵星首页    E  -->
+<view wx:if="{{showAllNav}}" class='showAllNav'>
+  <view class='nav-tophead'>
+    <view>浏览区域</view>
+    <view>点击选择浏览区域</view>
+    <view class='iconfont icon-cha1' bindtap='hideNavList'></view>
+  </view>
+  <view class='navAllList'>
+    <view bindtap="scrollToViewFn" data-id="0" data-typename="navList">关于优梵</view>
+    <view bindtap="scrollToViewFn" data-id="1" data-typename="navList"> 设计</view>
+    <view bindtap="scrollToViewFn" data-id="2" data-typename="navList"> 供应链</view>
+    <view bindtap="scrollToViewFn" data-id="3" data-typename="navList"> 品控</view>
+    <view bindtap="scrollToViewFn" data-id="4" data-typename="navList"> 性价比</view>
+    <view bindtap="scrollToViewFn" data-id="5" data-typename="navList"> 设计服务</view>
+    <view bindtap="scrollToViewFn" data-id="6" data-typename="navList"> 艺术生活馆</view>
+    <view style='visibility:hidden'> </view>
+    <view style='visibility:hidden'> </view>
+  </view>
+</view>

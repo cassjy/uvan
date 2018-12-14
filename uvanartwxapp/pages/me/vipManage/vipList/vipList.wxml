@@ -1,0 +1,36 @@
+<view class="container">
+  <view class="vipHeader">
+    <view class="left">
+      <view class="img">
+        <image src="{{touxiangimg === null||touxiangimg ==''?defaultImg:touxiangimg}}"></image>
+      </view>
+      <view class="nickName">
+        <text>{{username}}</text>
+        <text class="icon-pugongying iconfont"></text>
+      </view>
+    </view>
+    <view class="right">
+      <!-- <view class="ImStart"><text>你也是自己的梵星</text></view> -->
+    </view>
+  </view>
+  <view class="memberList">
+    <block wx:for="{{dataList}}" wx:key="index">
+      <view class="member">
+        <view class="userImg">
+          <image src="{{item.imageUrl === null||item.imageUrl ==''?defaultImg:item.imageUrl}}"></image>
+        </view>
+        <view class="userNickName">
+         <text> {{item.nickName}}</text>
+        </view>
+        <view class="phone">{{item.mobile==''||item.mobile==null?'未绑定手机':item.mobile}}</view>
+        <view class="userSignTime">{{item.registerDate}}</view>
+      </view>
+    </block>
+  </view>
+  <!--上拉加载动画  -->
+  <view class="loadMore" hidden="{{loadingMore}}">
+    <image src="../../../../images/categories/loading.gif"></image>
+  </view>
+  <view class="noMore" hidden="{{noMore}}">没有更多了</view>
+  <!-- <view class="memberCount">{{dataList.length}}位VIP</view> -->
+</view>

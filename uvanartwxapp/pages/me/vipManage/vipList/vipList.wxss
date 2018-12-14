@@ -1,0 +1,157 @@
+page {
+  line-height: normal;
+  background-color: #f4f4f4;
+}
+
+/* .container{
+	background-color: #f3f3f3;
+} */
+
+.vipHeader {
+  width: 100%;
+  height: 148rpx;
+  padding: 40rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border-top: 1rpx solid #f0ecec;
+}
+
+.vipHeader .left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.vipHeader .left .img {
+  width: 68rpx;
+  height: 68rpx;
+  margin-right: 20rpx;
+}
+
+.vipHeader .left .img image {
+  width: 68rpx;
+  height: 68rpx;
+  border-radius: 100%;
+}
+
+.vipHeader .left .nickName {
+  color: #222;
+  font-size: 26rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.vipHeader .left .nickName .icon-pugongying {
+  color: #f57f7f;
+  font-size: 32rpx;
+  margin-left: 8rpx;
+}
+
+.vipHeader .right .ImStart {
+  width: 188rpx;
+  height: 46rpx;
+  line-height: 46rpx;
+  text-align: center;
+  color: #888;
+  font-size: 22rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 60rpx;
+  padding-top: 1rpx;
+  box-sizing: border-box;
+  border: 1rpx solid #f5f5f5;
+}
+
+.memberList {
+  padding: 20rpx;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.memberList .member {
+  width: 345rpx;
+  height: 263rpx;
+  padding: 40rpx 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}
+
+.memberList .member:nth-child(2n+1) {
+  margin-right: 20rpx;
+}
+
+.memberList .member:nth-last-of-type(1), .memberList .member:nth-last-of-type(2) {
+  margin-bottom: 0;
+}
+
+.memberList .member .userImg {
+  width: 68rpx;
+  height: 68rpx;
+}
+
+.memberList .member .userImg image {
+  width: 68rpx;
+  height: 68rpx;
+  border-radius: 100%;
+}
+
+.memberList .member .userNickName {
+  color: #424242;
+  font-size: 26rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  margin: 20rpx 0 18rpx 0;
+}
+
+.memberList .member .phone {
+  color: #888;
+  font-size: 22rpx;
+  line-height: 42rpx;
+}
+
+.memberList .member .userSignTime {
+  color: #888;
+  font-size: 20rpx;
+}
+
+/*梵星上拉加载动画  */
+
+/*上拉加载动画  */
+
+.loadMore {
+  width: 100%;
+  height: 42rpx;
+  padding: 10rpx 0;
+  background: #f6f6f6;
+}
+
+.loadMore image {
+  width: 200rpx;
+  height: 42rpx;
+  margin-left: 37%;
+  display: inherit;
+}
+
+/*没有更多  */
+
+.noMore {
+  font-size: 24rpx;
+  width: 100%;
+  text-align: center;
+  color: #b1adad;
+  padding: 8rpx 0;
+}

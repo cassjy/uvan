@@ -1,0 +1,8 @@
+<view class="aboutuv">
+	<block wx:for="{{imgUrls1}}" wx:key="index" class="win-child">
+		<view style="height:{{imgUrls1[index].height}}px">
+		    <image mode="widthFix" src="{{url1+imgUrls1[index].url}}" style="height:{{imgUrls1[index].height}}px" data-id="{{index}}" lazy-load="true" binderror="imageError" bindload="loadImg1"></image>
+		</view>
+	</block>
+	<view class="btn" bindtap="toGDstore"></view>
+</view>

@@ -1,0 +1,181 @@
+<view class="refund">
+  <view class="header">
+    <block wx:for="{{dataList}}" wx:key="index">
+      <view class="productDetail">
+        <view class="middle" catchtap="openDetail">
+          <view class="productImg">
+            <image src="{{item.F_ProductImage}}"></image>
+          </view>
+          <view class="productDetail">
+            <view class="detailText">{{item.F_ProductName}}</view>
+            <view class="specification">
+              <text>{{item.F_ProductSpecification}}</text>
+            </view>
+          </view>
+          <view class="productPrice">
+            <view>￥{{item.F_ProductPrice}}</view>
+            <view class="num">×{{item.F_ProductNumber}}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <form bindsubmit="formSubmit" report-submit="true">
+    <view class="content">
+      <!-- <picker mode="selector" bindchange="bindStateChange" value="{{stateIndex}}" range="{{stateList}}" data-value="{{stateList[stateIndex]}}"> -->
+      <view class="state" wx:if="{{foodsType==0}}" bindtap='showBounced' data-mark="1">
+        <view class="rwrapper">
+          <view class="left">
+            <text class="text">货物状态</text>
+          </view>
+          <view class="right">
+            <text>{{stateIndex !=-1?stateList[stateIndex]:'请选择'}}</text>
+            <text></text>
+            <text class="icon-more iconfont"></text>
+          </view>
+        </view>
+      </view>
+      <!-- </picker> -->
+      <!-- <picker mode="selector" bindchange="bindPickerChange" value="{{index}}" range="{{array}}"> -->
+      <view class="reason" bindtap='showBounced' data-mark="2">
+        <view class="rwrapper">
+          <view class="left">
+            <text class="tk">退款原因</text>
+          </view>
+          <view class="right">
+           <text>{{stateId1 !=-1?array[stateId1]:'请选择'}}</text>
+            <text class="icon-more iconfont"></text>
+          </view>
+        </view>
+      </view>
+      <!-- </picker> -->
+      <view class="tkPrice">
+        <view class="left">
+          <view class="text">退款金额：
+            <text class='price'>￥</text>
+          </view>
+          <input name="price" type='number' value="{{MaximumRefundAmount}}" bindinput="compute" placeholder-style="font-size:26rpx"></input>
+          <view class="refundment">最大退款金额{{MaximumRefundAmount}}</view>
+        </view>
+      </view>
+      <view class="tkExplain">
+        <view class="left">
+          <view class="text">退款说明：</view>
+          <input name="explain" placeholder='请填写' placeholder-style='color:#888888'></input>
+        </view>
+      </view>
+      <view class="skMode">
+        <view class="left">
+          <view class="text">退款方式：</view>
+          <view class="refundWay">
+            <view class="zhifubao {{isChecked==1?'checked':''}}" bindtap='chooseMode' data-mode="支付宝" data-id="1">支付宝</view>
+            <view class="card {{isChecked==2?'checked':''}}" bindtap='chooseMode' data-mode="银行卡" data-id="2">银行卡</view>
+          </view>
+          <!-- <radio-group bindchange="chooseMode">
+            <radio class="radio" value="支付宝">支付宝</radio>
+            <radio value="银行卡">银行卡</radio>
+          </radio-group> -->
+        </view>
+      </view>
+      <view class="payee">
+        <view class="left">
+          <view class="text">收款人：</view>
+          <input name="name"></input>
+        </view>
+      </view>
+      <view class="number">
+        <view class="left">
+          <view class="text">收款账号：</view>
+          <input name="number"></input>
+        </view>
+      </view>
+      <view class="upload" hidden='{{formPinTuan}}'>
+        <view class="text">上传凭证
+          <text class="limit">( 限3张 )</text>
+        </view>
+        <view class="photoWrapper">
+          <block wx:for="{{picList}}" wx:key="index">
+            <view class="photoContent {{index>1?'':'marRight'}}">
+              <view class="photo1" bindtap="updatePhoto" bindlongpress="showDeteleBtn" data-index="{{index}}" data-id="1">
+                <view class="Img">
+                  <image src='{{item}}'></image>
+                </view>
+              </view>
+              <view class="icon-delete icon-guanbi iconfont" hidden="{{index==photoID?deteleStatus:'false'}}" catchtap="deletePhoto" data-index="{{index}}"></view>
+            </view>
+          </block>
+          <view class="add" bindtap="addPhoto" wx:if="{{picList.length<=2}}" data-id="2">
+            <view class="icon-add iconfont" hidden="{{photo3 !=''}}"></view>
+            <view class="Img" hidden="{{photo3 ==''}}">
+              <image src='{{photo3}}'></image>
+            </view>
+          </view>
+        </view>
+      </view>
+      <button class="submit" form-type="submit" disabled="{{onOff}}">
+        提交
+      </button>
+    </view>
+  </form>
+  <view class="mask" hidden='{{hiddenMask}}'  catchtouchmove='true'>
+    <view class="wrapper">
+      <view class='top'>
+        <text class="icon-gou3-copy iconfont"></text>
+      </view>
+      <view class='middle'>
+        <text>您的售后申请已提交成功，请等待审核</text>
+      </view>
+      <view class="bottom">
+        <text catchtap='openPage'>个人中心</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!--货物状态弹框  -->
+<view class="{{showMore?'dowmCouponsBounced':'couponsBounced'}}" catchtouchmove='true'>
+  <view class="title">货物状态</view>
+    <view class="rItem" bindtap='checkSate' data-id="0">
+      <view class="rWrapper">
+        <view class="left">未收到货</view>
+        <view class="right">
+          <view class="check-box-icon  {{!Checked||stateId!=0?'rBorder':''}}">
+            <view class="icon-gouxuan iconfont" wx:if="{{Checked&&stateId==0}}"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="rItem" bindtap='checkSate' data-id="1">
+      <view class="rWrapper">
+        <view class="left">已收到货</view>
+        <view class="right">
+          <view class="check-box-icon {{!Checked||stateId!=1?'rBorder':''}}">
+            <view class="icon-gouxuan iconfont" wx:if="{{Checked&&stateId==1}}"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+</view>
+
+<!-- 退款原因弹框 -->
+<view class="{{showMore1?'dowmCouponsBouncedReson':'couponsBouncedReson'}}" catchtouchmove='true'>
+  <view class="title">退款原因</view>
+    <block wx:for="{{array}}" wx:key="index">
+      <view class="rItem" bindtap='checkReson' data-id="{{index}}">
+        <view class="rWrapper">
+          <view class="left">{{item}}</view>
+          <view class="right">
+            <view class="check-box-icon  {{!Checked1||stateId1!=index?'rBorder':''}}">
+              <view class="icon-gouxuan iconfont" wx:if="{{Checked1&&stateId1==index}}"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+</view>
+<view class="shadow" hidden='{{showMore}}' bindtap='closeBounced' catchtouchmove='true'></view>
+<view class="shadow" hidden='{{showMore1}}' bindtap='closeBounced' catchtouchmove='true'></view>
+<!--输入金额大于商品金额报错 -->
+<view class="tips" animation="{{animationData}}">
+  <text class="tipsWrapper"><text class="icon-ioscloseoutline iconfont"></text>输入金额不能大于商品金额</text>
+</view>

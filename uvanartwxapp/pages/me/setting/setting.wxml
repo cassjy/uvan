@@ -1,0 +1,43 @@
+<view class="setting">
+  <view class="phoneNum-win">
+    <view class="win-left">
+      <view class="title1">修改手机号码</view>
+      <view class="title2">若手机更换请尽快修改</view>
+    </view>
+    <view class="win-right" bindtap='toUnbind'>
+      <view class="phoneNum">{{phone}}</view>
+      <view class="iconfont icon-jiantou"></view>
+    </view>
+  </view>
+  <view class="clearCache" catchtap="showTips">
+    <!-- <view class="wrapper"> -->
+      <view>清理缓存</view>
+      <!-- <view></view> -->
+    <!-- </view> -->
+  </view>
+  <!-- <view class="tickling" catchtap="showTips">
+    <view class="wrapper">
+      <view>意见反馈</view>
+      <view class="icon-more"></view>
+    </view>
+  </view> -->
+  <!-- <view class="aboutUs" catchtap="showTips">
+    <view class="wrapper">
+      <view>关于我们</view>
+      <view class="icon-more"></view>
+    </view>
+  </view> -->
+  <view class="version">
+    <text>版本号</text>
+    <text class="versionNum">3.0.2</text>
+  </view>
+</view>
+<view class="exit-win">
+  <view class="exit" bindtap="exit">
+    退出登录
+  </view>
+</view>
+<!--未开发提示  -->
+<view class="tips" hidden="{{hiddenTips}}" animation="{{animationData}}">
+  <text class="tipsWrapper">码农正在加班赶工，敬请期待</text>
+</view>

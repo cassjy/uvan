@@ -1,0 +1,60 @@
+<wxs  module="filters">
+var filters = {
+     toFix:function(value,count){
+        var num = value
+        return num.toFixed(count)
+     }
+}
+module.exports = {
+   toFix: filters.toFix
+}
+</wxs>
+<view class="container">
+	<view class="section">
+	    <picker mode="date" value="{{startdate}}" start="{{earlydate}}" end="{{nowdate}}" bindchange="bindstartDateChange">
+	    	<view class="timest">
+	    		<icon class="icon-qixian iconfont"></icon>
+		    	<view>{{startdate}}</view>
+			</view>
+	    </picker>
+	    <text>至</text>
+	    <picker mode="date" value="{{nowdate}}" start="{{startdate}}" end="{{enddate}}" bindchange="bindendDateChange">
+	    	<view  class="timest">
+		   		<icon class="icon-qixian iconfont"></icon>
+	    		<view>{{nowdate}}</view>
+	    	</view>
+	    </picker>
+	</view>
+	<view class="jg"></view>
+	<view class="detaillist">
+		<view class="listtitle" wx:if="{{message.length}}">
+			<view>时间</view>
+			<view>销售额</view>
+			<view>预计酬金</view>
+		</view>
+		<block wx:for="{{message}}" wx:key="index" >
+		<view class="list">
+			<view>{{message[index].FDay}}</view>
+			<!-- <view>￥{{filters.toFix(message[index].FTotalFee, 2)}}</view>
+			<view>￥{{filters.toFix(message[index].FGetFee, 2)}}</view> -->
+			<view>￥{{message[index].FTotalFee}}</view>
+			<view>￥{{message[index].FGetFee}}</view>
+		</view>
+		</block>
+	</view>
+
+	<view class="info" hidden="{{hiddenInfo}}">
+		<view class="iconfont icon-M-zanwujilu"></view>
+		<view class="content">暂无记录</view>
+	</view>
+</view>
+<view class="bottom"></view>
+<view bindtap="showsale" class="showsale">什么是销售额、预计酬金？</view>
+<view class="mtk"  bindtap="cancel" hidden="{{showtips}}" catchtouchmove='true'></view>
+<view class="sale-content {{showtips?'hide':''}}" catchtouchmove='true'>
+	<view class="title">什么是销售额、预计酬金？</view>
+	<view class="content">销售额：蒲公英传播引入的梵星在传播有效期成交的订单的金额为销售额。</view>
+	<view class="content">预计酬金：根据销售额与酬金比例算出的蒲公英预计可得到的酬金。</view>
+	<view class="content">备注：预计酬金暂时不可提现，需要酬金转化为收益后才可提现。并且在此期间会有变动，如梵星付款后申请退款，蒲公英的销售额将会减少，预计酬金也会相应减少。</view>
+	<view class="cancel" bindtap="cancel">知道了</view>
+</view>

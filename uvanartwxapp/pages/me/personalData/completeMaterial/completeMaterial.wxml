@@ -1,0 +1,144 @@
+<view class="personalData" style='height: {{xx}}'>
+  <view class="content" style="margin-top: 0;">
+    <view class="zlws title">
+      <view class="wrapper">
+        <text class="text">个人信息</text>
+      </view>
+    </view>
+    <picker mode="selector" bindchange="occupationChange" value="{{occupationvalue}}" range="{{occupation}}">
+      <view class="zlws">
+        <view class="wrapper">
+          <text class="text">职业</text>
+          <text class="choose">{{occupationvalue==''?occupationld:occupation[occupationvalue]}}</text>
+          <text class="iconfont icon-more"></text>
+        </view>
+      </view>
+    </picker>
+    <picker mode="selector" bindchange="industryChange" value="{{industryvalue}}" range="{{industry}}">
+      <view class="zlws">
+        <view class="wrapper">
+          <text class="text">行业</text>
+          <text class="choose">{{industryvalue==''?industryld:industry[industryvalue]}}</text>
+          <text class="iconfont icon-more"></text>
+        </view>
+      </view>
+    </picker>
+    <picker mode="selector" bindchange="carRangeChange" value="{{carRangevalue}}" range="{{carRange}}">
+      <view class="zlws">
+        <view class="wrapper">
+          <text class="text">座驾范围</text>
+          <text class="choose">{{carRangevalue==''?carRangeld:carRange[carRangevalue]}}</text>
+          <text class="iconfont icon-more"></text>
+        </view>
+      </view>
+    </picker>
+    <view class="zlws" data-id="1" bindtap="ToMoreWrapper">
+      <view class="wrapper">
+        <text class="text">爱好</text>
+        <text class="choose">{{hobbyld==="null"?'':hobbyld}}</text>
+        <text class="iconfont icon-more"></text>
+      </view>
+    </view>
+    <picker mode="selector" bindchange="marriageChange" value="{{marriagevalue}}" range="{{marriage}}">
+      <view class="zlws">
+        <view class="wrapper">
+          <text class="text">婚否</text>
+          <text class="choose">{{marriagevalue==''?marriageld:marriage[marriagevalue]}}</text>
+          <text class="iconfont icon-more"></text>
+        </view>
+      </view>
+    </picker>
+  </view>
+  <view class="content">
+    <view class="zlws title">
+      <view class="wrapper">
+        <text class="text">装修信息</text>
+      </view>
+    </view>
+    <picker mode="selector" bindchange="userTypeChange" value="{{userTypevalue}}" range="{{userType}}">
+      <view class="zlws">
+        <view class="wrapper">
+          <text class="text">户型</text>
+          <text class="choose">{{userTypevalue==''?userTypeld:userType[userTypevalue]}}</text>
+          <text class="iconfont icon-more"></text>
+        </view>
+      </view>
+    </picker>
+    <picker mode="selector" bindchange="renovationRangChange" value="{{renovationRangevalue}}" range="{{renovationRang}}">
+      <view class="zlws">
+        <view class="wrapper">
+          <text class="text">装修范围</text>
+          <text class="choose">{{renovationRangevalue==''?renovationRangeld:renovationRang[renovationRangevalue]}}</text>
+          <text class="iconfont icon-more"></text>
+        </view>
+      </view>
+    </picker>
+    <picker mode="selector" bindchange="budgetChange" value="{{budgetvalue}}" range="{{budget}}">
+      <view class="zlws">
+        <view class="wrapper">
+          <text class="text">预算范围</text>
+          <text class="choose">{{budgetvalue==''?budgetld:budget[budgetvalue]}}</text>
+          <text class="iconfont icon-more"></text>
+        </view>
+      </view>
+    </picker>
+    <view class="zlws" data-id="2" bindtap="ToMoreWrapper">
+      <view class="wrapper">
+        <text class="text">家居需求风格</text>
+        <text class="choose">{{styleld==="null"?'':styleld}}</text>
+        <text class="iconfont icon-more"></text>
+      </view>
+    </view>
+    <view class="zlws" data-id="3" bindtap="ToMoreWrapper">
+      <view class="wrapper">
+        <text class="text">装修空间</text>
+        <text class="choose">{{spaceld==="null"?'':spaceld}}</text>
+        <text class="iconfont icon-more"></text>
+      </view>
+    </view>
+  </view>
+  <!--公用弹框  B-->
+  <!-- <view class="moreChoose" catchtouchmove='true' hidden='{{showMore}}'>
+    <view class="mWrapper">
+      <view class="mContent">
+        <checkbox-group bindchange="checkboxChange">
+          <label class="" wx:for="{{items}}" wx:key="key" wx:for-item="item">
+            <view class="zlws">
+              <view class="PBWrapper">
+                <view class="text">{{item}}</view>
+                <checkbox data-id="{{index}}" value="{{item.value}}" checked="{{item.isChecked}}" />
+              </view>
+            </view>
+          </label>
+        </checkbox-group>
+      </view>
+      <button bindtap="tolastpage">保存</button>
+    </view>
+  </view> -->
+  <!--公用弹框  E-->
+  <view class="mark" hidden='{{showMore}}' catchtouchmove='true'></view>
+  <view class="{{showMore?'dowmModal':'upModal'}}" catchtouchmove='true'>
+    <view class="top">
+      <view class="Mcancel" bindtap='cancelChoose'>
+        <text>取消</text>
+      </view>
+      <view class="Mensure" bindtap='saveAllData'>
+        <text>确认</text>
+      </view>
+    </view>
+    <view class="center">
+      <scroll-view class="scrollWrapper" scroll-y="true">
+        <checkbox-group bindchange="checkboxChange">
+          <label class="" wx:for="{{items}}" wx:key="key" wx:for-item="item">
+            <view class="zlws2">
+              <view class="PBWrapper">
+                <view class="text">{{item.value}}</view>
+                <checkbox data-id="{{index}}" value="{{item.value}}" checked="{{item.isChecked}}" />
+              </view>
+            </view>
+          </label>
+        </checkbox-group>
+      </scroll-view>
+    </view>
+  </view>
+</view>

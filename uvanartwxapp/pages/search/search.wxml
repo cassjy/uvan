@@ -1,0 +1,31 @@
+<view class="container">
+	<view class="search">
+		<view class="iconfont icon-sousuo"></view>
+		<input class="searchBtn" type="text" placeholder="输入你要搜索的商品" bindinput="searchActiveChange" value="{{inputValue}}" bindconfirm="searchFn" focus="true"/>
+		<view class="sBtn" bindtap="searchFn">搜索</view>
+	</view>
+	<view class="history">
+		<view class="title">
+			<view class="iconfont icon-sousuo"></view>
+			<view class="text">历史搜索</view>
+			<view class="iconfont icon-shanchu" bindtap="deleteRecord"></view>
+		</view>
+		<view class="content">
+			<block wx:for="{{record}}" wx:key="index">
+				<view class="record" catchtap="searchFn" data-value="{{item.F_SearchText}}">{{item.F_SearchText}}</view>
+			</block>
+		</view>
+	</view>
+	<!-- <view class="history">
+		<view class="title">
+			<view class="iconfont icon-remen"></view>
+			<view class="text">热门搜索</view>
+		</view>
+		<view class="content">
+			<view class="record" catchtap="searchFn" data-value="沙发">沙发</view>
+			<view class="record" catchtap="searchFn" data-value="床">床</view>
+			<view class="record" catchtap="searchFn" data-value="美式">美式</view>
+			<view class="record" catchtap="searchFn" data-value="北欧">北欧</view>
+		</view>
+	</view> -->
+</view>

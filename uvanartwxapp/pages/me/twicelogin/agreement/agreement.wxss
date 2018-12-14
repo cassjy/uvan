@@ -1,0 +1,19 @@
+/* pages/index/agreement/agreement.wxss */
+.page{
+  font-size: 28rpx;
+  padding: 30rpx;
+}
+
+.top-title{
+  font-size: 40rpx;
+  text-align: center;
+}
+.page .word-p{
+  text-align: left;
+  text-indent:56rpx;
+}
+.content-title{
+  color: #917253;
+  text-align: center;
+  margin: 30rpx 0;
+}

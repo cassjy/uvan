@@ -1,0 +1,35 @@
+/* pages/home/knowYF/knowYFList/knowYFList.wxss */
+.body{
+  display: flex;
+  padding: 50rpx;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.card{
+  flex: 0 0 310rpx;
+  width: 310rpx;
+  height: 310rpx;
+  border-radius: 16rpx;
+  background: #fff;
+  margin-bottom: 30rpx;
+  box-shadow: 0 0 20rpx rgba(0,0,0,0.2);
+  display: inline-block;
+  position:relative;
+}
+.card view:first-child{
+  color: #666;
+  font-size: 30rpx;
+  padding: 40rpx 30rpx 20rpx;
+}
+.card view:nth-child(2){
+  color: #acacac;
+  font-size: 18rpx;
+  margin-left: 30rpx;
+}
+.card image{
+  width: 190rpx;
+  height: 140rpx;
+  margin:0 40rpx;
+  position:absolute;
+  bottom:0;
+}

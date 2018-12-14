@@ -1,0 +1,118 @@
+<view class="container">
+	<view class="wrapper">
+		<view class="toCard" bindtap="checkcash" data-id="1">
+			<image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/BFIKUbXfRy-ip5kqkoMzpgAAAT1wZDIE" mode="widthFix" style="width: 90rpx; margin-top: 16rpx;" />
+			<view class="text">提现到银行卡</view>
+		</view>
+		<view class="toCard toCard1" bindtap="checkcash"  data-id="2">
+			<image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/g7lJa1BySBeqadsmgjkpAQAAAT1wZDIE" mode="widthFix" style="width: 68rpx; margin-top: 28rpx;" />
+			<view class="text">提现到支付宝</view>
+		</view>
+	</view>
+	<view class="line"></view>
+	<!-- <view class="next" bindtap="back">返回</view> -->
+	<view class="tokeMoney">
+		<view class="title1">提现记录</view>
+		<view class="tabletitle">
+			<view class="time">提现时间</view>
+			<view class="money">申请金额</view>
+			<view class="money1">提现金额</view>
+		</view>
+		<block wx:for="{{moneylist}}" wx:key="{{index}}">
+			<view class="tabletitle" style="color: #424242; border: none;">
+				<view class="time">{{item.ApplicationDate}}</view>
+				<view class="money">￥{{item.ApplicationAmount}}</view>
+				<view class="money1">{{(item.Status=='D')?'￥'+item.ReturnAmount:''}}</view>
+			</view>
+		</block>
+	</view>
+	<view class="tips" bindtap="toTips">提现小贴士</view>
+	<view class="cover {{showTips?'':'hiddencover'}}" catchtouchmove="true"></view>
+	<view class="win {{showTips?'':'hiddencover'}}">
+		<scroll-view scroll-y="false" class="tipsWin">
+			<view class="title">提现小贴士</view>
+			<view class="content">
+				<view class="ask">1.什么时候可以申请提现？</view>
+				<view class="answer">随时都可以申请。</view>
+				<view class="ask">2.提现有什么要求？</view>
+				<view class="answer">若提现到银行卡，需您个人信息与银行卡保持一致，并且银行卡号信息无误；
+					若提现到支付宝，需您填写的支付宝账户信息准确；
+					提现金额最低2000元。
+				</view>
+				<view class="ask">3.提现什么时候到账？</view>
+				<view class="answer">申请提现后3个工作日内由优梵审核，审核通过后即可转账至您的账户，具体到账时间视银行结算。</view>
+			</view>
+		</scroll-view>
+		<view class="OK">
+			<view class="OKbtn" bindtap="toOK">知道了</view>
+		</view>
+	</view>
+	<!-- 遮罩层 -->
+	<view class="cover {{isTap?'noCover':''}}" bindtap="hiddenAttr"></view>
+	<!-- 提现到银行卡 -->
+	<view class="card-win" wx:if="{{showCard}}">
+		<image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/BFIKUbXfRy-ip5kqkoMzpgAAAT1wZDIE" mode="widthFix" style="width: 90rpx; margin-top: 60rpx;" />
+		<view class="title">提现到银行卡</view>
+		<view class="cardInfo">
+			<view class="name">
+				<view class="title">户名：</view>
+				<input type="text" placeholder="请输入银行卡户名" bindinput="activeName" value="{{name}}"/>
+			</view>
+			<view class="name">
+				<view class="title">卡号：</view>
+				<input type="number" placeholder="收款人储蓄卡号" bindinput="activeAcount" value="{{acount}}"/>
+			</view>
+		</view>
+		<view class="choosebank" bindtap="tocardlist">
+			<!-- <view class="bankname">{{bankname}}</view> -->
+			<view class="iconfont icon-more"></view>
+			<!-- <view class="title">请选择银行</view> -->
+			<picker class="picker" bindchange="bindPickerChange" value="{{bankname}}" range="{{bankArr}}">
+		    <view class="picker1">
+		      请选择银行：<span style="display: inline-block;float: right; text-align: right;color: #424242;">{{bankArr[bankname]}}</span>
+		    </view>
+		  </picker>
+		</view>
+		<view class="ps">*如果银行卡户名信息与卡号不符，提现申请将被系统驳回。</view>
+		<view class="submit-btn">
+			<view class="next next1" bindtap="toToCard">确认</view>
+			<view class="next next2" bindtap="cancel">取消</view>
+		</view>
+		<!-- <navigator class="next">返回</navigator> -->
+	</view>
+
+	<!-- 提现 -->
+	<view class="input-money" wx:if="{{showMoney}}">
+		<view class="max">当前可提现最大金额：<text>{{FAllPrice}}</text></view>
+		<view class="real">
+			<view class="title">提现金额：</view>
+			<input type="digit" placeholder="暂不收取手续费" bindinput="activemoney" focus="{{focus}}"/>
+		</view>
+		<view class="ps">提交申请后3个工作日内会由优梵进行审核，审核通过后你申请提现金额直接转入您的账号。</view>
+		<view class="submit-btn">
+			<view class="submit" bindtap="submit">提交</view>
+			<view class="submit submit2" bindtap="closeMoney">取消</view>
+		</view>
+	</view>
+	<!-- 提现到支付宝 -->
+	<view class="alipay-acount" wx:if="{{showAlipayAcount}}">
+		<image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/g7lJa1BySBeqadsmgjkpAQAAAT1wZDIE" mode="widthFix" style="width: 68rpx; margin-top:60rpx" />
+		<view class="title">提现到支付宝</view>
+		<!-- <view class="real"> -->
+		<view class="list">
+			<text class="list-name">账号</text>
+			<input type="text" placeholder="请输入支付宝账号/手机号" placeholder-style="color:#cdcdcd" bindinput="activeAliacount" focus="{{focus}}" value="{{aliacount}}"/>
+		</view>
+		<view class="list" style="margin-top: 20rpx;">
+			<text class="list-name">姓名</text>
+			<input type="text" placeholder="收款人姓名" placeholder-style="color:#cdcdcd" bindinput="activeAliacountName" value="{{aliacountname}}"/>
+		</view>
+		<!-- </view> -->
+		<view class="submit1-btn">
+			<view class="submit" bindtap="toAlipay">确认</view>
+			<view class="submit submit2" bindtap="cancelAlipay">取消</view>
+		</view>
+	</view>
+</view>
+
+

@@ -1,0 +1,103 @@
+<view class="record">
+  <view class="header">
+    <view class="dateWrapper">
+      <picker mode="date" start="2017-09-01" end="{{finishTime}}" bindchange="changeStartDate">
+        <view class="startingTime">
+          <icon class="icon-qixian iconfont"></icon>
+          <view class="time">{{startingTime}}</view>
+        </view>
+      </picker>
+      <view class="text">至</view>
+      <picker mode="date" start="{{startingTime}}" end="{{nowDate}}" bindchange="changeFinishDate">
+        <view class="finishTime">
+          <icon class="icon-qixian iconfont"></icon>
+          <view class="time">{{finishTime2}}</view>
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class="content">
+    <view class="wrapper">
+      <block wx:for="{{listData}}" wx:key="index" wx:for-item="person">
+        <view class="userInfo">
+          <view class="show">
+            <view class="touxiang">
+              <image src="{{person.F_ImageUrl!==null?person.F_ImageUrl:'https://uvpt.uvanart.com/upload/static/fail/dandelion.png'}}"></image>
+            </view>
+            <view class="info">
+              <view class="up">
+                <view class="name">
+                  <view class="left">
+                    <text>访问者微信</text>
+                    <text>：</text>
+                  </view>
+                  <view class="right">
+                   {{person.F_NickName}}
+                  </view>
+                </view>
+              </view>
+              <view class="middle">
+                <view class="left">
+                  <text>变更后蒲公英</text>
+                  <text>：</text>
+                </view>
+                <view class="right">
+                  {{person.F_AfterChangeBelongName}}
+                </view>
+              </view>
+              <!-- <view class="middle2">
+                <view class="left">
+                  <text>变更类型</text>
+                  <text>：</text>
+                </view>
+                <view class="right">
+                  陌阿萨达哈
+                </view>
+              </view> -->
+              <view class="dowm">
+                <view class="fwDate">变更类型：{{person.F_ChangeType=="C"?"升级蒲公英失效":(person.F_ChangeType=="B")?"梵星失效":"访客失效"}}</view>
+                <view class="category">{{person.F_CreateDate}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+      <!-- <view  class="userInfo">
+            <view class="show">
+              <view class="touxiang">
+                <image src="{{person.F_ImageUrl!==null?person.F_ImageUrl:'https://uvpt.uvanart.com/upload/static/fail/dandelion.png'}}"></image>
+              </view>
+              <view class="info">
+                <view class="up">
+                  <view class="name">访问者微信：{{person.F_NickName}}</view>
+                </view>
+                <view class="middle">变更后蒲公英：{{person.F_AfterChangeBelongName}}</view>
+                <view class="dowm">
+                  <view class="fwDate">{{person.F_CreateDate}}</view>
+                  <view class="category">变更类型：{{person.F_ChangeType=="C"?"升级蒲公英失效":(person.F_ChangeType=="B")?"梵星失效":"访客失效"}}</view>
+                </view>
+              </view>
+            </view>
+        </view>  -->
+    </view>
+  </view>
+
+  <!--数据加载动画  -->
+  <!-- <view class="dataLoading" hidden="{{hideLoading}}">
+    <image src="../../../../images/index/loading.gif"></image>
+  </view> -->
+
+  <!--上拉加载动画  -->
+  <view class="loadMore" hidden="{{loadMore}}">
+    <image src="../../../../images/categories/loading.gif"></image>
+  </view>
+  <view class="noMore" hidden="{{noMore}}">
+    <text>没有更多记录了！</text>
+  </view>
+</view>
+<!--无传播记录提示  -->
+<!-- <view class="noRecord" hidden="{{noRecord}}"> -->
+<view class="noRecord" hidden="{{noRecord}}">
+  <view class="icon-M-zanwujilu iconfont"></view>
+  <view class="text">暂无记录哦，赶紧分享邀请函给好友吧！</view>
+</view>

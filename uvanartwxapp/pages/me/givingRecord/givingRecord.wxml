@@ -1,0 +1,48 @@
+<view class="givingRecord">
+  <view class="header">
+    <view class="navbar {{tabIndex==0?'selected':''}}" data-index="0" bindtap='selectTab'>全部</view>
+    <view class="navbar {{tabIndex==1?'selected':''}}" data-index="1" bindtap='selectTab'>待支付</view>
+    <view class="navbar {{tabIndex==2?'selected':''}}" data-index="2" bindtap='selectTab'>待拆礼</view>
+    <view class="navbar {{tabIndex==3?'selected':''}}" data-index="3"  bindtap='selectTab'>已完成</view>
+  </view>
+  <view class="content">
+    <view class="order-item">
+      <view class='order-number'>
+        <text>订单编号：R34644646646464</text>
+        <text class='state'>待收货</text>
+      </view>
+      <view class="goods-detail">
+        <view class="goods-img">
+          <image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/8cd0b6367482463791065521130dc1d5"></image>
+        </view>
+        <view class="goods-text">
+          <view class="specifications">
+            <text>已选规格：</text>已选规格：阿达坚实开阿萨德那时的</view>
+          <view class="pay-price">
+            <text>付款金额：</text>￥1256</view>
+        </view>
+      </view>
+      <view class="recipient-information">
+        <view class="info-wrapper">
+          <view class="word">
+            <text>拆礼人：</text>Ts Ojs</view>
+          <view class="word">
+            <text>收件人：</text>Ts Ojs</view>
+          <view class="word">
+            <text>手机号：</text>131155588566</view>
+          <view class="address">爱上大连SD卡傻屌弄 阿萨德阿萨德阿萨德阿萨德</view>
+        </view>
+      </view>
+      <view class='order-time'>
+        <text>创建时间：R34644646646464</text>
+        <text>支付时间：R34644646646464</text>
+        <!-- <text>拆礼时间：R34644646646464</text> -->
+        <text>退款时间：R34644646646464</text>
+        <view class="refund" bindtap='refund'>
+         申请退款
+        </view>
+      </view>
+    </view>
+    <view class="grayBorder"></view>
+  </view>
+</view>

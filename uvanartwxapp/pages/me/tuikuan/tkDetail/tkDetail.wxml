@@ -1,0 +1,58 @@
+<view class="tkDetail" hidden='{{ifHidden}}'>
+  <view class="header">
+    <view class="handle">{{ticket.TicketDetails[0].F_Status}}</view>
+    <view class="date" wx:if="{{ticket.TicketDetails[0].F_Status == '待审核'}}">{{duration}}</view>
+  </view>
+  <view class="content">
+    <view class='order'>
+      <view>订单编号： {{ticket.Ticket.F_OrderNo}}</view>
+      <view> {{ticket.Ticket.F_OrderStatus}}</view>
+    </view>
+    <block wx:for="{{ticket.TicketDetails}}" wx:key="index" wx:for-item="item">
+        <view class="middle">
+          <view class="productImg">
+            <image wx:if="{{item.F_ProductImage}}" src="{{item.F_ProductImage}}"></image>
+          </view>
+          <view class="productDetail">
+            <view class="name">{{item.F_ProductName}}</view>
+            <view class="format">{{item.F_ProductSpecification}}</view>
+            <view class='money'>
+              <view style='color:red;'>￥{{item.F_ProductPrice}}</view>
+              <view>X{{item.F_ProductNumber}}</view>
+            </view>
+          </view>
+        </view>
+    </block>
+    <view class="bottom">
+      <view class='money'><text>商品总额：</text> <text style='color:red'>￥{{ticket.Ticket.F_ProductTotalAmount}}</text></view>
+      <view class='money'><text>实付金额：</text> <text style='color:red'>￥{{ticket.Ticket.F_RealPayAmount}}</text></view>
+    </view>
+    <view class="bottom">
+      <view>货物状态： {{ticket.Ticket.F_ProductStatus}}</view>
+      <view>售后原因： {{ticket.Ticket.F_Reasons}}</view>
+      <view>售后类型:  {{ticket.Ticket.F_TicketType}}</view>
+      <view>退款金额：<text style='color:red'>￥{{ticket.Ticket.F_RefundAmount}}</text></view>
+      <view>收款人：   {{ticket.Ticket.F_RefundPayee}}</view>
+      <view>收款账号： {{ticket.Ticket.F_RefundAccount}}</view>
+      <view>售后说明： {{ticket.Ticket.F_RefundMemo}}</view>
+      <view>售后凭证：
+      <view>
+      <image wx:if="{{ticket.Ticket.F_ImageOne || ticket.Ticket.F_ImageOne!='?x-oss-process=style/uvanfull'}}" style='width:150rpx;height:150rpx;' src="{{ticket.Ticket.F_ImageOne}}"></image>
+      <image wx:if="{{ticket.Ticket.F_ImageTwo || ticket.Ticket.F_ImageTwo!='?x-oss-process=style/uvanfull'}}" style='width:150rpx;height:150rpx;' src="{{ticket.Ticket.F_ImageTwo}}"></image>
+      <image wx:if="{{ticket.Ticket.F_ImageThree || ticket.Ticket.F_ImageThree!='?x-oss-process=style/uvanfull'}}" style='width:150rpx;height:150rpx;' src="{{ticket.Ticket.F_ImageThree}}"></image>
+      </view>
+      </view>
+    </view>
+    <view class="bottom">
+      <view>售后时间:  {{ticket.Ticket.F_CreateDate}}</view>
+      <view wx:if="{{ticket.TicketDetails[0].F_Status != '待审核'}}">审核时间：{{ticket.operateInfo.AuditTime}}</view>
+      <view wx:if="{{ticket.TicketDetails[0].F_Status == '审核不通过'}}">审核不通过备注：{{ticket.operateInfo.AuditRemarks}}</view>
+      <view wx:if="{{ticket.TicketDetails[0].F_Status == '待退款'||ticket.TicketDetails[0].F_Status == '已退款'}}">退款时间：{{ticket.operateInfo.RefundTime}}</view>
+      <view wx:if="{{ticket.TicketDetails[0].F_Status == '拒绝退款'}}">拒绝退款备注： {{ticket.operateInfo.RefundRemarks}}</view>
+      <view wx:if="{{ticket.TicketDetails[0].F_Status == '已退款'}}">退款凭证<view><image wx:if="{{ticket.operateInfo.RefundProof}}" style='width:150rpx;height:150rpx;' src="{{ticket.operateInfo.RefundProof}}"></image></view></view>
+    </view>
+  </view>
+</view>
+ <loading id="loading" comtype="loading">
+        <view style='text-align:center;font-size:30rpx;line-height:35rpx;margin:10rpx 0;'>优梵艺术</view>
+</loading> 

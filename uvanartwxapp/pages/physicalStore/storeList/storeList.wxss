@@ -1,0 +1,33 @@
+/* pages/physicalStore/storeList/storeList.wxss */
+page{
+  background: #f0f0f0;
+  width: 100%;
+  height: 100%;
+}
+.address-block{
+  display: flex;
+  padding: 50rpx 0;
+  border-bottom: 1rpx #999 solid; 
+}
+.address{
+  flex: 1;
+  font-size: 28rpx;
+  line-height: 45rpx;
+  padding: 0 68rpx;
+}
+.address:nth-last-of-type(1){
+border-left: 1rpx #555 solid;
+}
+.address .shopname{
+  font-size: 40rpx;
+  line-height: 60rpx;
+}
+.address view{
+  line-height: 40rpx;
+} 
+.active{
+  background-color: #999;
+} 
+.img>image{
+	width: 100%;
+}

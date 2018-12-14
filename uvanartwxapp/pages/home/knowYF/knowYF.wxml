@@ -1,0 +1,100 @@
+<!--pages/home/knowYF/knowYF.wxml-->
+<view class="jackySpeech" wx:if="{{id==='0'}}">
+  <view class="pic">
+    <image src='https://uvpt.uvanart.com/upload/static/home/knowYF/1.png'></image>
+  </view>
+  <view class="content">
+    <text class="zj" space="ture">品牌成就</text>
+    <text class='english-short'>BRAND ACHIEVEMENT</text>
+    <text class='line'></text>
+    <text>2017年天猫家具TOP品牌</text>
+    <text>超过200%的复合增长率，近三年增长最快的亿元规模家具品牌之一</text>
+    <text>阿里巴巴集团级战略合作商家&新零售合作标杆商家</text>
+    <text>2017年11月阿里巴巴新零售实践发布会唯一入选家具品牌</text>
+    <text>2018年3月唯一入围上海K11艺术购物中心天猫女王展的家具品牌</text>
+    <text space="ture">---------   U V A N A R T   ---------</text>
+  </view>
+</view>
+
+<view class="BJopera"  wx:if="{{id==='1'}}">
+  <view class="pic">
+    <image src='https://uvpt.uvanart.com/upload/static/home/knowYF/2.png'></image>
+  </view>
+  <view class="content">
+    <text class="zj" space="ture">品牌简介</text>
+    <text class='english-short'>BRAND SUMMARY</text>
+    <text class='line'></text>
+    <text>文艺创新时尚家居品牌UVANART（优梵艺术），由一名来自清华大学、曾在普华永道PwC 工作了10 年的中国注册会计师所办。优梵艺术致力让更多人拥有其向往的美好生活，从不同角度为大众解读艺术，传播生活美学，倡导【做生活的艺术家】</text>
+    <text>文艺创新时尚家居品牌UVANART（优梵艺术），由一名来自清华大学、曾在普华永道PwC 工作了10 年的中国注册会计师所办。优梵艺术致力让更多人拥有其向往的美好生活，从不同角度为大众解读艺术，传播生活美学，倡导【做生活的艺术家】</text>
+    <text space="ture">---------   U V A N A R T   ---------</text>
+  </view>
+</view>
+
+<view class="MXtravel"  wx:if="{{id==='2'}}">
+  <view class="pic">
+    <image src='https://uvpt.uvanart.com/upload/static/home/knowYF/3.png'></image>
+  </view>
+  <view class="content">
+    <text class="zj" space="ture">创始人心声</text>
+    <text class='english-short'>THE FOUNDER'S VOICE</text>
+    <text class='line'></text>
+    <text>“在海外生活期间，我深切地感受到，中国品牌，得不到消费者的信任。作为中国新一代企业家，我深信，只要我们坚持用好材质做好产品，坚持为善，将重新赢回大家对我们的尊重……”</text>
+    <text style='text-align:right'>——Jacky Lin</text>
+    <text style='text-align:right'>优梵艺术创始人/CEO /清华大学MBA/中国注册会计师/前PwC高级经理</text>
+    <text space="ture">---------   U V A N A R T   ---------</text>
+  </view>
+</view>
+
+<view class="YNtravel"  wx:if="{{id==='3'}}">
+  <view class="pic">
+    <image src='https://uvpt.uvanart.com/upload/static/home/knowYF/4.png'></image>
+  </view>
+  <view class="content">
+    <text class="zj" space="ture">经营理念</text>
+    <text class='english-short'>BUSINESS CONCEPTS</text>
+    <text class='line'></text>
+    <text style='text-align:left;font-weight: bold;font-size:28rpx; color:#000'>艺术&品质，提升用户体验</text>
+    <text>优梵始终坚持艺术传播，合作国内外优秀的设计师，提供更美更艺术的家具；“品味虽贵必不敢减物力、炮制虽烦必不敢省人工”，坚持真材实料的好品质。</text>
+    <text style='text-align:left;font-weight: bold; font-size:28rpx; color:#000'>高效率&低毛利，降低产品售价</text>
+    <text>全面提升制造、协同、沟通和渠道效率，实现效率提升的数据可视化推崇美国Costco倡导的低毛利策略，建立竞争壁垒，实现同价者品质更优，同质者价格更优。</text>
+    <text space="ture">---------   U V A N A R T   ---------</text>
+  </view>
+</view>
+
+<view class="MXtravel"  wx:if="{{id==='4'}}">
+  <view class="pic">
+    <image src='https://uvpt.uvanart.com/upload/static/home/knowYF/5.png'></image>
+  </view>
+  <view class="content" style='font-size:26rpx;'>
+    <text class="zj" space="ture">制造工厂</text>
+    <text class='english-short'>MANUFACTURE PLANT</text>
+    <text class='line'></text>
+    <text>凭借OEM采购模式、高品质标准、重视信用等特点</text>
+    <text style='font-weight: bolder; color:#000'>优梵艺术很快便与一贯专注于外贸的优质工厂建立了战略合作关系</text>
+    <text>与众多欧美知名家具品牌共享大型制造工厂，同建严格的品控体系</text>
+    <text>凭借OEM采购模式、高品质标准、重视信用等特点.</text>
+    <text>这意味着</text>
+    <text style='font-weight: bolder; color:#000'>优梵出品的家具，品质普遍高于国内标准，与国际知名品牌同步</text>
+    <text space="ture">---------   U V A N A R T   ---------</text>
+  </view>
+</view>
+
+<view class="YNtravel"  wx:if="{{id==='5'}}">
+  <view class="pic">
+    <image src='https://uvpt.uvanart.com/upload/static/home/knowYF/6.png'></image>
+  </view>
+  <view class="content">
+    <text class="zj" space="ture">质量控制</text>
+    <text class='english-short'>QUALITY CONTROL </text>
+    <text class='line'></text>
+    <text>优梵艺术在结合国内家具标准要求的基础上，参考美国大型企业Target、Costco、Ashley等，建立了完善的质量控制体系。</text>
+    <text style='text-align:left'>· 对工厂严格要求的验厂体系，</text>
+    <text style='text-align:left'>· 对原材料供应商进行约束的《原材料规范要求》，</text>
+    <text style='text-align:left'>· 自建抽检产品质量的实验室，</text>
+    <text style='text-align:left'>· 成品抽样第三方检测，</text>
+    <text style='text-align:left'>· 专业QC团队驻厂检验，</text>
+    <text style='text-align:left'>· 专业物流配送安装团队，</text>
+    <text>全方位监控产品制造、质检与运输。</text>
+    <text space="ture">---------   U V A N A R T   ---------</text>
+  </view>
+</view>

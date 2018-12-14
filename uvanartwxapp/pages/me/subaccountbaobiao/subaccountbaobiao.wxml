@@ -1,0 +1,40 @@
+<view class="choose-date">
+  <view class="date-title">选择时间范围</view>
+  <view class="section">
+      <picker mode="date" value="{{startdate}}" end="{{nowdate}}" bindchange="bindstartDateChange">
+        <view class="timest">
+          <icon class="icon-rili1 iconfont"></icon>
+          <view>{{startdate}}</view>
+      </view>
+      </picker>
+      <text>-</text>
+      <picker mode="date" value="{{nowdate}}" start="{{startdate}}" end="{{enddate}}" bindchange="bindendDateChange">
+        <view  class="timest">
+          <icon class="icon-rili1 iconfont"></icon>
+          <view>{{nowdate}}</view>
+        </view>
+      </picker>
+  </view>
+</view>
+<view class="list">
+  <view class="list-title">
+    <view>子账户</view>
+    <view>邀请梵星</view>
+    <view>邀请蒲公英</view>
+    <view>发货佣金</view>
+  </view>
+  <view class="line"></view>
+  <block wx:for="{{datalist}}" wx:key="index">
+    <view class="list-body" >
+      <view>
+        <view style="text-align:left">{{item.F_Mobile}}</view>
+        <view class="remarkname">{{item.F_RemarkName==''?'无':item.F_RemarkName}}</view>
+      </view>
+      <view>{{item.InviteVanStarNumber}}</view>
+      <view>{{item.InviteDandelionNumber}}</view>
+      <view>{{item.DeliveryFees}}</view>
+    </view>
+    <view class="line2"></view>
+  </block>
+</view>
+<view class="noMore" hidden="{{noMore}}">没有更多了</view>

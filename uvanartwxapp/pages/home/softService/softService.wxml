@@ -1,0 +1,30 @@
+<view class="page">
+	<view class="card" bindtap="open3DPage" data-id="0">
+		<view>
+			<view class="title">往日时光</view>
+			<view class="title-e">THE PAST TIME</view>
+		</view>
+		<image src="https://uvpt.uvanart.com/upload/static/home/softService/01.jpg"></image>
+	</view>
+	<view class="card" bindtap="open3DPage" data-id="1">
+		<image src="https://uvpt.uvanart.com/upload/static/home/softService/02.jpg"></image>
+		<view>
+			<view class="title">伊丽莎白</view>
+			<view class="title-e">ELIZABETH</view>
+		</view>
+	</view>
+	<view class="card" bindtap="open3DPage" data-id="2">
+		<view>
+			<view class="title">简雅情怀</view>
+			<view class="title-e">SIMPLE FEELING</view>
+		</view>
+		<image src="https://uvpt.uvanart.com/upload/static/home/softService/03.jpg"></image>
+	</view>
+	<view class="card" bindtap="open3DPage" data-id="3">
+		<image src="https://uvpt.uvanart.com/upload/static/home/softService/04.jpg"></image>
+		<view>
+			<view class="title">牛津绅士</view>
+			<view class="title-e">OXFORD GENTLEMAN</view>
+		</view>
+	</view>
+</view>

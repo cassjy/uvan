@@ -1,0 +1,44 @@
+.brand-service{
+
+}
+.head{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+}
+.head .title{
+	flex: 1;
+	height: 60rpx;
+	font-size: 28rpx;
+	text-align: center;
+	line-height: 60rpx;
+	color: #999;
+}
+.head .selectTitle{
+	color: #000;
+}
+.active-line{
+	/*width: 125rpx;*/
+	/*height: 2rpx;*/
+	border-bottom: 4rpx solid #888;
+	position: relative;
+	/*left: 125rpx;*/
+	transition: left 0.3s;
+}
+.active-line2{
+	width: 125rpx;
+	/*height: 2rpx;*/
+	border-bottom: 2rpx solid #888;
+	position: relative;
+	left: 500rpx;
+	transition: left 0.3s;
+}
+
+/*活动窗体*/
+
+
+image{
+  /*opacity: 0;*/
+  width: 100%;
+  transition: opacity 1s linear 2s;
+}

@@ -1,0 +1,101 @@
+<view class="personalData">
+  <view class="header" bindtap="uploadPic">
+    <view>
+      <view class='touxaing' wx:if="{{headState}}">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <view class="touxiang" wx:else style='background:url("{{head}}") no-repeat center;background-size:100% 100%;border-radius:100%'>
+
+      </view>
+      <view class="change"> 点击修改头像</view>
+    </view>
+  </view>
+  <view class="gradWrapper"></view>
+  <view class="content">
+    <view class="phoneNum">
+      <view class="wrapper">
+        <text class="text">手机号</text>
+        <text class="rRight">{{phone}}</text>
+      </view>
+    </view>
+    <view class="name">
+      <view class="wrapper">
+        <text class="text">昵称</text>
+        <open-data type="userNickName"></open-data>
+      </view>
+    </view>
+    <view class="realName">
+      <view class="wrapper">
+        <view class="text {{nameok}}">
+          <text class="{{changeColor==true?'highLight':''}}">真实姓名</text>
+        </view>
+        <input confirm-type="done" maxlength='10' bindblur="checkRealName" placeholder="请输入您的真实姓名" placeholder-style='color:#424242' wx:if="{{hiddenShadow}}" value="{{name}}"></input>
+      </view>
+    </view>
+    <view class="sex">
+      <view class="wrapper sexModule">
+        <view class="text">
+          <text class="{{changeColor==true?'highLight':''}}">性别</text>
+        </view>
+        <view class="sexRadio">
+          <view class="left">
+            <view class="border" bindtap='chooseSex' data-id="1">
+              <text class="iconfont {{checkedRadio&&radioId==1?'icon-gou5':''}}"></text>
+            </view>
+            <text>男</text>
+          </view>
+          <view class="right">
+            <view class="border" bindtap='chooseSex' data-id="2">
+              <text class="iconfont {{checkedRadio&&radioId==2?'icon-gou5':''}}"></text>
+            </view>
+            <text class="girl">女</text>
+          </view>
+        </view>
+
+      </view>
+    </view>
+    <picker mode="date" catchchange="dateChange">
+      <view class="brithday">
+        <view class="wrapper">
+          <view class="text" catchtap='invalid'>
+            <text class="{{changeColor==true?'highLight':''}}">出生日期</text>
+          </view>
+          <view class="rdate">
+            <text class="rRight">{{date}}</text>
+            <text class="iconfont icon-more"></text>
+          </view>
+        </view>
+      </view>
+    </picker>
+    <view class="emailNum">
+      <view class="wrapper">
+        <view class="text {{emailok}}">
+          <text class="{{changeColor==true?'highLight':''}}">邮箱</text>
+        </view>
+        <input confirm-type="done" class="{{emailok}}" bindblur="checkemail" placeholder="请输入您的邮箱" placeholder-style='color:#424242' wx:if="{{hiddenShadow}}" value="{{email}}"></input>
+      </view>
+    </view>
+    <navigator class="sex" url="completeMaterial/completeMaterial" open-type="navigate" hover-class="other-navigator-hover">
+      <view class="wrapper">
+        <view class="text" catchtap='invalid'>
+          <text class="{{changeColor==true?'highLight':''}}">完善资料</text>
+        </view>
+        <view>
+          <text class="rRight">去填写</text>
+          <text class="iconfont icon-more"></text>
+        </view>
+      </view>
+    </navigator>
+
+    <view class="img" wx:if="{{changeColor}}">
+      <image src='https://uvpt.uvanart.com/upload/static/yingdaotu/jiantou.png'></image>
+    </view>
+    <view class="yindao" wx:if="{{changeColor}}">
+      <view class="wenben">填写性别、出生日期、邮箱和完善资料都会赠送梵豆，梵豆可以在梵豆商城换取商品。</view>
+      <view class="enSure" catchtap="enSure">确定</view>
+    </view>
+  </view>
+</view>
+
+<view class="shadow" hidden='{{hiddenShadow}}'>
+</view>

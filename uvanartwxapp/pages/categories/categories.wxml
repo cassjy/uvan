@@ -1,0 +1,98 @@
+<wxs module="filters" src="../../lib/js/toFixed.wxs"></wxs>
+<scroll-view scroll-y="{{isScrollY}}" bindscrolltolower="loadMore" class="{{hasScrollHeight?'scrollView':''}}"><!-- bindscrolltoupper="freshData" -->
+<!-- <view> -->
+	<view class="container">
+		<view class="header">
+			<view class="search">
+				
+				<input class="searchBtn" type="text" placeholder="输入关键词检索商品" placeholder-style="color:#cacaca;" bindtap="tapSearch" bindinput="searchActiveChange" bindconfirm="searchFn" value="{{inputValue}}" focus="{{focus}}"/>
+				<view class="iconfont icon-sousuo1" bindtap="searchFn"></view>
+				<!-- <view class="sBtn" bindtap="searchFn">搜索</view> -->
+			</view>	
+			<view class="history {{isFromSearch?'':'hiddenforSearch'}}">
+				<view class="title">
+					<!-- <view class="iconfont icon-sousuo"></view> -->
+					<view class="text">历史记录</view>
+					<view class="iconfont icon-shanchu" bindtap="deleteRecord"></view>
+				</view>
+				<view class="content">
+					<block wx:for="{{record}}" wx:key="index">
+						<view class="record" catchtap="searchFn" data-value="{{item.F_SearchText}}">{{item.F_SearchText}}</view>	
+					</block>
+				</view>
+			</view>
+		
+			<view class="button {{isFromSearch?'hiddenforSearch':''}}">
+				<button class="{{sortkeyVal=='综合'?'nowBtn':''}}" style="padding-left: 10rpx;" bindtap="sortByKey" data-name="综合">综合</button>
+				<button class="{{sortkeyVal=='销量'?'nowBtn':''}}" style="margin-left: 0;" bindtap="sortByKey" data-name="销量">销量</button>
+				<button class="{{sortkeyVal=='价格'?'nowBtn':''}}" style="margin-left: 0;" bindtap="sortByKey" data-name="价格">价格
+					<view class="iconfont icon-shang {{sortkeyVal=='价格' && priceStatus=='升序'?'nowBtn':''}}"></view>
+					<view class="iconfont icon-xia {{sortkeyVal=='价格' && priceStatus=='降序'?'nowBtn':''}}"></view>
+				</button>
+				<button class="{{sortkeyVal=='新品'?'nowBtn':''}}" style="margin-left: 0;" bindtap="sortByKey" data-name="新品">新品</button>
+				<button bindtap="tips" class="filter">筛选 <view class="iconfont icon-shaixuan" style="position: absolute;right: -2rpx;top: -2rpx;font-size: 28rpx;"></view></button>
+			</view>
+		</view>
+		<view class="list {{isFromSearch?'hiddenforSearch':''}}">
+			<view class="loading" hidden="{{onloadHidden}}">
+				<view class="box">
+			    <view class="box1"></view>
+			    <view class="box2"></view>
+			    <view class="box3"></view>
+				</view>
+				<text>加载中</text>
+			</view>
+			<!-- 商品列表 -->
+			<block wx:for="{{goodsList}}" wx:key="{{index}}">
+				<view class="goods {{(index%2==0)?'left':'right'}}" bindtap="toDetail" data-text="{{item.goodsID}}" data-catename="{{item.categoriesName}}">
+					<image class="imgURL" src="{{item.images}}" mode="scaleToFill"></image>
+					<view class="goodsName">{{item.goodsName}}</view>
+					<!-- <view class="sold">已售{{item.collect_count}}件</view> -->
+					<view class="price" wx:if="{{item.categoriesName!='梵豆'}}">
+						<text wx:if="{{!(isEmployee&&item.employeePrice)}}">￥{{filters.toThousands(item.price)}}</text>
+						<text style="margin-left: 10rpx;" wx:if="{{isEmployee&&item.employeePrice}}">员工价:￥{{item.employeePrice}}</text>
+					</view>
+					<view class="price" wx:if="{{item.categoriesName=='梵豆'}}"><text>梵豆：</text>{{item.price}}</view>
+				</view>
+			</block>
+			
+		</view>
+		
+		<view class="loading" hidden="{{hiddenLoading}}">
+			<view class="box">
+		    <view class="box1"></view>
+		    <view class="box2"></view>
+		    <view class="box3"></view>
+			</view>
+			<text>正在加载</text>
+		</view>
+		<view class="noGoods {{isFromSearch?'hiddenforSearch':''}}" wx:if="{{!hiddenNoGoods}}">
+			<view class="iconfont icon-wujieguo"></view>
+			<view class="ps">抱歉，暂无相关的搜索结果</view>
+			<view class="hot-list">
+				<view class="hot-list-title">
+					热门商品推荐
+					<view class="line"><view></view></view>
+					<view class="line2"><view></view></view>
+				</view>
+				<view class="list list2">
+					<block wx:for="{{goodsList1}}" wx:key="{{index}}">
+						<view class="goods {{(index%2==0)?'left':'right'}}" bindtap="toDetail" data-text="{{item.goodsID}}" data-catename="{{item.categoriesName}}">
+							<image class="imgURL" src="{{item.images}}" mode="scaleToFill"></image>
+							<view class="goodsName">{{item.goodsName}}</view>
+							<!-- <view class="sold">已售{{item.collect_count}}件</view> -->
+							<view class="price" wx:if="{{item.categoriesName!='梵豆'}}">
+								<text wx:if="{{!(isEmployee&&item.employeePrice)}}">￥{{filters.toThousands(item.price)}}</text>
+								<text style="margin-left: 10rpx;" wx:if="{{isEmployee&&item.employeePrice}}">员工价:￥{{item.employeePrice}}</text>
+							</view>
+							<view class="price" wx:if="{{item.categoriesName=='梵豆'}}"><text>梵豆：</text>{{item.price}}</view>
+						</view>
+					</block>
+				</view>
+			</view>
+		</view>
+	</view>
+	<!-- 遮罩层 -->
+	<view class="cover {{isTap?'noCover':''}}" bindtap="hiddenCover"></view>
+<!-- </view> -->
+</scroll-view>

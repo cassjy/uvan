@@ -1,0 +1,93 @@
+var filters = {
+  //保留2位小数
+  toFix: function (value) {
+    return parseFloat(value).toFixed(2)
+  },
+  //去掉 .00
+  toFix2: function (str) {
+  	str = str + ''
+  	return str.replace('.00','')
+  },
+  //货币格式
+  toThousands: function (num) {  
+    var result = [ ], counter = 0;  
+    num = (num || 0).toString().split('');  
+    for (var i = num.length - 1; i >= 0; i--) {  
+        counter++;  
+        result.unshift(num[i]);  
+        if (!(counter % 3) && i != 0) { result.unshift(','); }  
+    }  
+    return result.join('');  
+	},
+  //匿名处理
+  anonymous: function(name){
+    var nameArr = name.split('');
+    if(nameArr.length<=2){
+      var name2 = nameArr[0]+"***"
+    }else{
+      var name2 = nameArr[0]+"***"+nameArr[nameArr.length-1]
+    }
+    return name2
+  },
+  //去掉 <br />
+  toFix3: function (str) {
+    
+    return str.replace('<br />','，')
+  },
+  dateFormat2: function (str) {
+    
+    return str.split('/').join('-')
+  },
+  dateFormat: function(date){
+    return date.split('T').join(' ')
+  },
+  //拆日期
+  splitDate: function(str,type){
+    var date = str
+    var arr = date.split('年')
+    if(type=='年'){
+      return arr[0]+'年'
+    }else{
+      return arr[1]
+    }
+  },
+  //内容截断
+  splitContent: function(val){
+    var str = val;
+    var reg1 = getRegExp('[\u4E00-\u9FA5\uF900-\uFA2D]')//文字
+    var reg2 = getRegExp('[\uFF00-\uFFEF]')//全角符号
+    var len = 0
+    var index = 0
+    for(var i = 0; i < val.length; i++){
+      var a = val.charAt(i);
+      if(reg1.test(a)){
+        len+=2
+      }else if(reg2.test(a)){
+        len+=2
+      }else{
+        len+=1
+      }
+      if(len>=184){
+        index = i
+        break
+      }
+    }
+    if(len>=184){
+      str = val.substring(0,index)+'...'
+    }
+    return str
+  }
+}
+
+
+module.exports = {
+  toFix: filters.toFix,
+  toFix2: filters.toFix2,
+  toThousands: filters.toThousands,
+  anonymous: filters.anonymous,
+  toFix3: filters.toFix3,
+  dateFormat: filters.dateFormat,
+  dateFormat2: filters.dateFormat2,
+  splitDate: filters.splitDate,
+  splitContent: filters.splitContent
+}

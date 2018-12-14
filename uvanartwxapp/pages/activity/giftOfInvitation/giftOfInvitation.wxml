@@ -1,0 +1,85 @@
+<view class="gift-of-invitation">
+	<!--banner-->
+	<image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/6002dad36a7343d883c95b71ed8f0eac" style="width: 100%;" mode="widthFix" mode="widthFix" />
+	<!--活动规则-->
+	<image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/4bf7a8d0f7654d6fa0b78202df020190" style="width: 100%;height: 300rpx;" mode="widthFix" />
+	<view class="line" wx:if="{{hadJoin}}"></view>
+	<!--邀请记录-->
+	<image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/993e21d4d02e4207a2f75baa7c218c10" style="width: 100%;height: 134rpx;" mode="widthFix" wx:if="{{hadJoin}}" />
+	<view class="invite-win" wx:if="{{hadJoin}}">
+		<view class="invite-record">
+			<view class="client iconfont {{headIconUrls.length>=1?'':'icon-jia1'}}">
+				<image src="{{headIconUrls[0]}}" style="width: 100%;height: 100%;" wx:if="{{headIconUrls.length>=1}}"/>
+				<button open-type="share" data-id="0" wx:else></button>
+			</view>
+			<view class="client iconfont {{headIconUrls.length>=2?'':'icon-jia1'}}">
+				<image src="{{headIconUrls[1]}}" style="width: 100%;height: 100%;" wx:if="{{headIconUrls.length>=2}}"/>
+				<button open-type="share" data-id="0" wx:else></button>
+			</view>
+			<view class="client iconfont {{headIconUrls.length>=3?'':'icon-jia1'}}">
+				<image src="{{headIconUrls[2]}}" style="width: 100%;height: 100%;" wx:if="{{headIconUrls.length>=3}}"/>
+				<button open-type="share" data-id="0" wx:else></button>
+			</view>
+			<view class="client iconfont {{headIconUrls.length>=4?'':'icon-jia1'}}">
+				<image src="{{headIconUrls[3]}}" style="width: 100%;height: 100%;" wx:if="{{headIconUrls.length>=4}}"/>
+				<button open-type="share" data-id="0" wx:else></button>
+			</view>
+			<view class="client iconfont {{headIconUrls.length>=5?'':'icon-jia1'}}">
+				<image src="{{headIconUrls[4]}}" style="width: 100%;height: 100%;" wx:if="{{headIconUrls.length>=5}}"/>
+				<button open-type="share" data-id="0" wx:else></button>
+			</view>
+		</view>
+	</view>
+	<view class="btn" wx:if="{{hadJoin}}">
+		<button class="btn1" open-type="share" data-id="0">邀请好友</button>
+	</view>
+	<view class="line" wx:if="{{hadJoin}}"></view>
+	<image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/0b63e7c1e3fc42d5ad681a7fac101dbd" style="width: 100%;height: 134rpx;" mode="widthFix" wx:if="{{hadJoin}}" />
+	<view class="gift" wx:if="{{hadJoin}}">
+		<image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/a308c4b0703841189ba51eabbe63deb7" style="width: 670rpx;height: 300rpx;" mode="widthFix" />
+	</view>
+	<view class="btn" wx:if="{{hadJoin}}">
+		<view class="btn1 {{hadFinish?'':'btn2'}}" bindtap="{{hadFinish?'getGift':''}}" wx:if="{{!hadGet}}">立即领取</view>
+		<view class="btn1 btn2" wx:if="{{hadGet}}">已领取</view>
+	</view>
+  <view class="btn" wx:if="{{!hadJoin}}">
+    <form report-submit="true" bindsubmit='join'>
+      <button hover-class="btn-hover" class="btn1" formType="submit">
+            <view class="" wx:if="{{!hadJoin}}">马上参与</view>
+      </button>
+    </form>
+  </view>
+	<view class="detail">
+		<image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/b9b51691a5834b8cba158d61919f1452" style="width: 670rpx;height: 382rpx;" mode="widthFix" />
+	</view>
+
+	<view class="cover" catchtouchmove="true" wx:if="{{!isTap}}"></view>
+
+	<view class="info-form" catchtouchmove="true" wx:if="{{!isTap}}">
+		<view class="iconfont icon-cha" bindtap="closeForm"></view>
+		<view class="form-title">
+			<span style="letter-spacing: 1px;">填写收件信息</span>
+		</view>
+		<view class="addressee">
+			<view class="addressee-title">收件人：</view>
+			<input type="text" class="text {{emptyName?'text-red':''}}" bindinput="addresseeChange" value="{{inputAddresseeValue}}" />
+		</view>
+		<view class="addressee">
+			<view class="addressee-title">联系电话：</view>
+			<input type="number" class="text {{emptyPhone?'text-red':''}}" bindinput="phoneChange" value="{{inputPhoneValue}}" maxlength="11" />
+		</view>
+		<view class="addressee">
+			<view class="addressee-title">收货地区：</view>
+			<picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+		    <view class="picker {{emptyRegion?'text-red':''}}">
+		      {{region[0]}}-{{region[1]}}-{{region[2]}}
+		    </view>
+		  </picker>
+		</view>
+		<view class="addressee" style="margin-bottom: 60rpx;">
+			<view class="addressee-title">详细地址</view>
+			<textarea fixed="true" class="textarea {{emptyAddress?'text-red':''}}" maxlength="-1" placeholder="请输入详细地址信息" bindinput="addressChange" value="{{inputAddressText}}"></textarea>
+		</view>
+		<view class="form-submit" bindtap="formSubmit">提交</view>
+	</view>
+</view>

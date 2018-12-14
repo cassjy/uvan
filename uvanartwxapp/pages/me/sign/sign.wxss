@@ -1,0 +1,495 @@
+.sign {
+  background: #fff;
+  min-height: 100%;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30rpx 0;
+  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.9), rgba(29, 30, 29, 0.6));
+}
+
+.header .txImg {
+  width: 140rpx;
+  height: 140rpx;
+}
+
+.header .txImg image {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+}
+
+open-data {
+  overflow: hidden;
+  display: block;
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+}
+
+.header  .name {
+  color: #f2f2ed;
+  font-size: 30rpx;
+  margin: 15rpx 0 30rpx 0;
+}
+
+/*动画  */
+
+@keyframes loop {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  30% {
+    transform: rotate(10deg);
+  }
+
+  50% {
+    transform: rotate(15deg);
+  }
+
+  70% {
+    transform: rotate(-10deg);
+  }
+
+  100% {
+    transform: rotate(-15deg);
+  }
+}
+
+.name .continuitySign {
+  color: #f4e294;
+  font-size: 28rpx;
+  padding: 10rpx 0;
+  margin-right: 40rpx;
+  /* position: relative; */
+}
+
+.icon-liwu {
+  color: #f4e294;
+  font-size: 30rpx;
+  margin-right: 2rpx;
+  display: inline-block;
+  animation: loop 1s infinite linear;
+}
+
+.header .sign-in {
+  color: #f2f2ed;
+  width: 90%;
+  font-size: 30rpx;
+  padding: 20rpx 0;
+  border-radius: 30rpx;
+  display: flex;
+  letter-spacing: 2rpx;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2rpx 2rpx 4rpx #222823;
+  background: linear-gradient(to bottom right, rgba(243, 168, 56, 0.8), rgba(225, 193, 145, 0.9));
+}
+
+.header .change {
+  color: #333;
+  background: #ccc;
+}
+
+/*内容部分  */
+
+@keyframes rili {
+  from {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+
+  to {
+    transform: rotateY(-180deg);
+    opacity: 0;
+  }
+}
+
+/* 0% {
+    transform: rotateY(0deg);
+    opacity: 1;
+  } */
+
+/* 50% {
+    transform: rotateY(-90deg);
+    opacity: 0.5
+  }
+ */
+
+/* 100% {
+    transform: rotateY(-90eg);
+    opacity: 0
+  } 
+}
+
+.content {
+  padding: 0 15rpx;
+} */
+
+.texiao {
+  /* animation: rili 2s ease; */
+}
+
+.content .CheckInTable {
+  font-size: 28rpx;
+  border-bottom: 2rpx solid #e1dede;
+  padding: 15rpx 10rpx 15rpx 10rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.previousMonth {
+  border: 2rpx solid #ccc;
+  padding: 4rpx 15rpx;
+  border-radius: 10rpx;
+}
+
+.content  .week {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 25rpx 15rpx 0 15rpx;
+}
+
+.content  .week .day {
+  font-size: 28rpx;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 2rpx solid #e1dede;
+}
+
+.noBorder {
+  border-right: 0 !important;
+}
+
+.dayShow {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 15rpx;
+  margin-top: 10rpx;
+}
+
+.dayShow .num {
+  width: 14.2%;
+  font-size: 28rpx;
+  padding: 10rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.dayShow .num text {
+  z-index: 2;
+  /* background-color: red; */
+}
+
+.icon-qiandaoicon {
+  position: absolute;
+  left: 17rpx;
+  top: -5rpx;
+  font-size: 66rpx;
+  color: #fbca46;
+  /* color: #eed285; */
+  z-index: 1;
+}
+
+/*当天未签到时样式  */
+
+.yuanquan {
+  position: absolute;
+  top: 2rpx;
+  left: 22rpx;
+  width: 55rpx;
+  height: 55rpx;
+  border-radius: 50%;
+  background-color: #9b9999;
+}
+
+/*日历第一行marginTop15  */
+
+.marginTop {
+  margin-top: 15rpx;
+}
+
+/*过时或已签到的字体样式  */
+
+.Obsolete {
+  color: #666;
+}
+
+/*点击触发按钮高亮  */
+
+.highLight1 {
+  background-color: red !important;
+}
+
+button {
+  line-height: 1;
+}
+
+button[disabled][type="default"], wx-button[disabled]:not([type]) {
+  color: #333;
+  background-color: #ccc;
+}
+
+/*兑换规则  */
+
+.mtk {
+  position: fixed;
+  z-index: 1;
+  background-color: #000;
+  width: 100%;
+  height: 100vh;
+  opacity: 0.5;
+  top: 0;
+}
+
+.sale-content {
+  position: fixed;
+  z-index: 2;
+  background-color: #fff;
+  width: 80%;
+  top: 18%;
+  height: 500rpx;
+  border-radius: 20rpx;
+  right: 10%;
+}
+
+.sale-content .title {
+  text-align: center;
+  padding: 4%;
+  border-bottom: 1px solid #eee;
+  font-size: 32rpx;
+  color: #c39d62;
+}
+
+.sale-content .mode {
+  color: #000;
+  font-size: 30rpx;
+  text-align: center;
+  padding: 20rpx 0 0 10rpx;
+}
+
+.sale-content .content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 28rpx;
+  color: #333;
+  padding: 15rpx 56rpx;
+  /* text-indent: 56rpx; */
+}
+
+.sale-content .marTop {
+  margin-top: 10rpx;
+}
+
+.fromYF {
+  color: #da5453;
+  font-size: 28rpx;
+  padding: 15rpx;
+}
+
+.cancel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: #1aad19;
+  font-size: 30rpx;
+  padding: 4%;
+  text-align: center;
+  border-top: 1px solid #eee;
+  background-color: #fff;
+  box-sizing: border-box;
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+}
+
+/*连线  */
+
+.line {
+  position: absolute;
+  right: -68%;
+  top: 39%;
+  height: 15rpx;
+  width: 50rpx;
+  border-radius: 3rpx;
+  background-color: #f4e294;
+}
+
+/*签到成功显示获得梵豆*/
+.getBean_bg {
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0);
+  position: absolute;
+  transition: opacity 0.6s;
+  opacity: 0;
+  top: 0;
+  left: 0;
+}
+
+.getBean_bg.show {
+  transition: opacity 0.6s;
+  opacity: 0.8;
+  top: 0;
+  z-index: 11;
+}
+
+
+.getBean {
+  position: absolute;
+  z-index: 12;
+  top: 0;
+  left: 50%;
+  transform: translate3d(-50%,0,0);
+}
+
+.getBean .button {
+  background: rgb(247, 110, 110);
+  color: #fff;
+  font-size: 30rpx;
+  width: 380rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  border-radius: 50rpx;
+  position: absolute;
+  bottom: 30rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.getBean .bean_1,
+.getBean .bean_2,
+.getBean .bean_2-1{border-radius: 4rpx;width: 550rpx;overflow: hidden;color: #fff;position: relative;}
+.getBean .bean_1{background: url(https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/46eadf8fdbfa4a83bbc82eded39503f3) center center no-repeat;height: 700rpx;background-size: contain;}
+.getBean .bean_2,
+.getBean .bean_2-1{background: url(https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/8db1d49b16d149db96b5ef9aac7fce27) top center no-repeat;height: 566rpx;background-size: 550rpx 910rpx;z-index: 2;}
+.getBean .bean_2-1{background-position-y: -566rpx;height: 344rpx;z-index: 1;}
+.getBean .start{opacity: 0;display: none} 
+.getBean .start1{opacity: 0;display: none}
+.getBean .txInfo{position: absolute;bottom: 130rpx;left: 0;right: 0;text-align: center;}
+.getBean .title{color: #fff;font-size: 36rpx;position: absolute;top: 285rpx;left: 50%;transform: translateX(-50%);letter-spacing: 3rpx}
+.getBean .tx1,.getBean .tx2{display: block;}
+.getBean .tx1{color: rgb(247, 110, 110);font-size: 36rpx;margin-bottom: 3rpx }
+.getBean .tx2{color: #888;font-size: 26rpx;}
+.getBean .beanNum{color: #f38b1a;font-weight: bold;font-size: 48rpx;margin: 0 6rpx} 
+.getBean .bean_2 .txInfo{bottom: 30rpx}
+.getBean .bean_2-1 .txInfo{bottom: 147rpx}
+.getBean .button{bottom: 40rpx} 
+.getBean .bean_2 .title{top: 245rpx}
+
+/*签到动画样式*/
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounceInDown {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    display: block;
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -3000rpx, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(0, 25rpx, 0);
+  }
+
+  75% {
+    transform: translate3d(0, -10rpx, 0);
+  }
+
+  90% {
+    transform: translate3d(0, 5rpx, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.bounceInDown {
+  animation-name: bounceInDown;
+  animation-duration: .5s;
+}
+
+
+@keyframes swing {
+  0%{display: block;}
+  20% {
+    -webkit-transform: rotate3d(0, 0, 1, 5deg);
+    transform: rotate3d(0, 0, 1, 5deg);
+  }
+
+  40% {
+    -webkit-transform: rotate3d(0, 0, 1, -2deg);
+    transform: rotate3d(0, 0, 1, -2deg);
+  }
+
+  60% {
+    -webkit-transform: rotate3d(0, 0, 1, 2deg);
+    transform: rotate3d(0, 0, 1, 2deg);
+  }
+
+  80% {
+    -webkit-transform: rotate3d(0, 0, 1, -1deg);
+    transform: rotate3d(0, 0, 1, -1deg);
+  }
+
+  to {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+}
+
+.swing {
+  transform-origin: top center;
+  animation-name: swing;
+  animation-duration: .8s;
+}
+
+
+@keyframes fadeInDownBig {
+  0%{display: block;}
+  from {
+    opacity: 0;
+    transform: translate3d(0, -380rpx, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInDownBig {
+  animation-name: fadeInDownBig;
+  animation-duration: .5s;
+}

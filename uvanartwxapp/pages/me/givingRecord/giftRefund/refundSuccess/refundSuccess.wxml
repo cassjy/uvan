@@ -1,0 +1,11 @@
+<view class="refundSuccess">
+  <image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/b3d24f405a214e048f4daf22de7b4672"></image>
+  <view class="text">退款申请提交成功！</view>
+  <view class="text-info">退款将在1~7个工作日内审核通过后退还</view>
+  <view class="btn">
+   <button bindtap='goBack'>确定</button>
+  </view>
+  <view class="contactCustomer">
+    <button open-type='contact'><text>联系客服</text></button>
+  </view>
+</view>

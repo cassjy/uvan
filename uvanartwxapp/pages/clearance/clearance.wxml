@@ -1,0 +1,50 @@
+<view class="wrapper">
+	<!-- 头部 -->
+	<view class="head">
+		<image class="image" src="https://uvpt.uvanart.com/upload/static/home/clearance.jpg" />
+	</view>
+	<!-- 文案 -->
+	<view class="midtext" bindtap="todetail" data-id="{{todayDiscountProduct.F_ProductID}}">
+		<!-- <image src="../今日钜惠.gif" class="image" /> -->
+		<image src="https://uvpt.uvanart.com/upload/static/home/clearance/今日钜惠.gif" class="image" />
+		<image src="{{todayDiscountProduct.F_Image}}" class="image2" />
+		<view class="name-price">
+			<view class="product-name">{{todayDiscountProduct.F_ProductName}}</view>
+			<view class="product-price">
+				<view class="new-price">￥{{todayDiscountProduct.F_Price}}</view>
+				<view class="old-price">￥{{todayDiscountProduct.F_Price*2}}</view>
+			</view>
+		</view>
+		<!-- <image src="../go.gif" class="image3" /> -->
+		<image src="https://uvpt.uvanart.com/upload/static/home/clearance/go.gif" class="image3" />
+	</view>
+	<!-- 商品列表 -->
+	<!-- 列表头 -->
+	<view class="listhead">
+		<view class="listname {{tabNum==0?'red':''}}" data-index="0" bindtap="changeList">客厅</view>
+		<view class="listname {{tabNum==1?'red':''}}" data-index="1" bindtap="changeList">卧室</view>
+		<view class="listname {{tabNum==2?'red':''}}" data-index="2" bindtap="changeList">收纳</view>
+		<view class="listname {{tabNum==3?'red':''}}" data-index="3" bindtap="changeList">家居饰品</view>
+	</view>
+	<!-- 列表 -->
+	<block wx:for="{{goodsList}}" wx:key="index">
+		<view class="list">
+			<view class="productbox">
+				<view class="leftbox">
+					<image class="image"  src="{{item.images}}"/>
+				</view>
+				<view class="rightbox">
+					<view class="name">{{item.goodsName}}</view>
+					<view class="name2">{{item.categoriesName}}</view>
+					<view class="price">
+						<view class="price1">一口价 <p class="p1">￥{{item.price}}</p></view>
+					</view>
+					<view class="btn">
+						<!-- <view class="btn1">库存100件</view> -->
+						<view class="btn2" bindtap="todetail" data-id="{{item.goodsID}}">马上抢</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</block>
+</view>

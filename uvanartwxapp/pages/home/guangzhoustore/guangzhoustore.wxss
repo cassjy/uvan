@@ -1,0 +1,43 @@
+.store{
+
+}
+image{
+	width: 100%;
+	z-index: 10;
+}
+.view2{
+	position: relative;
+}
+.view2 .btn{
+	position: absolute;
+	top: 332rpx;
+	left: 14rpx;
+	width: 358rpx;
+	height: 280rpx;
+	z-index: 11;
+}
+.view2 .btn2{
+	position: absolute;
+	top: 332rpx;
+	right: 14rpx;
+	width: 358rpx;
+	height: 280rpx;
+	z-index: 11;
+}
+.view7{
+	position: relative;
+}
+.view7 .book-btn{
+	position: absolute;
+	bottom: 40rpx;
+	left: 50%;
+	margin-left: -140rpx; 
+	width: 280rpx;
+	height: 54rpx;
+	background-color: #95172c;
+	font-size: 28rpx;
+	color: #fff;
+	text-align: center;
+	line-height: 54rpx;
+	border-radius: 36rpx;
+}

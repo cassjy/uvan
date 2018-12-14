@@ -1,0 +1,205 @@
+
+<!-- 购物车为空 -->
+<template name='shopping-cart-empty'>
+  <view class='shopping-cart-empty'>
+    <image class='icon' src='./images/shopping-cart-empty.png'></image>
+  </view>
+</template>
+
+<!-- 数据加载中 -->
+<template name='shopping-cart-loading'>
+  <view class='shopping-cart-loading'>
+ 
+  </view>
+</template>
+
+<!-- 用户未授权/授权过期 -->
+<template name='shopping-cart-unauthorized'>
+  <view class='shopping-cart-unauthorized'>
+   
+  </view>
+</template>
+
+<!-- 购物车有数据 -->
+<template name='shopping-cart-list'>
+  
+  <view class='shopping-cart-list'>
+   
+    <block wx:for='{{list}}' wx:key='shopping-cart-list-key' wx:for-item='product'>
+      <view class='shopping-cart-list-cell-container {{product.published?"":"shopping-cart-list-cell-container-published"}}' data-index="{{product.product_id}}" data-mark="fromShopCart" data-catename="{{product.product_category}}" bindtap='openDetail' style="overflow: hidden;">
+        
+        <view class='check-box-container {{product.published?"":"check-box-container-published"}}' catchtap='handleCheckedProduct' data-index='{{index}}' style="float: left;">
+          <view class='check-box-icon' >
+            <view class="check-box-icon1" wx-if="{{product.isChecked}}"></view>
+          </view>
+          
+        </view>
+
+        <image class='product-image'  src='{{product.product_image}}' style="width: 180rpx;height: 180rpx;float: left;"></image>
+
+        
+
+        <view wx:if='{{!isEditStatus}}' class='right-container {{product.published?"":"right-container-published"}}'>
+          <view class='product-name'>
+            {{product.product_name}}
+          </view>
+          <view class='product-specifications {{product.published?"":"product-specifications-published"}}' catchtap="showAttr" data-id="{{product.product_id}}" data-index="{{index}}" data-cate="{{product.product_category}}">
+            <view class='product-specifications-a' data-id="{{product.product_id}}" data-index="{{index}}" data-cate="{{product.product_category}}">{{product.product_specifications}}</view>
+            <view class="iconfont icon-xiasanjiao" style="position: absolute;right: 0;top: 0;font-size: 24rpx;" data-id="{{product.product_id}}" data-index="{{index}}" data-cate="{{product.product_category}}"></view>
+          </view>
+          <view class='product-count-price'>
+          
+            <view wx:if="{{product.stock<product.count}}">库存不足</view>
+            <view wx:if="{{!product.published}}">已售罄</view>
+         
+            <view wx:if="{{product.product_category=='梵豆'}}" class="red-price"><text>梵豆 </text>{{product.product_price}}</view>
+            <view wx:else class="red-price">¥{{product.priceDecimal2}}</view>
+            <view class='counter-container {{product.published?"":"counter-container-published"}}'>
+              <!-- 购买数量: -->
+              <view class='decrease-increase {{product.count > 1 ? "" : "decrease-increase--disabled"}}' catchtap='{{product.published?"handleDecrease":""}}' data-index='{{index}}' style="margin-left: 4px;">-</view>
+              <input class='count-input {{product.published?"":"count-input-published"}}' type="number" catchtap="doNothing" bindfocus="bindfocus" bindblur="bindblur" bindinput='bindinput' value='{{product.count}}' data-index='{{index}}'></input>
+              <view class='decrease-increase {{product.count < 999 ? "" : "decrease-increase--disabled"}}' catchtap='{{product.published?"handleIncrease":""}}' data-index='{{index}}'>+</view>
+            </view>
+          </view>
+        </view>
+
+      </view>
+      <view style='height: 1px; background-color: #EEEEEE;'></view>
+    </block>
+    
+    <view class='shopping-cart-list-top-container'>
+      
+      <view wx:if='{{isEditStatus}}' class='done-btn' bindtap='handleDone'>
+        完成
+      </view>
+      
+     
+    </view>
+  </view>
+</template>
+<view class="list-handle-bar {{isCheckedAll?'list-handle-bar-show':''}}">
+  <view class="submit-delete" bindtap="handleDeleteMore">删除</view>
+  <button wx:if="{{(!isEditStatus&&canShareList)||(!isEditStatus&&allCheckedValidProductsCount)}}" class="share-btn" bindtap="canShare"><span class="iconfont icon-iconfontfenxiang"></span> 分享清单</button>
+  
+</view>
+<view class='shopping-cart-container {{isCheckedAll?"shopping-cart-container-paddingTop":""}}'>
+
+
+  
+  <template is='{{isShowLoading == true ? "shopping-cart-loading": unauthorized == true ? "shopping-cart-unauthorized" : list.length > 0 ? "shopping-cart-list" : "shopping-cart-empty"}}' data='{{list, isEditStatus}}'>
+
+  </template>
+
+
+  <view class="shopping-cart-bottom-placeholder-container"></view>
+</view>
+
+<view class="shopping-cart-bottom-container">
+  <view class="left" catchtap="handleCheckedAllProducts">
+    
+    <view class="icon">
+      <view class="icon1" wx:if="{{allValidProductsCount!=0&&allValidProductsCount==allCheckedValidProductsCount}}"></view>
+    </view>
+    <view class="title">全选</view>
+
+  </view>
+  
+  <view class="center">
+    <view class="label">{{'合计:'}}</view>
+    <view class="price">{{'¥ '+allCheckedValidProductsAmount}}</view>
+  </view>
+  <view class="submit {{allCheckedValidProductsCount <= 0 || isEditStatus || publishedCount>0 ? 'submit--disabled' : ''}}" bindtap="handleSubmitCart" style="display:{{isEditStatus?'none':'flex'}}">
+    {{"结算("+(allCheckedValidProductsCount > 99 ? "99+":allCheckedValidProductsCount)+")"}}
+  </view>
+  
+</view>
+
+<!-- 遮罩层 -->
+<view class="cover {{isTap?'noCover':''}}" bindtap="hiddenAttr" catchtouchmove="true"></view>
+<!-- 商品规格弹窗 -->
+<view class=" attrList {{isTapAttr?'showAttr':''}}" catchtouchmove="true">
+  <view class="_title">
+    <view class="title">商品规格</view>
+    <view class="iconfont icon-guanbi" bindtap="hiddenAttr"></view>
+  </view>
+  <view class="view">
+    <image src="{{((F_MianImageList===null||F_MianImageList=='')&&PictureModeList===null)?imgURL[0].ImageUrl:(PictureModeList===null?imgURL[0]:imgURL[0].ImageUrl)}}"></image>
+    <view class="info">
+      <view class="title">{{productName}}</view>
+      
+      <view class="thisPrice" wx:if="{{nowProductCate!='梵豆'}}"  style="overflow: hidden;"><view style="float: left;font-size: 22rpx;line-height: 40rpx;">￥</view><view style="font-size: 28rpx;float: left;">{{caculatePrice}}</view><view class="inventory {{hiddenInventory?'hiddenInventory':''}}">库存：{{Inventory}}</view></view>
+
+      <view class="thisPrice" wx:if="{{nowProductCate=='梵豆'}}">梵豆：{{caculatePrice}}<view class="inventory {{hiddenInventory?'hiddenInventory':''}}">库存：{{Inventory}}</view></view>
+
+      <view class="attrRes {{hiddenInventory||productCategories=='拼团'?'hiddenInventory':''}}"style="height: 24rpx;">发货时间： <view style="font-size: 24rpx;line-height: 24rpx;">付款后{{DeliveryCycle==0||DeliveryCycle===null?60:DeliveryCycle}}天内</view>
+      </view>
+
+      <view class="attrRes" wx:if="{{productCategories!='拼团'}}">已选规格：
+        <block wx:for="{{nowAttrName}}" wx:key="index">
+          <view style="font-size: 24rpx;line-height: 24rpx;">{{item}}</view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <scroll-view style="height: 460rpx;" scroll-y="false">
+    <view class="attr">
+      <block wx:for="{{productAttributes}}" 
+        wx:for-item="productAttribute" 
+        wx:for-index="index0" 
+        wx:key="{{index0}}">
+        <view class="color" wx:if="{{productCategories!='拼团'}}">
+        
+          <view class="colorTitle">{{productAttribute.Name}}</view>
+          <block wx:for="{{productAttribute.Values}}" 
+          wx:for-item="productAttributeValue" 
+          wx:for-index="index1"  
+          wx:key="{{index1}}">
+            <view class="colorList {{nowAttrID[index0]==productAttributeValue.Id?'select':''}}" 
+            data-index="{{index1}}" 
+            data-parentindex="{{index0}}" 
+            data-id="{{productAttributeValue.Id}}" 
+            data-parentid="{{productAttribute.Id}}" 
+            data-name="{{productAttributeValue.Name}}" 
+            data-combinename="{{productAttribute.Name+': '+productAttributeValue.Name}}"
+            bindtap="selectAttr">{{productAttributeValue.Name}}</view>
+          </block>
+    
+        </view>
+      </block>
+      
+    </view>
+  </scroll-view>
+
+  <view class="confirm {{canConfirm?'':'hiddenconfirm'}}">
+    <view class='counter-container'>
+      购买数量:
+      <view class='decrease-increase {{num > 1 ? "" : "decrease-increase--disabled"}}' catchtap='bindMinus' data-index='{{index}}' style="margin-left: 4px;">-</view>
+      <input class='count-input' type="number" bindinput='bindManual' bindblur="bindblur2" value='{{num}}' data-index='{{index}}'></input>
+      <view class='decrease-increase {{num < 999 ? "" : "decrease-increase--disabled"}}' catchtap='bindPlus' data-index='{{index}}'>+</view>
+    </view>
+    <view class="innerconfirm" bindtap="confirm">确认</view>
+   
+  </view>
+  <view class="confirm1 {{canConfirm?'hiddenconfirm':''}}" >
+    <view class="innerconfirm" bindtap="confirm1">确认</view>
+
+  </view>
+</view>
+<!-- 接收清单提示 -->
+<view wx:if="{{hasShareList}}" class="share-ask-win">
+  <view class="share-msg">是否接收来自好友分享的购物清单？</view>
+  <view class="msg-btn">
+    <view class="msg-giveup" bindtap="giveUpShareList">再考虑一下</view>
+    <view class="msg-confirm" bindtap="getShareList">接收</view>
+  </view>
+</view>
+<!-- 遮罩层2 -->
+<view class="cover {{isTap2?'noCover':''}}" catchtouchmove="true"></view>
+<!-- 确认分享清单弹窗 -->
+<view wx:if="{{showShareWin}}" class="share-ask-win">
+  <view class="share-msg">是否分享该清单给好友？</view>
+  <view class="msg-btn">
+    <button class="msg-giveup1" bindtap="giveUpShare">再看一下</button>
+    <button class="msg-confirm1" open-type="share">分享</button>
+  </view>
+</view>
