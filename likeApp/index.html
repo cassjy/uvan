@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
+  />
+  <title>赞赏大厅</title>
+  <style>
+    .weui-cell {
+      color: #666 !important;
+      font-size: 14px !important;
+      padding: 10px 0px 10px 14px !important;
+    }
+  </style>
+</head>
+
+<body scroll=no>
+  <div id="app"></div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  <script>
+    //解决移动端文本框弹出键盘遮挡输入框的方法
+    window.flag = "unlogin"
+    if (/Android/.test(navigator.appVersion)) {
+      window.addEventListener("resize", function () {
+        if (document.activeElement.tagName == "INPUT" || document.activeElement.tagName == "TEXTAREA") {
+          window.setTimeout(function () {
+            document.activeElement.scrollIntoViewIfNeeded();
+          }, 0);
+        }
+      })
+    }
+  </script>
+  <script type="text/javascript" src="https://g.alicdn.com/dingding/open-develop/1.6.9/dingtalk.js"></script>
+  <script type="text/javascript" src="https://g.alicdn.com/dingding/dingtalk-pc-api/2.7.0/index.js"></script>
+  <script src="https://cdn.bootcss.com/vue-router/3.0.1/vue-router.min.js"></script>
+</body>
+
+</html>
