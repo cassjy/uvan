@@ -1,0 +1,115 @@
+<wxs module="util">
+  var sub = function(val) {
+    return val.substring(0, 3)
+  }
+  var sub1 = function(val) {
+    return val.substring(3)
+  }
+  module.exports.sub = sub;
+  module.exports.sub1 = sub1;
+</wxs>
+<!-- <wxs module="util1">
+  var sub1 = function(val){
+   return val.substring(0, 104)
+  }
+   module.exports.sub1 = sub1;
+</wxs> -->
+<view class="coupons">
+  <view class="header">
+    <view class="left" data-id="1" bindtap='navCheck'>
+      <view class="text {{navNum==1?'on':''}}">未使用</view>
+    </view>
+    <view class="right" data-id="2" bindtap='navCheck'>
+      <view class="text {{navNum==2?'on':''}}">已过期</view>
+    </view>
+  </view>
+  <view class="content">
+    <view class="couponsList {{!hiddenShadow?'fixed':''}}" hidden='{{navNum !=1}}'>
+      <block wx:for="{{couponsList}}" wx:key="index">
+        <view class="couponsItem" style='background:url("https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/8ebaba7dd86c49a39f0e4ff4a674e2ac") no-repeat center;background-size:100% 100%;'>
+          <view class="left">
+            <text wx:if="{{item.f_type=='cash'}}">￥</text>
+            <text class="money" wx:if="{{item.f_type=='cash'}}">{{item.f_value}}</text>
+            <text class="discount" wx:if="{{item.f_type=='discount'}}">折扣</text>
+            <text class="discountNum" wx:if="{{item.f_type=='discount'}}">{{item.f_value}}</text>
+          </view>
+          <view class="right">
+            <view class="upWrapper">
+              <view class="vouchers">
+                <text>{{util.sub(item.f_actname)}}</text> {{util.sub1(item.f_actname)}}
+              </view>
+              <view class="fullReduction">满{{item.f_goodsamountfull}}使用</view>
+            </view>
+            <view class="dowmWrapper">
+              <view class="useWay">{{item.f_usetype}}</view>
+              <view class="useDate">有效期至{{item.f_failuretime}}</view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class="couponsListFailure" hidden='{{navNum !=2}}'>
+    <block wx:for="{{failCouponsList}}" wx:key="index">
+        <view class="couponsItem" style='background:url("https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/194a9169dc8a4583b21065c7d728a913") no-repeat center;background-size:100% 100%;'>
+          <view class="left">
+            <text wx:if="{{item.f_type=='cash'}}">￥</text>
+            <text class="money" wx:if="{{item.f_type=='cash'}}">{{item.f_value}}</text>
+            <text class="discount" wx:if="{{item.f_type=='discount'}}">折扣</text>
+            <text class="discountNum" wx:if="{{item.f_type=='discount'}}">{{item.f_value}}</text>
+          </view>
+          <view class="right">
+            <view class="upWrapper">
+              <view class="vouchers">
+                <text>{{util.sub(item.f_actname)}}</text> {{util.sub1(item.f_actname)}}
+              </view>
+              <view class="fullReduction">满{{item.f_goodsamountfull}}使用</view>
+            </view>
+            <view class="dowmWrapper">
+              <view class="useWay">{{item.f_usetype}}</view>
+              <view class="useDate">有效期至{{item.f_failuretime}}</view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="useRlues">
+    <view class="text" bindtap='showRlue'>
+      优惠券使用规则
+    </view>
+  </view>
+  <!--暂无优惠券  -->
+  <view class="onCoupons" wx:if='{{noCoupons}}'>
+    <text class="icon-M-zanwujilu iconfont"></text>
+    <text class="norecord">暂无记录</text>
+  </view>
+  <!--梵豆兑换规则  -->
+  <view class="mtk" bindtap="ImSure" hidden="{{hiddenShadow}}" catchtouchmove='true'></view>
+  <view class="sale-content" hidden="{{hiddenShadow}}">
+    <view class="title">优惠券规则</view>
+    <scroll-view scroll-y="true" class="scroll-view">
+      <view class="mode">【优惠券使用说明】</view>
+      <view class="ruleWrapper">在购物车结算页面，您可以直接输入优梵艺术l梵店优惠券代码抵扣商品货款。 </view>
+      <view class="mode">【优惠券使用范围】</view>
+      <view class="ruleWrapper">①普通优惠券 购买优梵艺术l梵店所有商品均可使用。</view>
+      <view class="ruleWrapper">②类别优惠券 购买优惠券指定类别的商品即可使用。</view>
+      <view class="ruleWrapper">③系列优惠券 购买优惠券指定系列的商品时可使用。</view>
+      <view class="ruleWrapper">④商品优惠券 购买优惠券指定商品时可使用。</view>
+      <view class="fromYF">温馨提示：优梵艺术l梵店优惠券均针对平台正常售价商品可用，特价活动商品无法使用优惠券，感谢您的支持！无法使用优惠券的商品在购物车有说明！</view>
+      <view class="mode">【优惠券获取】</view>
+      <view class="ruleWrapper">①购物返券 --  根据具体活动细则，购物后赠送客户优惠券。</view>
+      <view class="ruleWrapper">②活动赠送 -- 根据具体活动细则，直接赠送客户优惠券。</view>
+      <view class="ruleWrapper">③公用券 -- 通过线下广告单或线上活动页面领取到优惠码。</view>
+      <view class="mode">【优惠券细则】</view>
+      <view class="ruleWrapper">①使用优惠券之前需了解您手中的优惠券类型和使用范围（我们会在具体活动细则中说明）。</view>
+      <view class="ruleWrapper">②一个订单只能使用一张优惠券。</view>
+      <view class="ruleWrapper">③优惠券应当在有效期内使用，过期则无法使用。</view>
+      <view class="ruleWrapper">④优惠券一旦使用，订单交易成功后，将无法退回。如果您取消订单，优惠券不予返还。</view>
+      <view class="ruleWrapper">⑤如优惠券金额小于订单金额，则需由客户支付差额；优惠券不能用来支付相关运费；不可兑现，且不开发票。</view>
+      <view class="ruleWrapper">⑥使用优惠券支付的订单，退款结算按照实际支付金额退款。</view>
+      <view class="ruleWrapper" style='margin-bottom:10px'>⑦本规则在法律允许的范围内最终解释权归优梵艺术l梵店所有。</view>
+      <!-- <view class="fromYF">【优梵艺术l梵店】内活动解释权在法律规定的范围内归优梵艺术所有</view> -->
+    </scroll-view>
+    <view class="cancel" bindtap="ImSure">知道了</view>
+  </view>
+</view>

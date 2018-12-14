@@ -1,0 +1,143 @@
+<wxs module="filters" src="../../../lib/js/toFixed.wxs"></wxs>
+<view class="orderList">
+  <view class="nav">
+    <block wx:for="{{navList}}" wx:key="index">
+      <view data-id="{{index}}" class="label {{currentTab==index? 'on':''}}" catchtap="swichNav">
+        <view class="{{currentTab==index?'changeColor':''}}">{{item}}</view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 全部订单展示  -->
+  <view class="order">
+    <block wx:for="{{dataList}}" wx:key="index">
+      <view class="orderWrapper">
+        <block wx:for="{{item.goods}}" wx:key="index" wx:for-item="item2">
+          <view class="goodsDetail" catchtap="openDetail" data-id="{{item2.fid}}" data-idd="{{item2.orderNo}}">
+            <view class="img">
+              <image src="{{item2.imageurl}}"></image>
+            </view>
+            <view class="detail">
+              <view class="top">
+                <view class="name">{{item2.productname}}</view>
+                <view class="goodsPrice">
+                  <view class="price">
+                    <text wx:if="{{item.paymentMethod !='C'}}">￥{{item2.price}}</text>
+                     <text wx:if="{{item.paymentMethod =='C'}}">梵豆{{item2.price}}</text>
+                  </view>
+                  <view class="num">
+                    <text>×{{item2.number}}</text>
+                  </view>
+                </view>
+              </view>
+              <view class="specifications">
+                <text>{{item2.specification}}</text>
+              </view>
+              <view class="deliveryTime" wx:if="{{item.orderstatus=='A'||item.orderstatus=='B'||item.orderstatus=='C'}}">
+                <text>发货时间：付款后{{item2.deliverycycle==0||item2.deliverycycle===null?60:item2.deliverycycle}}天内</text>
+              </view>
+            </view>
+          </view>
+        </block>
+        <view class="orderDetail">
+          <view class="payment">
+            <text wx:if="{{item.paymentMethod !='C'}}">实际付款：￥{{item.realpay}}</text>
+            <text wx:elif="{{item.paymentMethod =='C'}}">实际付款：梵豆{{item.realpay}}</text>
+            <text class="freight">(含运费￥{{item.freight}})</text>
+          </view>
+          <view class="goodsNum">共{{item.productnum}}件商品</view>
+        </view>
+        <view class="preferentialInfo" wx:if="{{item.paymentMethod!='C'}}">
+          <text>{{item.discountAmount==0?'尚未享受优惠':'-￥'+item.discountAmount}}</text>
+          <text>优惠信息：</text>
+        </view>
+        <view class="paymentStatus">
+          <view class="status">订单状态：
+            <text>{{item.orderstatus=='A'?'待付款':(item.orderstatus=='B'?'待发货':(item.orderstatus=='C'?'待收货':(item.orderstatus=='D'?'待评价':(item.orderstatus=='E'?'已完成':(item.orderstatus=='F'?'已取消':'已关闭')))))}}</text>
+          </view>
+          <view class="btnWrapper">
+            <button class="pay" open-type='contact' hover-class="highLight">联系客服</button>
+            <button wx:if="{{item.orderstatus=='A'}}" class="check" data-paymentMethod="{{item.paymentMethod}}" catchtap="pay" hover-class="highLight" data-index="{{index}}" disabled="{{onOff}}">{{item.paymentMethod=='A'?'付款':(item.paymentMethod=='B'?'线下付款':'梵豆付款')}}</button>
+            <button wx:elif="{{item.orderstatus=='B' && (item.groupBuyStatus==0 || item.groupBuyStatus==3)}}" class="check" bindtap="reminder" hover-class="highLight" data-id="{{item.orderNo}}">催单</button>
+            <button class="check" wx:elif="{{item.orderstatus=='B' && item.groupBuyStatus==2}}" bindtap="openDetail" hover-class="highLight" data-id="{{item.fid}}">申请退款</button>
+            <button wx:elif="{{item.orderstatus=='B' && item.groupBuyStatus==1}}"></button>
+            <button class="check" wx:elif="{{item.orderstatus=='C'}}" hover-class="highLight" catchtap="confirmOrder" data-orderNo="{{item.orderNo}}">确认收货</button>
+            <button class="check" wx:elif="{{item.orderstatus=='D'}}" hover-class="highLight" catchtap="evaluate" data-fid="{{item.fid}}">评价</button>
+            <button wx:elif="{{item.orderstatus=='E'}}" class="check normal" hover-class="highLight" disabled='true'>已完成</button>
+            <button wx:elif="{{item.orderstatus=='F'}}" class="check normal" disabled='true'>已取消</button>
+            <button wx:else class="check normal" hover-class="highLight" disabled='true' >已关闭</button>
+            <!-- <button class="pay" open-type='contact' hover-class="highLight">联系客服</button> -->
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <!--没有更多  -->
+  <view class="noMore" hidden="{{noMore}}">——— 没有更多了 ———</view>
+  <!-- 没订单时展示 -->
+  <view class="noOrder" hidden="{{noOrder}}">
+    <view class="wrapper">
+      <view class="icon-dingdanguanli iconfont"></view>
+      <view class="text">还没有相关的订单哦</view>
+    </view>
+  </view>
+</view>
+
+<view class="loading" hidden="{{loadingMore}}">
+  <view class="box">
+    <view class="box1"></view>
+    <view class="box2"></view>
+    <view class="box3"></view>
+  </view>
+  <text>正在加载</text>
+</view>
+
+<!--评价弹框  -->
+<view class="evaluate" hidden='{{hiddenEvaluate}}' catchtouchmove='true'>
+  <view class="header">
+    <view class="name">
+      <text>评价</text>
+      <view class="icon-close iconfont" bindtap='cancelEvaluate'></view>
+    </view>
+
+  </view>
+  <view class="wrapper">
+    <view class="iconWrapper" wx:if="{{isNotRelease}}">
+      <view class="icon" data-id="1" bindtap='checkIcon'>
+        <text class="{{iconNum==1?'icon-good-review':'icon-haoping'}} iconfont"></text>
+        <text>好评</text>
+      </view>
+      <view class="icon" data-id="2" bindtap='checkIcon'>
+        <text class="{{iconNum==2?'icon-zhongping1':'icon-zhongping'}} iconfont"></text>
+        <text>中评</text>
+      </view>
+      <view class="icon" data-id="3" bindtap='checkIcon'>
+        <text class="{{iconNum==3?'icon-chaping1':'icon-chaping'}}  iconfont"></text>
+        <text>差评</text>
+      </view>
+    </view>
+    <view class="textAreaWrapper"  wx:if="{{isNotRelease}}">
+      <textarea placeholder='{{placeholderValue}}' placeholder-style='font-size:24rpx,color:#b5b5b5' maxlength='125' bindinput="requireNumber" value="{{reasonValue}}" fixed="true">
+      </textarea>
+      <view class="number" hidden='{{hiddenNumber}}'>
+        <text class="{{cursor !=0?'green':''}}">{{cursor}}</text>
+        <text>/125</text>
+      </view>
+    </view>
+    <!--评价成功  -->
+     <view class="eSuccess" wx:if="{{!isNotRelease}}">
+      <view class="successWrapper">
+        <view class="icon-gou1 iconfont"></view>
+        <view class="text">评论成功，感谢您的评价</view>
+      </view>
+    </view> 
+  </view>
+  <view class="eBtn" bindtap='release'>{{releaseText}}</view>
+</view>
+<view class="shadow" hidden='{{hiddenEvaluate}}' catchtouchmove='true'></view>
+
+<!--未开发提示  -->
+<view class="tips" hidden="{{hiddenTips}}">
+  <text class="tipsWrapper">码农正在加班赶工，敬请期待</text>
+</view>

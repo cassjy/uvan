@@ -1,0 +1,33 @@
+<!--pages/home/knowYF/knowYFList/knowYFList.wxml-->
+<view class='body'>
+  <view class="card"  data-tab="0" bindtap="tab1">
+    <view>品牌成就</view>
+    <view>BRAND ACHIEVEMENT</view>
+    <image src="https://uvpt.uvanart.com/upload/static/home/intoUV/pic1.png"></image>
+  </view>
+  <view class="card"  data-tab="1" bindtap="tab1" style='margin-left:30rpx'>
+    <view>品牌简介</view>
+    <view>Brand INTRODUCTION</view>
+    <image src="https://uvpt.uvanart.com/upload/static/home/intoUV/pic2.png"></image>
+  </view>
+  <view class="card"  data-tab="2" bindtap="tab1">
+    <view>创始人心声</view>
+    <view>FOUNDER'S VOICE</view>
+    <image src="https://uvpt.uvanart.com/upload/static/home/intoUV/pic3.png"></image>
+  </view>
+  <view class="card" data-tab="3" bindtap="tab1" style='margin-left:30rpx'>
+    <view>经营理念</view>
+    <view>BUSINESS PHILOSOPHY</view>
+    <image src="https://uvpt.uvanart.com/upload/static/home/intoUV/pic4.png"></image>
+  </view>
+  <view class="card" data-tab="4" bindtap="tab1">
+    <view>制造工厂</view>
+    <view>MANUFACTURING FACTORY</view>
+    <image src="https://uvpt.uvanart.com/upload/static/home/intoUV/pic5.png"></image>
+  </view>
+  <view class="card" data-tab="5" bindtap="tab1" style='margin-left:30rpx'>
+    <view>质量控制</view>
+    <view>QUALITY CONTROL</view>
+    <image src="https://uvpt.uvanart.com/upload/static/home/intoUV/pic6.png"></image>
+  </view>
+</view>

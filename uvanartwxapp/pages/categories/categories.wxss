@@ -1,0 +1,483 @@
+page{
+	line-height: normal;
+	overflow-y: hidden;
+	height: 100%;
+	background-color: #fff;	
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.scrollView{
+	height: 100%;
+	background-color: #fff;	
+}
+
+.header{
+	position: fixed;
+	width: 100%;
+	z-index: 90
+}
+.container{
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	background-color: #fff;	
+}
+
+/*search bar*/
+.header .search{
+	box-sizing: border-box;
+	height: 90rpx;
+	background: #fff;
+	padding: 20rpx 40rpx;
+	padding-bottom: 0rpx;
+	overflow: hidden;
+	/*position: relative;*/
+}
+.header .search .searchBtn{
+	box-sizing: border-box;
+	font-size: 28rpx;
+	background-color: #e9e9e9;
+	border-radius: 0;
+	padding-left: 20rpx;
+	height: 60rpx;
+	width: 670rpx;
+	float: left;
+}
+.header .search .icon-sousuo1{
+	height: 60rpx;
+	line-height: 60rpx;
+	font-size: 28rpx;
+	/*float: left;*/
+	position: absolute;
+	right: 60rpx;
+	color: #888;
+	z-index: 99;
+}
+.header .search .sBtn{
+	box-sizing: border-box;
+	font-size: 28rpx;
+	text-align: center;
+	float: right;
+	height: 60rpx;
+	width: 10%;
+	line-height: 60rpx;
+	/*position: relative;
+	top: 6rpx;*/
+	z-index: 100;
+}
+
+/*button*/
+.button{
+	width: 100%;
+	z-index: 79;
+	display: flex;
+	flex-direction: row;
+	border-bottom: 1px solid #eeeeee;
+	background-color: #fff;
+	position: relative;
+}
+button::after {
+  border: 0;
+} 
+.button button{
+	border: none;
+	background-color: #fff;
+	font-size: 28rpx;
+	z-index: 1;
+	color: #888;
+	/*padding-left: 0;*/
+	/*margin-left: 0;*/
+}
+.button button.nowBtn{
+	color: #424242;
+}
+.button button .icon-shang{
+	position: absolute;
+	bottom:10rpx;
+	right: 0;
+	color: #aaa;
+	font-size: 28rpx;
+}
+.button button .icon-xia{
+	position: absolute;
+	top: 10rpx;
+	right: 0;
+	color: #aaa;
+	font-size: 28rpx;
+}
+.button button .nowBtn{
+	color: #424242;
+}
+.button .filter{
+	padding-left: 0;
+	margin-left: 0;
+}
+/*shop list*/
+.list{
+	background-color: #fff;
+	/*margin-top: 50rpx;*/
+	padding-top: 206rpx;
+	padding-bottom: 10rpx;
+	overflow: hidden;
+	padding-left: 40rpx;
+	padding-right: 40rpx;
+}
+.list2{
+	padding-top: 0;
+}
+.list ._loading{
+	margin-left: 320rpx;
+}
+.list ._loading image{
+	width: 32rpx;
+	height: 32rpx;
+	position: relative;
+	top: 8rpx;
+}
+.list ._loading text{
+	display: inline-block;
+	height: 32rpx;
+	margin-left: 4rpx;
+	line-height: 32rpx;
+	font-size: 24rpx;
+	color: #aaa;
+}
+.list .goods{
+	width: 315rpx;
+	height: 440rpx;
+	/*margin-top: 6rpx;*/
+	margin-bottom: 40rpx;
+	box-sizing: border-box;
+	background-color: #fff;
+	position: relative;
+}
+.list .imgURL{
+	box-sizing: border-box;
+	/*margin-top: 20rpx;*/
+	width: 100%;
+	height: 315rpx;
+	border: 1px solid #ececec;
+}
+.list .goodsName{
+	box-sizing: border-box;
+	/*padding-left: 10rpx;
+	padding-right: 10rpx; */
+	/*text-align: center;*/
+	font-size: 26rpx;
+	line-height: 36rpx;
+	color: #888888;
+	/*height: 76rpx;*/
+	text-overflow: ellipsis;  
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2; 
+	overflow: hidden;
+}
+.list .sold{
+	text-align: center;
+	font-size: 22rpx;
+}
+.list .price{
+	box-sizing: border-box;
+	/*padding-left: 10rpx;*/
+	text-align: center;
+	font-size: 24rpx;
+	font-weight: 700;
+	float: left;
+	color: #222;
+	/*margin-top: 10rpx;*/
+	position: absolute;
+	bottom: 0rpx;
+}
+.list .price-linethrough{
+	text-decoration: line-through;
+}
+
+/*saideBar*/
+.sideBar{
+	width: 500rpx;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	position: fixed;
+	right: -500rpx;
+	top: 0;
+	background-color: #fff;
+	z-index: 100;
+	transition: right 0.5s;
+}
+.showSideBar{
+	width: 500rpx;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	position: fixed;
+	right: 0rpx;
+	top: 0rpx;
+	background-color: #fff;
+	z-index: 100;
+	transition: right 0.5s;
+	overflow-y: scroll;
+}
+.showSideBar view, .sideBar view{
+	border-bottom: 2rpx solid #ccc;
+	padding-left: 20rpx;
+	padding-right: 16rpx;
+}
+.showSideBar .all, .sideBar .all{
+	font-size: 40rpx;
+	padding-top: 24rpx;
+	padding-bottom: 18rpx;
+}
+.showSideBar .cate, .sideBar .cate{
+	font-size: 28rpx;
+	padding-top: 20rpx;
+	padding-bottom: 20rpx; 
+}
+.showSideBar .innerCate, .sideBar .innerCate{
+	font-size: 26rpx;
+	text-indent: 20rpx;
+	padding-top: 20rpx;
+	padding-bottom: 20rpx; 
+	color: #777;
+}
+.showSideBar .selectInnerCate, .sideBar .selectInnerCate{
+	color: #917253;
+}
+.showSideBar .cate .iconfont, .sideBar .cate .iconfont{
+	color: #ccc;
+	float: right;
+}
+.showSideBar .hiddenIcon, .sideBar .hiddenIcon{
+	display: none;
+}
+.showSideBar .all .close{
+	display: inline-block;
+	width: 80rpx;
+	height: 80rpx;
+	float: right;
+	font-size: 36rpx;
+	text-align: center;
+}
+
+/*cover*/
+.cover{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.3);
+	z-index: 90;
+	display: none;
+}
+.noCover{
+	display: block;
+	overflow: hidden;
+}
+
+/*loading*/
+.loading{
+	width: 100%;
+	background-color: #fff;
+	height: 40rpx;
+	padding-bottom: 20rpx;
+	position: relative;
+
+}
+.loading image{
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin-left: -100rpx; 
+	width: 32rpx;
+	height: 32rpx;
+}
+.loading text{
+	font-size: 28rpx;
+	position: absolute;
+	top: 0;
+	left: 45%;
+	line-height: 40rpx;
+}
+.noGoods{
+	text-align: center;
+	background-color: #fff;
+	font-size: 30rpx;
+	color: #aaaaaa;
+	padding-bottom: 20rpx;
+	margin-top: 50rpx;
+}
+.noGoods .iconfont{
+	font-size: 116rpx;
+	color: #dddddd;
+}
+.noGoods .ps{
+	line-height: 30rpx;
+	margin-top: 40rpx;
+}
+.noGoods .hot-list{
+	margin-top: 190rpx;
+}
+.noGoods .hot-list .hot-list-title{
+	overflow: hidden;
+	height: 32rpx;
+	text-align: center;
+	position: relative;
+	font-size: 30rpx;
+	line-height: 32rpx;
+	margin-bottom: 60rpx;
+}
+.noGoods .hot-list .hot-list-title .line{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	left: 88rpx;
+	top: 0;
+	width: 155rpx;
+	height: 32rpx;
+}
+.noGoods .hot-list .hot-list-title .line2{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	right: 88rpx;
+	top: 0;
+	width: 155rpx;
+	height: 32rpx;
+}
+.noGoods .hot-list .hot-list-title .line view,.noGoods .hot-list .hot-list-title .line2 view{
+	width: 100%;
+	height: 2px;
+	background-color: #9c9c9c;
+}
+.error{
+  position: absolute;
+  top: 19%;
+  width: 100%;
+  color: #8f8e8e;
+  text-align: center;
+  font-size: 28rpx; 
+}
+/*common*/
+.left{
+  float: left;
+  /*margin-left: 16rpx;
+  margin-right: 8rpx; */
+}
+.right{
+  float: right;
+  /*margin-right: 16rpx;
+  margin-left: 8rpx;*/
+}
+
+/*because of search*/
+.hiddenforSearch{
+	display: none;
+}
+
+.history{
+	width: 100%;
+	margin-bottom: 20rpx;
+}
+.history .title{
+	box-sizing: border-box;
+	width: 100%;
+	padding: 30rpx 30rpx;
+	overflow: hidden;
+}
+.history .title .icon-sousuo{
+	float: left;
+	font-size: 52rpx;
+}
+.history .title .icon-remen{
+	float: left;
+	font-size: 52rpx;
+}
+.history .title .icon-shanchu{
+	float: right;
+	font-size: 32rpx;
+	line-height: 56rpx;
+	color: #888888;
+}
+.history .title .text{
+	float: left;
+	font-size: 30rpx;
+	line-height: 56rpx;
+	color: #888888;
+}
+.history .content{
+	box-sizing: border-box;
+	width: 100%;
+	padding-left: 30rpx;
+	padding-right: 30rpx;
+}
+.history .content .record{
+	box-sizing: border-box;
+	height: 75rpx;
+	display: inline-block;
+	/*border: 2rpx solid #ccc;*/
+	border-radius: 6rpx;
+	padding-left: 20rpx;
+	padding-right: 20rpx;
+	margin-right: 20rpx;
+	margin-bottom: 30rpx;
+	font-size: 30rpx;
+	line-height: 75rpx;
+	color: #424242;
+	overflow: hidden;
+	background: #f6f3f7;
+}
+
+
+/*旋转动画*/
+@keyframes moveover {
+  0%   {transform:rotate(0deg);}
+  100% {transform:rotate(360deg);}
+}
+.box{
+  position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -26rpx;
+	margin-left: -80rpx;
+  width:16px;
+  height:16px;
+  /*整体旋转*/
+  animation:moveover 3s linear infinite;
+}
+.box1{
+  position:absolute;
+  width: 8px;
+  height: 16px;
+  border-radius:50px 0 0 50px;
+  /* 起始最深颜色为 #999，过渡到中间颜色为 #d0cfcf */
+  background: linear-gradient(#999, #d0cfcf);
+  background-color: red;
+  z-index:2;
+}
+.box2{
+  position:absolute;
+  width: 8px;
+  height: 16px;
+  border-radius:0 50px 50px 0;
+  left:50%;
+  /* 过渡到中间颜色为 #d0cfcf 最终末尾颜色为 #eee */
+  background: linear-gradient(#eee,#d0cfcf);
+  z-index:1;
+}
+.box3{
+  position:absolute;
+  width: 10px;
+  height: 10px;
+  top:3px;
+  left:3px;
+  border-radius:50%;
+  background-color: #fff;
+  z-index:2;
+}

@@ -1,0 +1,430 @@
+.icon-rili {
+  display: flex;
+  align-items: center;
+  height: 50rpx;
+  line-height: 50rpx;
+  box-sizing: border-box;
+}
+
+.icon-shang2, .icon-xia2 {
+  position: absolute;
+  color: #e9e6e6;
+  bottom: -8rpx;
+  left: 50%;
+}
+
+.icon-M-zanwujilu {
+  color: #928f8f;
+  font-size: 100rpx;
+}
+
+/*头部样式  */
+
+page {
+  min-height: 100%;
+  background-color: #f8f8f8;
+}
+
+.record {
+  background-color: #fff;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #000;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  padding: 20rpx 12rpx;
+}
+
+.header .date {
+  display: flex;
+}
+
+.date .text {
+  height: 50rpx;
+  line-height: 50rpx;
+}
+
+.dateWrapper .startingTime, .dateWrapper .finishTime {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 300rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  /* margin: 0 6rpx; */
+  padding-left: 18rpx;
+  font-size: 26rpx;
+  border-radius: 10rpx;
+  box-sizing: border-box;
+  background-color: #f0f0f0;
+}
+
+.time {
+  color: #424242;
+  font-size: 26rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.icon-qixian {
+  color: #424242;
+  font-size: 32rpx;
+  margin-right: 40rpx;
+  margin-bottom: 2rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.date .startingTime .time, .date .finishTime .time {
+  font-size: 26rpx;
+  /* margin-top: 8rpx; */
+}
+
+/*内容样式  */
+
+.fiexd {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #fff;
+  z-index: 10;
+  box-shadow: 2rpx 2px 6rpx #f8f7f7;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #888;
+  width: 100%;
+  height: 106rpx;
+  font-size: 28rpx;
+  padding: 38rpx 0;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #eee;
+  border-top: 1rpx solid #eee;
+}
+
+.title .all, .title .effective, .title .invalid, .title .visitor, .title .start,
+.title .pugongying {
+  flex: 1;
+  text-align: center;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+
+.dateWrapper {
+  padding: 40rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-top: 1rpx solid #f2f2f2;
+}
+
+.dateWrapper picker {
+  display: flex;
+  flex: 1;
+  background-color: #f0f0f0;
+}
+
+.dateWrapper .text {
+  width: 66rpx;
+  height: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #888;
+  font-size: 28rpx;
+}
+
+.content .wrapper {
+  padding: 160rpx 20rpx 0 20rpx;
+  background-color: #f8f8f8;
+}
+
+.userInfo {
+  color: #000;
+  padding: 30rpx 0 30rpx 20rpx;
+  box-sizing: border-box;
+  position: relative;
+  margin-bottom: 20rpx;
+  background-color: #fff;
+}
+
+.userInfo:last-child {
+  border-bottom: none;
+}
+
+.show {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.hideen {
+  color: #888;
+  padding-left: 93rpx;
+}
+
+.hideen .sxDate {
+  font-size: 24rpx;
+  margin: 16rpx 0 20rpx 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.sxDate .success {
+  color: #424242;
+}
+
+.sxDate .doubt {
+  position: absolute;
+  right: -58rpx;
+  top: -4rpx;
+  z-index: 50;
+  padding: 5rpx 10rpx 5rpx 20rpx;
+}
+.doubt .icon-yiwen1{
+  font-size: 30rpx;
+}
+
+.sxDate .doubtTips {
+  position: absolute;
+  right: -1rpx;
+  top: -84rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #888;
+  font-size: 24rpx;
+  width: 360rpx;
+  height: 220rpx;
+  box-shadow: #dbdbdb 0rpx 0rpx 20rpx;
+  background-color: #fff;
+  padding: 50rpx 35rpx;
+  box-sizing: border-box;
+  z-index: 999;
+}
+
+.doubtTips .pgyxh {
+  margin: 15rpx 0;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.pgyxh .fk {
+  width: 25rpx;
+  height: 25rpx;
+  background-color: #fff;
+  position: absolute;
+  right: -40rpx;
+  top: 0;
+  z-index: 1;
+  transform: rotate(40deg);
+}
+
+.doubtTips .pgyNum {
+  color: #222;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.hideen .belong {
+  font-size: 24rpx;
+  margin-bottom: 14rpx;
+}
+
+.hideen .deadLine {
+  font-size: 24rpx;
+}
+
+.change {
+  color: #969595;
+}
+
+.touxiang {
+  width: 70rpx;
+  height: 70rpx;
+  margin-right: 20rpx;
+}
+
+.touxiang image {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+}
+
+.info {
+  width: 100%;
+  font-size: 26rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 60rpx;
+}
+
+.info .left {
+  padding: 4rpx 0;
+}
+
+.info .right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.info .right .icon-xiala2, .icon-shangla {
+  color: #888;
+  font-size: 18rpx;
+  /* margin-bottom: 28rpx; */
+}
+
+.info .right .userState {
+  width: 135rpx;
+  height: 42rpx;
+  font-size: 24rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6rpx;
+  background-color: #f0f4ff;
+}
+
+.info  .up {
+  display: flex;
+  justify-content: space-between;
+  /* flex-direction: row; */
+}
+
+.info  .up .name {
+  flex: 2;
+  color: #222;
+  text-align: left;
+  font-size: 26rpx;
+  font-weight: bold;
+}
+
+.info  .up .name text {
+  color: #888;
+  font-size: 26rpx;
+  margin-right: 18rpx;
+  font-weight: normal;
+}
+
+.info  .down .category {
+  flex: 1;
+  text-align: right;
+}
+
+.info  .up  .effect {
+  flex: 1;
+  text-align: right;
+  padding-right: 8rpx;
+}
+
+.info .dowm {
+  color: #888;
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.info .dowm .fwDate {
+  flex: 1;
+  font-size: 24rpx;
+}
+
+.info .dowm .sxDate {
+  margin-bottom: 8rpx;
+}
+
+.right .num {
+  font-size: 28rpx;
+}
+
+/*暂无传播记录  */
+
+.noRecord {
+  margin-top: 250rpx;
+  text-align: center;
+}
+
+.noRecord .text {
+  color: #928f8f;
+  font-size: 28rpx;
+}
+
+/*数据加载动画  */
+
+.dataLoading {
+  position: fixed;
+  top: 48%;
+  left: 46%;
+}
+
+.dataLoading image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+/*上拉加载动画  */
+
+.loadMore {
+  width: 100%;
+  height: 42rpx;
+  padding: 10rpx 0;
+  background: #f6f6f6;
+}
+
+.loadMore image {
+  width: 200rpx;
+  height: 42rpx;
+  margin-left: 37%;
+  display: inherit;
+}
+
+/*没有更多记录  */
+
+.noMore {
+  width: 100%;
+  color: #a4a8ab;
+  font-size: 24rpx;
+  text-align: center;
+  margin: 20rpx 0;
+}
+
+/*控制显示隐藏  */
+
+.openData {
+  display: block;
+}
+
+.openData .scrollModal {
+  padding-right: 60rpx;
+}
+
+.closeData {
+  display: none;
+}
+
+/*高亮  */
+
+.highLight {
+  color: #d6e307;
+}

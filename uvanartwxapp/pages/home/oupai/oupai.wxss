@@ -1,0 +1,7 @@
+/* pages/home/oupai/oupai.wxss */
+.oupai{
+  font-size: 0;
+}
+.oupai image{
+  width: 100%;
+}

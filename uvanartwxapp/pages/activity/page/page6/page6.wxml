@@ -1,0 +1,23 @@
+<view>
+	<view class="name">
+		<image class="nameImg" src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/975119dad385458a990e470304c68d1a" mode="widthFix"/>
+	</view>
+	<view class="product">
+		<image class="productImg" src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/273e6a31dbaa4e779b6a7b12c98d4b9d" mode="widthFix"/>
+	</view>
+	<view class="tab">
+		<view class="tab1" bindtap="showcontent1"><view class="tabname {{content1?'tabborder':''}}">品质信息</view></view>
+		<view class="tab2" bindtap="showcontent2"><view class="tabname {{content2?'tabborder':''}}">保养窍门</view></view>
+	</view>
+	<view class="tabcontent">
+		<image wx:if="{{content1}}" class="content" src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/767f9d8069564e15b9a055d6ade27e05" mode="widthFix"/>
+		<image wx:if="{{content2}}" class="content" src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/31009ac1b694421dbf6ad6bc13b0e623" mode="widthFix"/>
+	</view>
+	<view class="factory">
+		<image class="title" src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/4bb50382ebcb47d0b8cf403d0c3bbe69" mode="widthFix"/>
+		<image class="content" src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/40cc0eb043d949a5a5d80b89b307e457" mode="widthFix"/>
+	</view>
+	<view class="more" bindtap="toIndex">
+		<image class="btn" src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/e03c3b64e11b4e8c8b6bf83411bedad5" mode="widthFix"/>
+	</view>
+</view>

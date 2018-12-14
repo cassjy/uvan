@@ -1,0 +1,162 @@
+page {
+  line-height: normal;
+  height: 100%;
+}
+
+.container {
+  height: 100%;
+  background-color: #fff;
+}
+
+.vipCode {
+  width: 100%;
+  height: 181rpx;
+  background-color: #fff;
+  padding: 40rpx;
+  box-sizing: border-box;
+  border-top: 1rpx solid #f2f2f2;
+}
+
+.vipCode .title {
+  width: 100%;
+  font-size: 24rpx;
+}
+
+.vipCode .title text {
+  margin-left: 16rpx;
+  color: #cdcdcd;
+}
+
+.vipCode .codeBox {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.vipCode .codeBox .code {
+  color: #f76e6e;
+  font-size: 44rpx;
+  margin-top: 20rpx;
+  font-weight: 700;
+  letter-spacing: 6rpx;
+}
+
+.vipCode .codeBox .btn {
+  width: 126rpx;
+  height: 60rpx;
+  font-size: 28rpx;
+  border-radius: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1rpx solid #e1e1e1;
+}
+
+.border {
+  width: 100%;
+  height: 40rpx;
+  background-color: #f4f4f4;
+}
+
+.vipshoper {
+  padding: 0 40rpx;
+  font-size: 28rpx;
+}
+
+.vipshoper .wrapper {
+  display: flex;
+  padding: 38rpx 0;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1rpx solid #eeeeee;
+}
+
+.vipshoper .wrapper .right {
+  color: #424242;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.vipshoper .wrapper .right .icon-more {
+  color: #878787;
+  font-size: 34rpx;
+  margin-left: 18rpx;
+}
+
+/* .visitor,
+
+.vipMember,
+.vipshoper
+{
+	box-sizing: border-box;
+	width: 100%;
+	height: 102rpx;
+	margin-top: 18rpx;
+	border: 2rpx solid #f1f0f5;
+	border-right: none;
+	border-left: none;
+	padding-left: 24rpx;
+	padding-right: 32rpx;
+	background-color: #fff;
+	line-height: 102rpx;
+} */
+
+/* .visitor .title,
+
+.vipMember .title,
+.vipshoper .title
+{
+	font-size: 28rpx;
+	float: left;
+}
+.visitor .iconfont,
+.vipMember .iconfont,
+.vipshoper .iconfont
+{
+	font-size: 32rpx;
+	margin-left: 10rpx;
+	float: right;
+} */
+
+/* .vipCode text{
+	float: left;
+	position: relative;
+	top: -2rpx;
+	margin-left: 20rpx;
+	font-size: 22rpx;
+	color: #b4b4b4;
+}
+.vipCode .btn::after{
+	border: none;
+}
+.vipCode .btn{
+	font-size: 22rpx;
+	margin-right: 10rpx;
+	border: 2rpx solid #4f4d4d;
+	border-radius: 0;
+	position: relative;
+	top: 24rpx;
+	width: 85rpx;
+	padding: 0;
+}
+.vipCode .code{
+	font-size: 28rpx;
+	color: #ca3d3d;
+}
+.vipCode .codeBox{
+	box-sizing: border-box;
+	height: 56rpx; 
+	float: right;
+	display: flex;
+	flex-direction: row;
+} */
+
+/* .vipMember  .number ,
+.visitor .number,
+.vipshoper .number{
+	float: right;
+	font-size: 28rpx;
+	color: #888;
+} */

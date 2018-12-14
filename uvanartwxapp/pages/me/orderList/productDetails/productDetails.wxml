@@ -1,0 +1,179 @@
+<view class="productDetails">
+  <view class="header">
+    <view class="iconfont {{F_OrderStatus=='A'?'icon-daifukuan':(F_OrderStatus=='B'?'icon-daifahuo1':(F_OrderStatus=='C'?'icon-daipingjia':(F_OrderStatus=='D'?'icon-daipingjia':(F_OrderStatus=='E'?'icon-gou3-copy':(F_OrderStatus=='F'?'icon-yiquxiao':'icon-yiguanbi')))))}}"></view>
+    <view class="text">{{F_OrderStatus=='A'?'待付款':(F_OrderStatus=='B'?'待发货':(F_OrderStatus=='C'?'待收货':(F_OrderStatus=='D'?'待评价':(F_OrderStatus=='E'?'已完成':(F_OrderStatus=='F'?'已取消':'已关闭')))))}}</view>
+  </view>
+  <view class="userinfo">
+    <!-- <view class="phone">
+      <text>{{F_ConsigneePhone}}</text>
+    </view> -->
+    <view class="consignee">
+      <view class="left">
+        <text>收货人：</text>
+        <text>{{F_ConsigneeName}}</text>
+      </view>
+      <view class="right">
+        <text>{{F_ConsigneePhone}}</text>
+      </view>
+    </view>
+    <view class="address">
+      <text>收货地址：</text>
+      <text>{{F_ShippingAddress}}</text>
+    </view>
+  </view>
+  <!--物流信息  -->
+  <view class="logistics" wx:if="{{F_LogisticsFirm !== null && F_LogisticsNo !== null}}">
+    <view class="mode">
+      <text class="labelBar">配送方式：</text>
+      <text>{{F_ShippingMethod}}</text>
+    </view>
+    <view class="company">
+      <text class="labelBar">物流公司：</text>
+      <text>{{F_LogisticsFirm}}</text>
+    </view>
+    <view class="OddNumbers">
+      <text class="labelBar">物流单号：</text>
+      <text>{{F_LogisticsNo}}</text>
+    </view>
+  </view>
+  <!--线下支付信息  -->
+  <view class="payInfo" wx:if="{{F_PaymentMethodCode=='B'&& F_OrderStatus != 'A'&& formPinTuan}}">
+    <view class="store">
+      <text class="labelBar">门店信息：</text>
+      <text>{{F_PhysicalStore === null||F_PhysicalStore == ''?'暂无信息':F_PhysicalStore}}</text>
+    </view>
+    <view class="company">
+      <text class="labelBar">支付方式：</text>
+      <text>{{F_PaymentMethod}}</text>
+    </view>
+    <view class="OddNumbers">
+      <text class="labelBar">优惠金额：</text>
+      <text class="money">￥{{F_DiscountAmount}}</text>
+    </view>
+  </view>
+
+  <!--已关闭订单的售后信息  -->
+  <!-- <view class="AfterSaleInfo" wx:if="{{F_OrderStatus == 'G'}}">
+    <view class="tkMoney">
+      <text class="labelBar">退款金额：</text>
+      <text>￥1690</text>
+    </view>
+    <view class="shInfo">
+      <text class="labelBar">售后信息：</text>
+      <text>商品与实际不符</text>
+    </view>
+    <view class="shTime">
+      <text class="labelBar">售后时间：</text>
+      <text>2018-1-4 18:00:00</text>
+    </view>
+  </view> -->
+  <view class="content">
+    <block wx:for="{{dataList}}" wx:key="index">
+      <view class="goodsWrapper {{dataList.length>1&& index<dataList.length-1?'borderBottom':''}}" data-id="{{item.F_ProductID}}">
+        <view class="goodsDetail" catchtap="openDetail" data-index="{{item.F_ProductID}}" data-payWay="{{F_PaymentMethodCode}}">
+          <view class="img">
+            <image src="{{item.F_ProductImage}}"></image>
+          </view>
+          <view class="detail">
+            <view class="top">
+              <view class="name">{{item.F_ProductName}}</view>
+              <view class="goodsPrice">
+                <view class="price">
+                  <text wx:if="{{F_PaymentMethodCode !='C'}}">￥{{item.F_ProductPrice}}</text>
+                  <text wx:if="{{F_PaymentMethodCode =='C'}}">梵豆{{item.F_ProductPrice}}</text>
+                </view>
+                <view class="num">
+                  <text>×{{item.F_ProductNumber}}</text>
+                </view>
+              </view>
+            </view>
+            <view class="specifications">
+              <text> {{item.F_ProductSpecification}}</text>
+            </view>
+            <view class="deliveryTime" wx:if="{{F_OrderStatus=='A' ||F_OrderStatus=='B'||F_OrderStatus=='C'}}">
+              <text>发货时间：付款后{{item.F_DeliveryCycle==0||item.F_DeliveryCycle===null?60:item.F_DeliveryCycle}}天内</text>
+            </view>
+          </view>
+        </view>
+        <view class="afterSales" wx:if="{{F_OrderStatus !='A'&&F_OrderStatus !='F'}}">
+          <view class="shouhou" wx:if="{{F_OrderStatus!='A' && item.F_RefundStatus === null && F_PaymentMethodCode !='C'&& item.F_GroupBuyStatus !=1}}" hover-class="highLight" data-index='{{index}}' catchtap="customerService" data-fid="{{item.F_DetailsID}}">申请售后</view>
+          <view class="shouhouStatus" hover-class="highLight" catchtap="openShPage" data-F_DetailsID="{{item.F_DetailsID}}" wx:if="{{F_OrderStatus!='A' && item.F_RefundStatus !== null}}">
+            <text class="statusText">售后/退款状态:</text>{{item.F_RefundStatus}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <view class="orderDetail">
+    <view class="orderMoney">
+      <view class="left">商品金额</view>
+      <view class="right" wx:if="{{F_PaymentMethodCode !='C'}}">￥{{F_ProductTotalAmount}}</view>
+      <view class="right"  wx:if="{{F_PaymentMethodCode =='C'}}">梵豆{{F_ProductTotalAmount}}</view>
+    </view>
+    <view class="freight">
+      <view class="left">运费金额</view>
+      <view class="right">￥{{F_Freight}}</view>
+    </view>
+    <view class="preferentialInfo">
+      <view class="left">优惠信息</view>
+      <view class="right">{{F_DiscountAmount==0?'尚未享受优惠':'-￥'+F_DiscountAmount}}</view>
+    </view>
+    <!-- <view class="discount">
+      <view class="left">立减</view>
+      <view class="right">-￥0.00</view>
+    </view> -->
+    <view class="yfukuan">
+      <view class="up">
+        <text wx:if="{{F_PaymentMethodCode=='C'}}">实际梵豆：<text class="color">梵豆{{F_RealPayAmount}}</text></text>
+        <text wx:else>实际付款：<text class="color">￥{{F_RealPayAmount}}</text></text>
+      </view>
+      <!-- <view class="dowm">
+        <text class="icon-up"></text>
+      </view> -->
+    </view>
+  </view>
+  <view class="serialNum">
+    <view class="up">
+      <view data-value="{{F_OrderNo}}" class="numCode">订单编号：{{F_OrderNo}}</view>
+      <view class="copy" hover-class="highLight" catchtap="copyText">复制</view>
+    </view>
+    <view class="orderTime">
+      <text>下单时间：</text>
+      <text>{{F_BuyTime}}</text>
+    </view>
+    <view class="orderTime" wx:if="{{F_OrderStatus != 'A'}}">
+      <text>支付时间：</text>
+      <text>{{F_PaymentTime===null?'空':F_PaymentTime}}</text>
+    </view>
+    <view class="deliveryTime" wx:if="{{F_OrderStatus == 'C' || F_OrderStatus == 'D'}}">
+      <text>发货时间：</text>
+      <text>{{deliveryTime===null?'空':deliveryTime}}</text>
+    </view>
+    <view class="shippingTime" wx:if="{{F_OrderStatus=='D'}}">
+      <text>收货时间：</text>
+      <text>{{shippingTime}}</text>
+    </view>
+  </view>
+  <view class="blank"></view>
+  <view class="operation">
+    <button class="contact" open-type='contact'>
+      <view class="icon-kefu5 iconfont"></view>
+      <view>联系客服</view>
+    </button>
+    <view class="tel" bindtap="Dialing">
+      <view class="icon-ziyuan iconfont"></view>
+      <view>拨打电话</view>
+    </view>
+    <view class="cancel">
+       <view class="cancelOrder" wx:if="{{F_OrderStatus == 'A'}}">
+         <picker bindchange="bindPickerChange" value="{{index}}" range="{{cancelArray}}">取消订单</picker>
+       </view>
+       <view class="afterSales" wx:if="{{F_OrderStatus != 'A'&&F_OrderStatus!='F'&&F_PaymentMethodCode !='C'&&F_OrderStatus!='G'}}" bindtap="toServiceList">申请售后</view>
+      <!-- <text>{{F_OrderStatus=='A'?'取消订单':'申请售后'}}</text> -->
+    </view>
+    <view class="pay" wx:if="{{F_OrderStatus=='A'}}" bindtap="pay">{{F_PaymentMethodCode=='A'?'付款':'线下支付'}}</view>
+    <view class="pay" wx:elif="{{F_OrderStatus=='B'}}" bindtap="reminder">催单</view>
+    <view class="pay" wx:elif="{{F_OrderStatus=='C'}}" bindtap="confirmOrder">确认收货</view>
+    <view class="pay" wx:else bindtap="bugAgain">再次购买</view>
+  </view>
+</view>

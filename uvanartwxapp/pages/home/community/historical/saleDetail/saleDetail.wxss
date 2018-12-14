@@ -1,0 +1,575 @@
+.icon-xingxing1 {
+  font-size: 39rpx;
+  color: #c2bebe;
+  padding: 0 15rpx;
+}
+
+/*内容 B */
+
+.saleDetail {
+  border-top: 1rpx solid #eee;
+}
+
+.topWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #222;
+  height: 150rpx;
+  font-size: 28rpx;
+  margin-bottom: 40rpx;
+  background-color: #fff;
+}
+
+.topWrapper .historicalScan, .topWrapper .dial {
+  flex: 1;
+  text-align: center;
+  /* padding: 25rpx 0; */
+  font-size: 28rpx;
+}
+
+.icon-lishi {
+  font-size: 38rpx;
+  margin-right: 20rpx;
+  color: #8e8e8e;
+}
+
+.icon-phone {
+  font-size: 40rpx;
+  margin-right: 20rpx;
+  color: #8e8e8e;
+}
+
+.centerWrapper {
+  color: #222;
+  font-size: 26rpx;
+  padding: 40rpx;
+  padding-bottom: 60rpx;
+  background-color: #fff;
+}
+
+.centerWrapper .problemOfGoods, .centerWrapper .name, .centerWrapper .phone,
+.centerWrapper .transaction {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 60rpx;
+}
+
+.centerWrapper .problemOfGoods .text, .centerWrapper .name .left, .phone .left,
+.transaction .left {
+  flex: 1;
+}
+
+.centerWrapper .problemOfGoods .shuRuKuang, .centerWrapper .name .right,
+.phone .right, .transaction .right {
+  flex: 1;
+}
+
+.picker {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.centerWrapper .problemOfGoods .shuRuKuang {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.phone .right input {
+  position: relative;
+  padding-right: 35rpx;
+}
+
+.centerWrapper .name .right input, .transaction .right input,
+.centerWrapper .problemOfGoods .ipt input {
+  font-size: 26rpx;
+  text-align: right;
+  padding-right: 8rpx;
+}
+
+.centerWrapper .name .right input {
+  padding-right: 35rpx;
+}
+
+.problemOfGoods .shuRuKuang input {
+  width: 100%;
+  font-size: 26rpx;
+  padding-right: 8rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  box-sizing: border-box;
+  position: relative;
+  text-align: right;
+}
+
+.phone .phoneIpt {
+  text-align: right;
+}
+
+.phone .error {
+  color: #e8364c;
+  text-align: right;
+}
+
+.transaction .right input {
+  position: relative;
+  font-size: 26rpx;
+}
+
+.centerWrapper .icon-shang9, .centerWrapper .icon-xia3 {
+  /* position: absolute; 
+  top: 10rpx;
+  right: 0; */
+  color: #666;
+  font-size: 30rpx;
+}
+
+.serviceDescribe .serviceTitle {
+  margin-bottom: 30rpx;
+}
+
+.serviceDescribe .frame {
+  width: 100%;
+  height: 136rpx;
+  line-height: 45rpx;
+  padding-left: 10rpx;
+  padding-top: 12rpx;
+  padding-bottom: 42rpx;
+  box-sizing: border-box;
+  background-color: #f8f8f8;
+}
+
+.serviceDescribe .textArea {
+  position: relative;
+}
+
+.serviceDescribe .textArea .number, .mySuggest .textArea .number {
+  position: absolute;
+  right: 16rpx;
+  bottom: 8rpx;
+  color: #ccc;
+  font-size: 22rpx;
+}
+
+.serviceDescribe .textArea .number .green, .mySuggest .textArea .number .green {
+  color: #34cc34;
+  margin-right: 2rpx;
+}
+
+.serviceDescribe .textArea textarea {
+  width: 100%;
+  height: 136rpx;
+  line-height: 45rpx;
+  font-size: 26rpx;
+  padding-left: 10rpx;
+  padding-top: 12rpx;
+  padding-bottom: 42rpx;
+  box-sizing: border-box;
+  background-color: #f8f8f8;
+}
+
+.uploadPic {
+  color: #222;
+  font-size: 26rpx;
+  margin-top: 60rpx;
+}
+
+.uploadPic .title {
+  margin-bottom: 30rpx;
+}
+
+.uploadPic .title .noMoreThan {
+  color: #888;
+  font-size: 24rpx;
+  margin-left: 15rpx;
+}
+
+.uploadPic  .photoList {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.uploadPic  .photoList .photo, .photoList .addPhoto {
+  width: 115rpx;
+  height: 115rpx;
+  box-sizing: border-box;
+  background-color: #f8f8f8;
+}
+
+.photo .Img {
+  width: 100%;
+  height: 200rpx;
+  padding: 4rpx;
+  box-sizing: border-box;
+}
+
+.photo .Img image {
+  width: 115rpx;
+  height: 115rpx;
+}
+
+.photoList .addPhoto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-add {
+  color: #666;
+  font-size: 38rpx;
+  font-weight: bold;
+}
+
+.marginRight {
+  margin-right: 24rpx;
+}
+
+/*底部  */
+
+.footer {
+  padding: 0 40rpx 15rpx 40rpx;
+  background-color: #fff;
+}
+
+.reply {
+  margin-bottom: 30rpx;
+}
+
+.reply .title {
+  color: #222;
+  font-size: 26rpx;
+  margin-bottom: 15rpx;
+}
+
+.reply .replayArea .number {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.reply .replayArea textarea {
+  width: 100%;
+  height: 200rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+  padding: 6rpx 6rpx 0 6rpx;
+  background-color: #f8f8f8;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+}
+
+.btn button {
+  width: 670rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #fff;
+  background-color: #424242;
+  border-radius: 0px !important;
+}
+
+/*提交成功提示  */
+
+/*遮罩层  */
+
+.mask {
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.icon-gou3-copy {
+  font-size: 60rpx;
+  color: #1296db;
+}
+
+.mask .wrapper {
+  position: absolute;
+  left: 15%;
+  top: 30%;
+  width: 70%;
+  height: 285rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border-radius: 10rpx;
+  background-color: #fff;
+}
+
+.wrapper .top {
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+.wrapper .middle {
+  text-align: center;
+  font-size: 28rpx;
+  margin-bottom: 37rpx;
+}
+
+.wrapper .bottom {
+  text-align: center;
+  font-size: 28rpx;
+}
+
+.wrapper .bottom text {
+  color: #fff;
+  background-color: #1296db;
+  border-radius: 6rpx;
+  padding: 6rpx 35rpx;
+  letter-spacing: 4rpx;
+}
+
+/*论坛互动  */
+
+.qidai {
+  padding-top: 160rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  color: #333;
+}
+
+/*满意问卷  */
+
+.wenjuanWrapper {
+  color: #424242;
+  padding: 0 30rpx;
+  /* margin-bottom: 70rpx; *//* padding-bottom: 70rpx; */
+  background-color: #fff;
+  border-top: 1rpx solid #eee;
+}
+
+.message {
+  font-size: 24rpx;
+  /* padding: 60rpx 0 0 0; */
+}
+
+.messageWrapper {
+  color: #888;
+  line-height: 52rpx;
+  border-bottom: 2rpx solid #eee;
+  padding-bottom: 30rpx;
+}
+
+.buy {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 40rpx 0;
+  box-sizing: border-box;
+  border-bottom: 2rpx solid #eee;
+}
+
+.red {
+  text-align: center;
+  color: #e8364c;
+}
+
+.buy .text {
+  color: #424242;
+  font-size: 28rpx;
+  flex: 1;
+}
+
+.buy .ipt {
+  width: 458rpx;
+  height: 48rpx;
+  /* background-color: #f8f8f8;
+  border: 2rpx solid #dedede; */
+  margin-left: 60rpx;
+  border-radius: 30rpx;
+  box-sizing: border-box;
+  padding: 0 0 0 28rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buy .ipt .goodsName {
+  color: #666;
+  width: 363rpx;
+  font-size: 24rpx;
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ipt  .icon-xia3, .ipt .icon-shang9 {
+  color: #666;
+  width: 40rpx;
+  font-size: 35rpx;
+  margin-left: 10rpx;
+}
+
+.chooseItem {
+  color: #424242;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 35rpx 0;
+  border-bottom: 2rpx solid #eee;
+}
+
+.icon-xingxing1 {
+  font-size: 39rpx;
+  color: #c2bebe;
+  padding: 0 15rpx;
+}
+
+.radioGroup {
+  font-size: 28rpx;
+  margin-right: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.radioGroup .icon-radio2, .radioGroup .icon-radio1 {
+  font-size: 35rpx;
+  color: #d5d3d3;
+}
+
+.radioGroup .icon-radio2 {
+  color: #e8364c;
+}
+
+.radioGroup .false {
+  margin-left: 30rpx;
+}
+
+.radioGroup .true, .radioGroup .false {
+  padding-left: 36rpx;
+}
+
+.radioGroup  text {
+  color: #888;
+  font-size: 28rpx;
+  padding-left: 10rpx;
+}
+
+.first {
+  margin-right: 80rpx;
+}
+
+.channel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 35rpx 0;
+  border-bottom: 2rpx solid #eee;
+}
+
+.channel .text {
+  flex: 1;
+}
+
+.channel .picker2 {
+  z-index: 10;
+  position: relative;
+  width: 343rpx;
+  text-align: right;
+  padding-right: 44rpx;
+  box-sizing: border-box;
+}
+
+.channel .ipt .goodsName {
+  width: 286rpx;
+  height: 46rpx;
+}
+
+.channel .ipt {
+  color: #666;
+  font-size: 24rpx;
+  width: 340rpx;
+  height: 46rpx;
+  line-height: 46rpx;
+  text-align: right;
+  /* border: 2rpx solid #dedede; */
+  border-radius: 30rpx;
+  margin-left: 50rpx;
+  display: flex;
+  padding: 0 17rpx 0 28rpx;
+  /* background-color: #f8f8f8; */
+}
+
+.channel .icon-shang9, .channel .icon-xia3 {
+  color: #666;
+  font-size: 35rpx;
+  margin-left: 10rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-left: 290rpx;
+}
+
+.mySuggest {
+  margin-bottom: 60rpx;
+}
+
+.mySuggest .text {
+  color: #424242;
+  font-size: 28rpx;
+  margin: 30rpx 0;
+}
+
+.mySuggest .textArea {
+  position: relative;
+}
+
+.mySuggest .frame2 {
+  width: 688rpx;
+  height: 298rpx;
+  border: 2rpx solid #d8d8d5;
+}
+
+.mySuggest .textArea textarea {
+  width: 100%;
+  /* border: 2rpx solid #d8d8d5; */
+  padding: 6rpx 0 0 6rpx;
+  box-sizing: border-box;
+  background-color: #f8f8f8;
+}
+
+.hisQuestion {
+  color: #042442;
+  display: flex;
+  justify-content: center;
+  margin-top: 20rpx;
+  padding: 20rpx 0;
+}
+
+.hisQuestion text {
+  color: #4c9ffb;
+}
+
+/*内容 E */
+
+/*红星  */
+
+.red {
+  text-align: center;
+  color: #e8364c;
+}
+
+.start {
+  color: #e8364c;
+}

@@ -1,0 +1,66 @@
+<!--pages/mine/phonelogin/phonelogin.wxml-->
+
+<view class='page'>
+<view class='top-title'>
+  请完成以下认证
+  <view class="phone-text">请输入<text>{{phone}}</text>收到的短信验证码</view>
+</view>
+<form bindsubmit='submit'>
+    <view class="">
+      <!-- <view class="b-input">
+          <view class="iconfont icon-shouji1"></view>
+           <input class="" type="number" maxlength="11" name="phonenum" placeholder="请输入手机号" value='{{phonenum}}' disabled="{{phonechange}}" bindinput="checkphone"/>
+           <view class='phonenum-tip' hidden="{{phonenumTip==''?true:false}}">{{phonenumTip}}</view>
+      </view> -->
+      <view class="b-input b-input-code">
+        <view class="iconfont icon-yanzhengma"></view>
+          <input class="" type="number" name="code" value="{{bindingcode}}" bindinput="inputcode" placeholder='请输入验证码'></input>
+          <view class="getcode" catchtap='getcode'>{{getcodetext}}</view>
+          <view class='vcode-tip' hidden="{{vcodeTip==''?true:false}}">{{vcodeTip}}</view>
+      </view>
+    </view>
+    <!-- <button class='b-btn' formType='submit'>确认绑定</button> -->
+    <button class='b-btn' bindtap='unbind'>下一步</button>
+    <!-- <view class="skip" bindtap="skip">跳过</view> -->
+    <!-- <view class='b-input register-btn'><span bindtap="showDialogBtn">收不到验证码？</span></view> -->
+    <!-- <loading id="loading" comtype="loading">
+        <view style='text-align:center;font-size:30rpx;line-height:35rpx;margin:10rpx 0;'>优梵艺术</view>
+    </loading> -->
+</form>
+<view class="tips">如有问题请致电<text>400-931-6268</text></view>
+</view>
+
+<view class="warning-win" wx:if="{{showWarning}}">
+  <view class="warning">
+    <view class="iconfont icon-zhuyi"></view>
+    <view class="warning-text">{{warningtext}}</view>
+  </view>
+</view>
+<!--弹窗-->
+
+<!-- <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}">
+
+<view class="modal-dialog" wx:if="{{showModal}}">
+
+  <view class="modal-title">收不到验证码？</view>
+  <view class="modal-content">
+    <text>1.请检查手机号输入是否正确，港澳台机海外手机请填写国际区号，再填写手机号码；
+    2.如果安装了360卫士、安全管家、QQ管家等软件，请进入软件查询拦截记录，并将梵店短信设置为信任后重试；
+    3.请清除手机缓存后重新获取;
+    4.请确认您是否退订过（10690329157528）之类的短信，如果是，请联系运营商进行解除退订； 
+    5.如果以上方法都不能解决，请联系梵店客服
+    </text>
+  </view>
+
+</view>
+</view>
+<modal hidden="{{hiddenmodalput}}" title="重新绑定手机" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm" catchtouchmove='true' class="phoneModal"> 
+     <view class='modal-input'><text>手机</text><input id="recommend" name="recommend" bindinput="bindinput" value='{{newPhone}}' placeholder="" disabled="true" style='border:0rpx;'/></view>
+
+    <view class='modal-input'>
+        <input class="" type="number" name="code" placeholder='验证码' bindinput="bindinputCode"></input>
+        <view class="getcode" catchtap='getModalcode'>{{getcodetext1}}</view>
+    </view>
+    <view hidden="{{vcodeTip1==''?true:false}}">{{vcodeTip1}}</view>
+</modal>
+ -->

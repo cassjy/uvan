@@ -1,0 +1,26 @@
+<view class="store">
+	<view class="view1">
+		<image class="image1" mode="widthFix" src="https://uvpt.uvanart.com/upload/static/home/guangzhoustore/1.jpg" />
+	</view>
+	<view class="view2">
+		<image class="image2" mode="widthFix" src="https://uvpt.uvanart.com/upload/static/home/guangzhoustore/2.jpg" />
+		<view class="btn" bindtap="toGDStore"></view>
+		<view class="btn2" bindtap="tobrandservice"></view>
+	</view>
+	<view class="view3">
+		<image class="image3" mode="widthFix" src="https://uvpt.uvanart.com/upload/static/home/guangzhoustore/3.jpg" />
+	</view>
+	<view class="view4">
+		<image class="image4" mode="widthFix" src="https://uvpt.uvanart.com/upload/static/home/guangzhoustore/4.jpg" />
+	</view>
+	<view class="view5">
+		<image class="image5" mode="widthFix" src="https://uvpt.uvanart.com/upload/static/home/guangzhoustore/5.jpg" />
+	</view>
+	<view class="view6">
+		<image class="image6" mode="widthFix" src="https://uvpt.uvanart.com/upload/static/home/guangzhoustore/6.jpg" />
+	</view>
+	<view class="view7">
+		<image class="image7" mode="widthFix" src="https://uvpt.uvanart.com/upload/static/home/guangzhoustore/7.jpg" />
+		<view class="book-btn" bindtap="toGDStore">立即预约到店</view>
+	</view>
+</view>

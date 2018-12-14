@@ -1,0 +1,39 @@
+<view class="page3D">
+	<image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/8bd5a042c71c4fffb9a70417e35ea3bc" style="width: 100%;height: 380rpx;"/>
+	<image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/7e8c940a5d604bacb785d37fff0dcf5a" style="width: 100%;height: 766rpx;"/>
+	<image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/4a1adf1a7010444db118daed1517150b" style="width: 100%;height: 680rpx;"/>
+	<image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/f2480b1b39c5473789b370aac5d87a39" style="width: 100%;height: 680rpx;"/>
+	<image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/755b138ddc454242b701ab46fccd9e07" style="width: 100%;height: 322rpx;"/>
+	
+	<view class="products">
+		<image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/d48712b2d1a8479ca48750eacd7722ff" style="width: 100%;height: 560rpx;"/>
+		<image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/824a8bef0f544821be25d52189bb2138" style="width: 100%;height: 450rpx;"/>
+		<image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/a3712c7608db44368b5d67589d7fdf85" style="width: 100%;height: 450rpx;"/>
+		<image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/a1b6e35a0a37417f8ef7493e706a3a09" style="width: 100%;height: 450rpx;"/>
+
+		<view class="clickArea" style="top: 132rpx;left: 40rpx;" data-id="13312" bindtap="toProduct"></view>
+		<view class="clickArea" style="top: 132rpx;right: 40rpx;" data-id="13223" bindtap="toProduct"></view>
+
+		<view class="clickArea" style="top: 599rpx;left: 40rpx;" data-id="13797" bindtap="toProduct"></view>
+		<view class="clickArea" style="top: 599rpx;right: 40rpx;" data-id="13670" bindtap="toProduct"></view>
+
+		<view class="clickArea" style="bottom: 467rpx;left: 40rpx;" data-id="13399" bindtap="toProduct"></view>
+		<view class="clickArea" style="bottom: 467rpx;right: 40rpx;" data-id="13296" bindtap="toProduct"></view>
+
+		<view class="clickArea" style="bottom: 0rpx;left: 40rpx;" data-id="13838" bindtap="toProduct"></view>
+		<view class="clickArea" style="bottom: 0rpx;right: 40rpx;" data-id="13837" bindtap="toProduct"></view>
+	</view>
+	
+	<view class="designService">
+		<image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/de8da5bdeb254305aaedf478235ba414" style="width: 100%;height: 600rpx;"/>
+		<image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/b8a488bdba6644a99f6ff4d4745c9084" style="width: 100%;height: 518rpx;"/>
+		<image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/147a8ecde6b8417fbc80424500923dac" style="width: 100%;height: 606rpx;"/>
+
+		<view class="clickArea1" style="top: 533rpx;left: 40rpx;" bindtap="to3DPage"></view>
+
+		<view class="clickArea2" style="top: 744rpx;left: 40rpx;" data-id="15696" bindtap="toProduct"></view>
+		<view class="clickArea2" style="top: 744rpx;right: 40rpx;" data-id="14401" bindtap="toProduct"></view>
+
+		<view class="clickArea1" style="bottom: 100rpx;left: 40rpx;" bindtap="to3DSer"></view>
+	</view>
+</view>

@@ -1,0 +1,87 @@
+<view class="uvanart-gift">
+	<image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/BLafAKgwTmOiRV4PJcMOtgAAAT1wZDIE" mode="widthFix" style="width: 750rpx; z-index: 10; position: absolute; top: 0;" />
+	<view class="to-index" bindtap="toIndex">
+		
+	</view>
+	<view class="main">
+		<view class="gift">
+			<view class="win-title">
+				<image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/MOAUn8E4TSaZ-HQnPJpbqgAAAT1wZDIE" mode="widthFix" style="width: 24rpx; height: 38rpx;" />选择领取礼品
+			</view>
+			<view class="gift-win">
+				<block wx:for="{{giftOBJ}}" wx:key="index">
+					<view class="gift-box {{index%2==0?'mgr':'mgl'}}" 
+					bindtap="{{hadGet?'':'chooseGift'}}" 
+					data-index="{{index}}" 
+					data-name="{{item.name}}">
+						<view class="check-box" wx:if="!hadGet"><span class="iconfont {{nowIndex==index?'icon-gou2':''}}"></span></view>
+						<view class="check-box" wx:if="hadGet"><span class="iconfont {{hadgetPrizeName==item.name?'icon-gou2':''}}"></span></view>
+						<view class="gift-img">
+							<image src="{{item.img}}" mode="widthFix" style="width: 200rpx; height: 160rpx;" />
+						</view>
+						<view class="gift-name">{{item.prizeName}}</view>
+					</view>
+				</block>
+			</view>
+			<view class="get-gift {{nowIndex==-1?'get-gift-grey':''}}" wx:if="{{!hadGet}}" bindtap="getGift">立即领取</view>
+			<view class="get-gift get-gift-grey" wx:if="{{hadGet}}">已领取</view>
+			<view class="limit-time">
+				<span class="iconfont icon-shijian"></span>
+				<span class="time">限时一周：06-23 <span style="color: #919191;">~</span> 06-29</span>
+			</view>
+			<view class="ps">
+				<span class="iconfont icon-point-copy-copy"></span>
+				<span class="ps-text">活动仅限本小区/1户领取1次</span>
+			</view>
+		</view>
+		<view class="uvanart-info">
+			<view class="phone-address">
+				<view class="phone" bindtap="phoneCall">
+					<span class="iconfont icon-dianhua1"></span>
+					<span class="phone-number">180-4288-3710</span>
+				</view>
+				<view class="address" bindtap="openMap">
+					<span class="iconfont icon-address"></span>
+					<span class="address-text">导航搜索"优梵艺术广州店"</span>
+				</view>
+			</view>
+			<view class="Tmall">
+				<image class="tmallgif" src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/Q1vHMGniRcuURtiFuxeoDAAAAT1wZDIE" style="width: 36rpx; height: 36rpx;"></image>
+				<image class="tmallsearchgif" src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/YWjzaJaxSfCMI3UYm2TcIAAAAT1wZDIE" style="width: 186rpx; height: 36rpx;"></image>
+				<span class="text">搜索<span>优梵艺术旗舰店</span></span>
+			</view>
+		</view>
+		<view class="warning"><span style="color: #ff7171;">*</span><span style="color: #424242;">注</span> 优梵艺术（梵店）内活动解释权在法律规定的范围内归优梵艺术所有</view>
+	</view>
+
+	<view class="cover" catchtouchmove="true" wx:if="{{!isTap}}"></view>
+
+	<view class="info-form" catchtouchmove="true" wx:if="{{!isTap}}">
+		<view class="iconfont icon-cha" bindtap="closeForm"></view>
+		<view class="form-title">
+			<image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/MOAUn8E4TSaZ-HQnPJpbqgAAAT1wZDIE" mode="widthFix" style="width: 24rpx; height: 38rpx; margin-right: 10rpx;"></image>
+			<span style="letter-spacing: 1px;">填写收货信息</span>
+		</view>
+		<view class="addressee">
+			<view class="addressee-title">收件人：</view>
+			<input type="text" class="text {{emptyName?'text-red':''}}" bindinput="addresseeChange" value="{{inputAddresseeValue}}" />
+		</view>
+		<view class="addressee">
+			<view class="addressee-title">联系电话：</view>
+			<input type="number" class="text {{emptyPhone?'text-red':''}}" bindinput="phoneChange" value="{{inputPhoneValue}}" maxlength="11" />
+		</view>
+		<view class="addressee">
+			<view class="addressee-title">收货地区：</view>
+			<picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+		    <view class="picker {{emptyRegion?'text-red':''}}">
+		      {{region[0]}}-{{region[1]}}-{{region[2]}}
+		    </view>
+		  </picker>
+		</view>
+		<view class="addressee" style="margin-bottom: 60rpx;">
+			<view class="addressee-title">详细地址</view>
+			<textarea fixed="true" class="textarea {{emptyAddress?'text-red':''}}" maxlength="-1" placeholder="请填写城镇+小区+楼栋号+门牌号以便及时将礼品送达给您" bindinput="addressChange" value="{{inputAddressText}}"></textarea>
+		</view>
+		<view class="form-submit" bindtap="formSubmit">提交</view>
+	</view>
+</view>

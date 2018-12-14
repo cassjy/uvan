@@ -1,0 +1,21 @@
+<view class="feedback">
+  <view class="submitContent" hidden='{{navNum !=0}}'>
+    <view class="myFeedBack">
+      <view class='textarea-body' wx-if="{{navNum==0}}">
+        <textarea maxlength="125" placeholder='请输入反馈意见' placeholder-style='color:aaaaaa,font-size:22rpx' bindinput="confirm" class="banset" disabled="{{textset}}" value="{{value}}"></textarea>
+        <view class="number" hidden='{{hiddenNumber}}'>
+          <text class="{{cursor !=0?'green':''}}">{{cursor}}</text>
+          <text>/125</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="btn">
+    <view class="submit" bindtap='submit'>提交反馈</view>
+    <view class="hisFeedback" bindtap='toHisFeedback'>历史反馈</view>
+  </view>
+  <!--暂无反馈意见  -->
+  <view class="haveNotFeedBack" hidden='{{navNum !=1 || hiddenNotFB}}'>
+    <text>您还没有反馈意见，点击去提交反馈意见吧！</text>
+  </view>
+</view>

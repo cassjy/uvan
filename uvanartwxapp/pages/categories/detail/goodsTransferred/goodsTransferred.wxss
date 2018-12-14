@@ -1,0 +1,212 @@
+.goodsTransferred {
+  border-top: 1rpx solid #e7e7e7;
+}
+
+.goodsTransferred .header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #888;
+  font-size: 28rpx;
+  width: 100%;
+  height: 120rpx;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+  background-color: #f3f3f3;
+}
+
+.goodsTransferred .header image {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 100%;
+}
+
+.goodsTransferred .header .givingName {
+  color: #222;
+  font-weight: bold;
+  margin: 0 8rpx 0 20rpx;
+}
+
+.goodsTransferred .content {
+  padding: 40rpx;
+}
+
+.content .goodsImg {
+  width: 100%;
+  height: 670rpx;
+}
+
+.content .goodsImg image {
+  width: 100%;
+  height: 670rpx;
+}
+
+.content .goods-name {
+  color: #666;
+  font-size: 26rpx;
+  line-height: 42rpx;
+  margin: 32rpx 0 50rpx;
+}
+
+.content .apart-btn {
+  color: #fff;
+  font-size: 28rpx;
+  width: 100%;
+  height: 96rpx;
+  line-height: 96rpx;
+  text-align: center;
+  background-color: #424242;
+  border-radius: 60rpx;
+}
+
+/* .content .changeColor {
+  background-color: #ccc;
+} */
+
+.content .highList {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.learnMore {
+  color: #4968d9;
+  font-size: 26rpx;
+  text-align: center;
+  margin-top: 30rpx;
+  text-decoration: underline;
+}
+
+.bounced {
+  position: fixed;
+  left: 60rpx;
+  top: 140rpx;
+  width: 630rpx;
+  height: 960rpx;
+  z-index: 2;
+  border-radius: 10rpx;
+  background-color: #fff;
+}
+
+.bounced .title {
+  width: 100%;
+  height: 115rpx;
+  line-height: 115rpx;
+  color: #222;
+  font-size: 34rpx;
+  font-weight: bold;
+  text-align: center;
+}
+
+.bounced .recipient-info, .bounced .contact-phone, .bounced .contact-address {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #666;
+  font-size: 32rpx;
+  padding: 0 40rpx;
+  margin-bottom: 35rpx;
+  box-sizing: border-box;
+}
+
+.bounced .recipient-info input, .bounced  .contact-phone input {
+  width: 100%;
+  height: 57rpx;
+  color: #424242;
+  font-size: 26rpx;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+  margin-top: 18rpx;
+  border: 1rpx solid #dbdbdb;
+}
+.changeBorder1,.changeBorder2,.changeBorder3{
+   border: 1rpx solid #e02323 !important;
+}
+.bounced .contact-address .picker .wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 57rpx;
+  margin-top: 18rpx;
+}
+
+.bounced .contact-address .picker {
+  width: 100%;
+}
+
+.bounced .contact-address .picker .wrapper input {
+  flex: 1;
+  color: #424242;
+  font-size: 26rpx;
+  padding-left: 20rpx;
+  margin-right: 20rpx;
+  border: 1rpx solid #dbdbdb;
+  position: relative;
+}
+
+.bounced .contact-address .picker .wrapper input:last-child {
+  margin-right: 0;
+}
+
+.bounced .contact-address .picker .wrapper input .icon-xiala {
+  position: absolute;
+  right: 12rpx;
+  top: 14rpx;
+  color: #424242;
+  font-size: 24rpx;
+}
+
+.bounced .contact-address textarea {
+  width: 525rpx;
+  line-height: 38rpx;
+  color: #424242;
+  font-size: 26rpx;
+  padding-left: 20rpx;
+  padding-bottom: 4rpx;
+  margin-top: 18rpx;
+  border-bottom: 1rpx solid #dbdbdb;
+}
+.changeBorder4{
+  border-bottom: 1rpx solid #e02323 !important;
+}
+
+.bounced .ensure {
+  width: 100%;
+  height: 86rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  bottom: 58rpx;
+}
+
+.bounced .ensure button {
+  width: 380rpx;
+  height: 86rpx;
+  line-height: 86rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 28rpx;
+  border-radius: 60rpx;
+  background-color: #424242;
+}
+
+.cha {
+  position: fixed;
+  right: 60rpx;
+  top: 40rpx;
+  z-index: 2;
+}
+
+.cha .icon-guanbi2 {
+  color: #fff;
+  font-size: 50rpx;
+}
+
+.shadow {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}

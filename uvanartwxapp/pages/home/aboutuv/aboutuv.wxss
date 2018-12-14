@@ -1,0 +1,14 @@
+.aboutuv{
+	position: relative;
+}
+image{
+  /*opacity: 0;*/
+  width: 100%;
+}
+.btn{
+	position: absolute;
+	left: 226rpx;
+	bottom: 470rpx;
+	width: 296rpx;
+	height: 42rpx;
+}

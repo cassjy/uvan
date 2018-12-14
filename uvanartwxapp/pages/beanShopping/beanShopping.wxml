@@ -1,0 +1,194 @@
+<view class="nav fixedTop fixedTop fadeIn" wx:if="{{scrollTop}}" id="nav">
+  <view class="tag {{navNum==1?'navColor':''}}" bindtap="navChoose" hover-class='chooseLight' data-id="1">综合</view>
+  <view class="tag {{navNum==2?'navColor':''}}" bindtap="navChoose" hover-class='chooseLight' data-id="2">
+    <text>价格</text>
+    <text class="upDownIcon">
+              <text class="icon-shang1 iconfont {{checkUp?'yes':''}}"></text>
+    <text class="icon-xia1 iconfont {{checkDowm?'':'yes'}}"></text>
+    </text>
+  </view>
+  <view class="tag {{navNum==3?'navColor':''}}" hover-class='chooseLight' bindtap="navChoose" data-id="3">
+    <text>上新</text>
+  </view>
+ 
+</view>
+<scroll-view scroll-y bindscroll="scroll" class="mainScroll" style="height:{{screenHeight}}" lower-threshold="20" upper-threshold="{{top}}" bindscrolltoupper="scrolltoupper" bindscrolltolower="loadMore">
+  <view class="container" style="height:{{height}}">
+    <view class="rexWrapper">
+    
+      <view class="header-wrapper">
+        <view class="h-registered">
+          <view class="left" wx:if="{{notLogin}}" catchtap='TologinPage'>
+            <text class="blod">登录/注册参与梵豆活动</text>
+            <text class="icon-more iconfont"></text>
+          </view>
+          <view class="left" wx:if="{{!notLogin}}">
+            <image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/2634c65ca8cc46eb896d957bd25e615c"></image>
+            <text>我的梵豆</text>
+          </view>
+          <view class="right">
+            <image src="{{!notLogin&&avatarUrl !=''?avatarUrl:'https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/a205068b750249a39acb8dc433993fe2'}}"></image>
+          </view>
+        </view>
+        <view class="h-beanDetail">
+          <view class="left">
+            <view class="rBeanNum" wx:if="{{!notLogin}}">{{beanNum==""?"0":beanNum}}</view>
+            <view class="bDetail" bindtap='TobeanDetailed'>梵豆明细</view>
+          </view>
+          <view class="right">
+            <view class="bRule" catchtap='openRule'>梵豆兑换规则
+              <text class="icon-more iconfont"></text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="photo-wrapper">
+        <view class="left" bindtap='uncultivated'>
+          <image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/6bfd81e4256b401f89a850055a8f747f"></image>
+          <text class="worldSpace">幸运转盘</text>
+        </view>
+        <view class="right" bindtap='ToSignPage'>
+          <image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/a6aa7a7d50a64a2d97f75ce65e474897"></image>
+          <text class="worldSpace">每日签到</text>
+        </view>
+      </view>
+      <view class="user-message" wx:if="{{!isComplete&&!notLogin}}">
+        <view class="userWrapper">
+          <view class="left">完善资料送梵豆</view>
+          <view class="right" catchtap='ToPersonalPage'>去完成
+            <text class="icon-more iconfont"></text>
+          </view>
+        </view>
+      </view>
+      <view class="ticket-wrapper">
+        <swiper autoplay='true' interval="5000" vertical='true' circular='true' class="swiper">
+          <block wx:for="{{forRecordList}}" wx:key="index">
+            <swiper-item>
+              <view class="cashPrizeInfo">
+                <text class="dot"></text>
+                <text>{{item.nickname}}</text>
+                <text> 兑换了{{item.goodsname}}</text>
+              </view>
+            </swiper-item>
+          </block>
+          <swiper-item wx:if="{{forRecordNull}}">
+            <view class="cashPrizeInfo">
+              <text>暂无兑换记录,赶紧赚梵豆兑换吧！</text>
+            </view>
+          </swiper-item>
+        </swiper>
+      </view>
+
+      <view class="rDetail">
+     
+        <view class="bottomWrapper">
+          <!-- 筛选条件 -->
+          <view class="nav" id="nav">
+            <view class="tag {{navNum==1?'navColor':''}}" bindtap="navChoose" hover-class='chooseLight' data-id="1">综合</view>
+            <view class="tag {{navNum==2?'navColor':''}}" bindtap="navChoose" hover-class='chooseLight' data-id="2">
+              <text>价格</text>
+              <text class="upDownIcon">
+              <text class="icon-shang1 iconfont {{checkUp?'yes':''}}"></text>
+              <text class="icon-xia1 iconfont {{checkDowm?'':'yes'}}"></text>
+              </text>
+            </view>
+            <view class="tag {{navNum==3?'navColor':''}}" hover-class='chooseLight' bindtap="navChoose" data-id="3">
+              <text>上新</text>
+            </view>
+            
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 商品列表 -->
+    <view class="grayWrapper"></view>
+    <view class="goodsList">
+      <block wx:for="{{goodsList}}" wx:key="index">
+        <view class="goods {{index==0||index==1||index==2?'':'marginTop'}}" data-id="{{item.goodsID}}" data-catename="梵豆" bindtap='ToGoodsDetial'>
+          <view class="goodsImage">
+            <image src="{{item.images}}"></image>
+          </view>
+          <view class="goodsInfo">
+            <view class="up">
+              <view class="goodsName">
+                {{item.goodsName}}
+              </view>
+            </view>
+            <view class="dowm">
+              <view class="price">
+                <text class="beanText">梵豆</text>
+                <text class="beanPrice">{{item.price}}</text>
+              </view>
+            
+            </view>
+          </view>
+        </view>
+      </block>
+      <view class="goodsLoading" wx:if="{{goodsLoading}}">
+        <view class="box">
+          <view class="box1"></view>
+          <view class="box2"></view>
+          <view class="box3"></view>
+        </view>
+      </view>
+    
+    </view>
+
+ 
+    <!--底部提示  -->
+    <view class="tips" hidden='{{showTips}}'>
+      <view class="left"> 因可能存在系统缓存、页面更新导致价格变动异常等不确定性情况出现，如您发现活动标价或促销信息异常，请立即联系我们客服补正</view>
+      <view class="right">
+        <view class="icon-guanbi iconfont close2" catchtap='hiddenTips'></view>
+      </view>
+    </view>
+   
+    <view class="loading" wx:if="{{loading}}">
+      <view class="box">
+        <view class="box1"></view>
+        <view class="box2"></view>
+        <view class="box3"></view>
+      </view>
+      <text>正在加载</text>
+    </view>
+  </view>
+</scroll-view>
+
+<view class="notHaveGoods" wx:if="{{goodsNull}}">暂无梵豆商品</view>
+
+<!-- </view> -->
+<!--梵豆兑换规则  -->
+<view class="mtk" bindtap="cancel" hidden="{{hiddenShadow}}" catchtouchmove='true'></view>
+<view class="sale-content" hidden="{{hiddenShadow}}" catchtouchmove='true'>
+  <view class="title">梵豆兑换规则</view>
+  <scroll-view scroll-y="true" class="scroll-view">
+    <view class="mode">【什么是梵豆？】</view>
+    <view class="content">梵豆——仅在【优梵艺术l梵店】内产生并使用，可兑礼可抽奖的虚拟货币 </view>
+    <view class="mode">【梵豆的获取途径】</view>
+    <view class="content">① 成交获取：
+      <text>登录【优梵艺术l梵店】小程序注册成为梵星后，在优梵艺术所有平台成交，系统将按照交易金额的一定比例自动配送，梵星无需操作即可获取相应数量的梵豆。\n</text>
+    </view>
+    <view class="fromYF2">注：“优梵艺术所有平台”包括天猫、淘宝、唯品会、线下体验店、【优梵艺术l梵店】。</view>
+    <view class="content">② 互动获取：登录【优梵艺术l梵店】签到打卡，完善个人资料或参与其它承诺奖励梵豆的互动游戏并达到梵豆奖励条件，均可获得相应数量的梵豆。</view>
+    <view class="content">③ 推荐获取：蒲公英，成功推荐新梵星或新蒲公英注册，可获得对应数量的梵豆奖励。</view>
+    <view class="mode">【梵豆的使用途径】</view>
+    <view class="content">① 梵豆，可用于兑换梵豆商城内的礼品，符合所兑换礼品要求的梵豆数量，方可兑换成功；成功兑换后，用户账号内等量减少兑换的梵豆数量；</view>
+    <view class="content">② 所有梵豆可用于参与【优梵艺术l梵店】内需消耗梵豆的互动抽奖或者游戏。</view>
+    <view class="mode">【更多细则】</view>
+    <view class="content">① 在【优梵艺术l梵店】内互动所得梵豆，将于24小时直接发放于用户账户；</view>
+    <view class="content">② 使用梵豆兑换礼品成功后，请填写完整的收货地址，或点击“联系客服”修改收货地址，礼品会在30个工作日内寄出；</view>
+    <view class="content">③ 梵豆兑换的礼品不允许退换，如有问题，请联系客服，礼品以收到实物为准；</view>
+    <view class="content">④ 活动过程中，凡是以不正当手段（作弊、虚假交易、扰乱系统、实施网络攻击、恶意刷赞、刷榜等）参与活动的用户，优梵艺术有权终止其参与活动，并取消其获奖资格，若奖品已发放，优梵艺术有权追回；</view>
+    <view class="content">⑤ 如对【优梵艺术l梵店】内活动有任何建议或者问题，请直接联系客服</view>
+    <view class="fromYF">【优梵艺术l梵店】内活动解释权在法律规定的范围内归优梵艺术所有</view>
+  </scroll-view>
+  <view class="cancel" bindtap="cancel">知道了</view>
+</view>
+
+<!--未登录提示  -->
+<view class="notLoginTips" animation="{{animationData}}" wx:if="{{hiddenTips}}">
+  <view class="tipsContent">
+    <view class="title">优梵艺术提醒您！</view>
+    <view class="tipstext">{{tipsText}}</view>
+  </view>
+</view>

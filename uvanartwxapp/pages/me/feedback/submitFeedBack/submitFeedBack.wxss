@@ -1,0 +1,77 @@
+.histroyFeedBack {
+  padding: 0 40rpx;
+  border-top: 1rpx solid #f2f2f2;
+}
+
+.histroyFeedBack .feedBackItem {
+  padding: 38rpx 0;
+  border-bottom: 1rpx solid #eeeeee;
+}
+
+.histroyFeedBack .feedBackItem:last-child {
+  border-bottom: none;
+}
+
+.feedBackItem .feedContent {
+  color: #424242;
+  font-size: 24rpx;
+  line-height: 35rpx;
+}
+
+.feedBackItem .feedTime {
+  color: #aaa;
+  font-size: 20rpx;
+  margin-top: 30rpx;
+}
+
+.feedBackItem  .reply {
+  font-size: 24rpx;
+  padding: 20rpx 20rpx 40rpx;
+  margin-top: 35rpx;
+  background-color: #f8f8f8;
+  position: relative;
+}
+
+.reply .title {
+  color: #888;
+}
+
+.reply .replyContent {
+  color: #424242;
+  line-height: 38rpx;
+  margin-top: 17rpx;
+}
+
+.reply .replyTime {
+  color: #aaa;
+  font-size: 20rpx;
+  margin-top: 40rpx;
+}
+
+.reply .square{
+  width: 30rpx;
+  height: 30rpx;
+  background-color: #f8f8f8;
+  position: absolute;
+  left: 50rpx;
+  top: -10rpx;
+  transform: rotate(48deg)
+}
+
+/*暂无记录  */
+.noRecord{
+  position: fixed;
+  width: 100%;
+  color: #a9a9a9;
+  font-size: 24rpx;
+  left: 0;
+  top: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.noRecord .icon-M-zanwujilu{
+  font-size: 100rpx !important;
+  margin-bottom: 6rpx;
+}

@@ -1,0 +1,126 @@
+/*字体图标样式  */
+
+.icon-more {
+  font-family: "iconfont" !important;
+  font-size: 30rpx;
+  font-style: normal;
+  color: #717171;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-more::before {
+  content: '\e6a7';
+}
+
+/*内容部分样式  */
+
+page {
+  height: 100%;
+  /*background-color: #f4f4f4;*/
+  position: relative;
+}
+
+.setting {
+  font-size: 28rpx;
+  margin-top: 18rpx;
+  background-color: #fff;
+}
+.clearCache,.version{
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+  border-bottom: 1px solid #dedede;
+  height: 108rpx;
+  line-height: 108rpx;
+  color: #424242;
+  font-size: 30rpx;
+}
+
+.phoneNum-win{
+  box-sizing: border-box;
+  height: 154rpx;
+  margin-right: 40rpx;
+  margin-left: 40rpx;
+  border-bottom: 1px solid #dedede;
+}
+.phoneNum-win .win-left{
+  box-sizing: border-box;
+  float: left;
+  height: 152rpx;
+  padding-top: 40rpx;
+}
+.phoneNum-win .win-left .title1{
+  font-size: 30rpx;
+  color: #424242;
+  margin-bottom: 10rpx;
+}
+.phoneNum-win .win-left .title2{
+  font-size: 24rpx;
+  color: #aaa;
+}
+.phoneNum-win .win-right{
+  float: right;
+  height: 152rpx;
+}
+.phoneNum-win .win-right .phoneNum{
+  display: inline-block;
+  height: 152rpx;
+  line-height: 152rpx;
+  margin-right: 20rpx;
+  color: #424242;
+}
+.phoneNum-win .win-right .iconfont{
+  display: inline-block;
+  height: 152rpx;
+  line-height: 152rpx;
+  color: #222;
+  font-size: 30rpx;
+}
+
+/*.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32rpx 28rpx 32rpx 0;
+  border-bottom: 2rpx solid #d9d9d9;
+}*/
+
+.version .versionNum{
+  margin-left: 40rpx;
+}
+
+/*退出登录  */
+.exit-win{
+  width: 100%;
+  position: absolute;
+  bottom: 80rpx;
+}
+.exit{
+  box-sizing: border-box;
+  width: 670rpx;
+  height: 96rpx;
+  border: 1px solid #dedede;
+  text-align: center;
+  line-height: 96rpx;
+  font-size: 32rpx;
+  color: #424242;
+  letter-spacing: 4rpx;
+  margin: 0 auto;
+}
+
+/*未开发提示  */
+.tips{
+  opacity: 0;
+  position: fixed;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+}
+.tips .tipsWrapper{
+  color: #fff;
+  background-color: rgba(0,0,0,0.6);
+  border-radius: 6rpx;
+  font-size: 28rpx;
+  padding: 13rpx 50rpx;
+}

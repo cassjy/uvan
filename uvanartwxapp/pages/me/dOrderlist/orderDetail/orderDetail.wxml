@@ -1,0 +1,85 @@
+<view class="container">
+	<view class="personal">
+		<view class="status">
+			<text class="icon">x</text>
+			<text class="text">已取消</text>
+		</view>
+		<view class="wechat">
+			<view class="iconfont icon-weixin3"></view>
+			<image />
+			<view class="wxname">微信名：cassjy</view>
+		</view>
+		<view class="info">
+			<view class="iconfont icon-dizhi1"></view>
+			<view class="content">
+				<text class="name">黎建业</text>
+				<text class="phone">15815669031</text>
+				<view class="address">广东省佛山市顺德区龙江镇坦西39号</view>
+			</view>
+		</view>
+		<!-- <view class="iconfont icon-shang2"></view> -->
+	</view>
+	<view class="order">
+		<view class="talk">
+			<text class="iconfont icon-kefu1"></text>
+			<text class="kefu">联系客服</text>
+		</view>
+		<view class="left">
+			<image />
+			<view class="goods">
+				<view class="goodsname">123456789</view>
+				<view class="goodsattr">规格：</view>
+			</view>
+		</view>
+		<view class="right">
+			<view class="price">￥104.00</view>
+			<view class="count">x1</view>
+		</view>
+	</view>
+	<view class="money">
+		<view class="top">
+			<view class="view">
+				<view class="text">订单金额</view>
+				<view class="orderprice">￥104.00</view>
+			</view>
+			<view class="view">
+				<view class="text">运费</view>
+				<view class="orderprice">￥0.00</view>
+			</view>
+			<view class="view">
+				<view class="text">立减</view>
+				<view class="orderprice">-￥0.00</view>
+			</view>
+		</view>
+		<view class="bottom">
+			<view>应付款(含运费)：<text>￥104.00</text></view>
+			<!-- <view class="iconfont icon-shang2"></view> -->
+		</view>
+	</view>
+	<view class="infomation">
+		<view class="info1">
+			<text class="title">订单编号：</text>
+			<text class="num">asdfg0123456789</text>
+			<text class="copy">复制</text>
+		</view>
+		<view class="info1">
+			<text class="title">下单时间：</text>
+			<text class="num">2018-01-05 17:25:30</text>
+		</view>
+		<view class="info1">
+			<text class="title">付款时间：</text>
+			<text class="num">无</text>
+		</view>
+		<view class="info1">
+			<text class="title">付款类型：</text>
+			<text class="num">无</text>
+		</view>
+		<view class="info1">
+			<text class="title">订单来源：</text>
+			<text class="num">微信</text>
+		</view>
+	</view>
+	<view class="operation">
+		<text class="delete">删除</text>
+	</view>
+</view>

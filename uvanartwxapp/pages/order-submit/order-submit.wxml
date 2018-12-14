@@ -1,0 +1,204 @@
+<wxs module="filters" src="../../lib/js/toFixed.wxs"></wxs>
+<!--pages/order-submit/order-submit.wxml-->
+<view class='order-submit-container' style="padding-bottom: 176rpx;height:{{windowHeight}}">
+  <!-- <view class='order-submit-top-placeholder-container'>
+  </view> -->
+
+  <view style='flex: 1; display: flex; flex-direction: column;'>
+    <view class='order-submit-top-container' bindtap='handleToSelectedAddress'>
+      <view wx:if='{{!!consignee.id}}' style='background-color: white;'>
+        <view style="display: inline-block; margin-right: 40rpx; font-size: 26rpx;">{{consignee.customer_name || ''}}</view>
+        <view style="display: inline-block; font-size: 26rpx;">{{consignee.phone || ''}}</view>
+        <view class='order-submit-address'>
+          <view wx:if='{{!!consignee.label}}' class='address-tag'>{{consignee.label || ''}}</view>
+          {{consignee.province || ''}}{{consignee.city || ''}}{{consignee.county || ''}}{{consignee.address || ''}}
+        </view>
+      </view>
+      <view wx:else style='flex: 1; color: #666666; display: flex; flex-direction: column; justify-content: center; background-color: white;'>{{consignee.address || ''}}</view>
+      <image class='arrow-right' src='./images/arrow-right.png'></image>
+    </view>
+
+    <view style='height: 40rpx; background-color: #f4f4f4;'></view>
+
+    <block wx:for='{{list}}' wx:key='order-submit-list' wx:for-item='product'>
+      <view class='order-submit-product-cell-container' style="height: auto;">
+        <image class='product-image' src='{{product.product_image}}'></image>
+        <view class='order-submit-product-cell-center'>
+          <view class='product-name'>{{product.product_name}}</view>
+          <view class='product-specifications'>{{product.product_specifications}}</view>
+          <view class='product-price-count-container'>
+            <view class='product-price' wx:if="{{beanPay}}">
+              <text style="color:#666;">梵豆 </text>{{product.product_price}}</view>
+            <view class='product-price' wx:else>¥{{product.priceDecimal2}}</view>
+            <view class='product-count'>x{{product.count}}</view>
+          </view>
+          <view class='product-price-count-container' style="color: #888888; font-size: 24rpx;" wx:if="{{showDeliveryCycle}}">发货时间: 付款后{{product.delivery_cycle==0||product.delivery_cycle===null?60:product.delivery_cycle}}天内</view>
+          <view class='count-container'>
+            <view class='title'>购买数量:</view>
+            <view class='count-btn'>
+              <view class='decrease-increase {{product.count > 1 ? "" : "decrease-increase--disabled"}}' bindtap='handleDecrease' data-index='{{index}}'>-</view>
+              <input class='count-input' type="number" catchtap="doNothing" bindfocus="bindfocus" bindblur="bindblur" bindinput='bindinput' value='{{product.count}}' data-index='{{index}}'></input>
+              <view class='decrease-increase {{product.count < 999 ? "" : "decrease-increase--disabled"}}' bindtap='handleIncrease' data-index='{{index}}'>+</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- <view class='separator'></view> -->
+      <!-- <view class='order-submit-normal-cell-container' style="padding-top: 12rpx; padding-bottom: 10rpx;">
+        <view class='title' style="color: #888888; font-size: 24rpx;">购买数量</view>
+        <view class='counter-container'>
+          <view class='decrease-increase {{product.count > 1 ? "" : "decrease-increase--disabled"}}' bindtap='handleDecrease' data-index='{{index}}'>-</view>
+          <input class='count-input' type="number" catchtap="doNothing" bindfocus="bindfocus" bindblur="bindblur" bindinput='bindinput' value='{{product.count}}' data-index='{{index}}'></input>
+          <view class='decrease-increase {{product.count < 999 ? "" : "decrease-increase--disabled"}}' bindtap='handleIncrease' data-index='{{index}}'>+</view>
+        </view>
+      </view> -->
+      <view class='separator' wx:if="{{index!=list.length-1}}"></view>
+      <view style='height: 40rpx; background-color: #f4f4f4;' wx:if="{{index==list.length-1}}"></view>
+
+    </block>
+
+    <view class='order-submit-normal-cell-container' style="padding-left: 40rpx;padding-top: 0;" bindtap='handleToSelectedDeliveryMethod'>
+      <view class='title' style="color: #424242;">配送方式</view>
+      <view class='detail' style="color: #888;">{{selectedDeliveryMethod || '选择配送方式'}}</view>
+      <image class='arrow-right' src='./images/arrow-right.png'></image>
+    </view>
+    <view class='payMode' bindtap='handleToPayMode'>
+      <view class='title' style="color: #424242;">支付方式</view>
+      <view class='detail' wx:if="{{!beanPay}}" style="color: #888;">{{selectPayModes|| '选择支付方式'}}</view>
+      <view class='detail' wx:if="{{beanPay}}" style="color: #888;">{{selectPayModes|| '梵豆支付'}}</view>
+      <image class='arrow-right' src='./images/arrow-right.png'></image>
+    </view>
+    <!-- <view class='separator'></view> -->
+
+    <view class='order-submit-normal-cell-container' style="padding-left: 40rpx;padding-top: 0;">
+      <view class='title' style='margin-right: 20rpx; color: #424242;'>卖家备注</view>
+      <input style='flex: 1; text-align: right; font-size: 28rpx; margin-right: 26rpx; color: #888;' bindinput='handleRemarkValueChanged' value='{{remark}}' placeholder='如需补充说明请备注'></input>
+    </view>
+    <view class='order-submit-normal-cell-container' style="padding-left: 40rpx;padding-top: 0;">
+      <view class='title' style='margin-right: 20rpx; color: #424242;'>附近门店</view>
+      <view style='flex: 1; text-align: right; font-size: 28rpx; color: #888;  margin-right: 26rpx;'>{{storeName}}</view>
+    </view>
+    <view style='height: 40rpx; background-color: #f4f4f4;'></view>
+
+    <view class='order-submit-normal-cell-container' style="padding-left: 40rpx;padding-top: 0;" wx:if="{{beanPay}}">
+      <view class='title' style="color: #424242;">商品梵豆</view>
+      <view class='red-title' style="color: #f35c5c;">{{filters.toFix2(allProductsAmountDecimal2)}}</view>
+    </view>
+    <view class='order-submit-normal-cell-container' style="padding-left: 40rpx;padding-top: 0;" wx:else>
+      <view class='title' style="color: #424242;">商品金额</view>
+      <view class='red-title' style="color: #f35c5c;">¥{{allProductsAmountDecimal2}}</view>
+    </view>
+    <!-- <view class='separator'></view> -->
+
+    <view class='order-submit-normal-cell-container' style="padding-left: 40rpx;padding-top: 0;">
+      <view class='title' style="color: #424242;">运费</view>
+      <view class='red-title' style="color: #f35c5c;">¥{{freightDecimal2}}</view>
+    </view>
+    <!-- <view class='separator'></view> -->
+
+    <view class="discountWin" style="height: {{discountWinHeight}}rpx;" wx:if="{{!beanPay&&productCategories!='拼团'}}">
+      <view class='order-submit-normal-cell-container discount' style="padding-left: 40rpx;padding-top: 0;">
+        <view class='title' style="color: #424242;">优惠</view>
+        <view class='red-title red-title2' bindtap="showdiscountInput" wx:if="{{!comfirmCode&&!comfirmCoupons}}">
+          <text>暂无优惠</text>
+          <image class='arrow-right' src='./images/arrow-right.png'></image>
+          <!-- <span class="iconfont icon-xia3" wx:if="{{!showdiscountinput}}"></span> -->
+          <!-- <span class="iconfont icon-shang9" wx:if="{{showdiscountinput}}"></span> -->
+        </view>
+        <view class='red-title' bindtap="showdiscountInput" wx:if="{{comfirmCode||comfirmCoupons}}">-￥{{discountMoney}}
+          <span class="iconfont icon-xia3" wx:if="{{!showdiscountinput}}"></span>
+          <span class="iconfont icon-shang9" wx:if="{{showdiscountinput}}"></span>
+        </view>
+      </view>
+
+
+      <!-- <view class='order-submit-normal-cell-container discountinput' style="top: {{discountinputTop}}rpx; padding-left: 40rpx;padding-top: 0;">
+        <input type="text" class='title inputbox' placeholder="            请输入优惠码不包含空格" wx:if="{{!comfirmCode}}" bindinput="codeActiveChange" />
+        <view class='red-title red-title3' wx:if="{{!comfirmCode}}" bindtap="comfirmCodeBtn">确定</view>
+        <view class='title' wx:if="{{discountCode!=''&&comfirmCode}}">优惠码：{{discountCode}}</view>
+        <view class='red-title red-title3 .red-title4' wx:if="{{discountCode!=''&&comfirmCode}}" bindtap="giveupCode">放弃使用</view>
+      </view> -->
+
+    </view>
+
+    <view class='order-submit-normal-cell-container' wx:if="{{!beanPay}}" style="padding-left: 40rpx;padding-top: 0;">
+      <view class='title'></view>
+      <view class='detail' style="color: #424242;">实付金额：</view>
+      <view class='red-title' wx:if="{{codeState=='响应成功'}}" style="color: #f35c5c;">¥{{filters.toFix(theRealPrice)}}</view>
+      <view class='red-title' wx:else style="color: #f35c5c;">¥{{totalPriceDecimal2}}</view>
+    </view>
+    <view class='order-submit-normal-cell-container' wx:if="{{beanPay}}" style="padding-left: 40rpx;padding-top: 0;">
+      <view class='title'></view>
+      <view class='detail' style="color: #424242;">实付梵豆：</view>
+      <view class='red-title' style="color: #f35c5c;">{{filters.toFix2(totalPriceDecimal2)}}</view>
+    </view>
+    <view class='order-submit-normal-cell-container order-submit-normal-cell-container2' wx:if="{{beanPay}}" style="padding-top: 0;">
+      <view class='title'></view>
+      <view class='detail' style="color: #424242;">可用梵豆：</view>
+      <view class='red-title' style="color: #888;">{{beanCount}}</view>
+    </view>
+
+    <view wx:if="{{selectPayModes=='线下支付' || selectPayModes=='梵豆支付'}}" class='btn' style='color: white; left: 50%;' bindtap='handlePay'>提交</view>
+
+    <view wx:if="{{selectPayModes=='线上支付' || !selectPayModes}}" class='btn' style='color: white; left: 50%;' bindtap='handlePay'>付款</view>
+
+    <view wx:if='{{!false}}' class='btn' style='color: #333333; background-color: #f8f8f8;' bindtap='handleCancel'>取消订单</view>
+
+  </view>
+  <!--优惠券弹框 B -->
+  <view class="{{showMore?'dowmCouponsBounced':'couponsBounced'}}" catchtouchmove='true'>
+    <view class="couponsWrapper">
+      <view class="top">
+        {{couponsText}}
+      </view>
+      <view class="couponList">
+        <scroll-view class="scrollWrapper {{onlyOneCouponNum?'onlyOneCouponNum':''}}" scroll-y="true" bindscrolltolower="loadMore" hidden='{{onCoupons}}'>
+          <view class="couponItem" wx:for="{{couponList}}" wx:key="index" data-id="{{index}}" data-prizecode="{{item.f_prizecode}}" bindtap='chooseCoupon'>
+            <view class="left">
+              <text wx:if="{{item.f_type=='cash'}}">￥{{item.f_value}}，</text>
+              <text wx:if="{{item.f_type=='discount'}}">{{filters.toFix(item.f_value*10)}}折，</text>
+              <text>{{item.f_usecondition}}{{item.f_goodsamountfull}}可用</text>
+            </view>
+            <view class="right">
+              <view class="check-box-icon {{couponNum != index||!checked?'checkedBorder':''}}">
+                <view class="icon-gouxuan iconfont" wx:if='{{couponNum ==index&&checked}}'></view>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+      <view class="noUseCoupons" data-id="noUse" bindtap='chooseNoUseCoupon' hidden='{{onCoupons}}'>
+        <view class="rwrapper">
+          <view class="left">
+            <text>暂不使用优惠券</text>
+          </view>
+          <view class="right">
+            <view class="check-box-icon {{couponNum != 'noUse'||!checked?'checkedBorder':''}}">
+              <view class="icon-gouxuan iconfont" wx:if="{{couponNum =='noUse'&&checked}}"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='order-submit-normal-cell-container discountinput' style="padding-top: 0;padding-right:0;">
+        <input type="text" class='title inputbox' disabled='{{checked&&!checkedNoUseCoupon}}' value="{{checked?'':''}}" placeholder="{{checked&&!checkedNoUseCoupon?'选择优惠券不能再填写优惠码哦':'请输入优惠码不包含空格'}}" placeholder-style="color:#888888" wx:if="{{!comfirmCode}}" bindinput="codeActiveChange" />
+        <view class='red-title red-title3' wx:if="{{!comfirmCode}}" bindtap="comfirmCodeBtn">确定</view>
+        <view class='title' wx:if="{{discountCode!=''&&comfirmCode}}">优惠码：{{discountCode}}</view>
+        <view class='red-title red-title3 .red-title4' wx:if="{{discountCode!=''&&comfirmCode}}" bindtap="giveupCode">放弃使用</view>
+      </view>
+    </view>
+  </view>
+  <view class="shadow" catchtouchmove='true' hidden='{{hiddenCouponsBounced}}' bindtap='colseShadow'></view>
+  <!--优惠券弹框 E  -->
+
+  <!-- <view class='order-submit-top-container' bindtap='handleToSelectedAddress'>
+    <view style='flex: 1; display: flex; flex-direction: column;'>
+      <view>{{consignee.customer_name || ''}} {{consignee.phone || ''}}</view>
+      <view class='order-submit-address'>
+        <view wx:if='{{!!consignee.label}}' class='address-tag'>{{consignee.label}}</view>
+        {{consignee.province || ''}}{{consignee.city || ''}}{{consignee.county || ''}}{{consignee.address || ''}}
+      </view>
+    </view>
+    
+    <image class='arrow-right' src='./images/arrow-right.png'></image>
+  </view> -->
+</view>

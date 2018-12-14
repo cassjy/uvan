@@ -1,0 +1,186 @@
+<view class="saleDetail" hidden='{{state == 2}}'>
+  <form report-submit="true">
+    <view class="content">
+      <view class="centerWrapper">
+        <view class="problemOfGoods">
+          <view class="text">
+            <text>问题商品</text>
+            <text class="red"> *</text>
+          </view>
+          <view class="shuRuKuang">
+            <input disabled="true" placeholder-style='color:#888' value="{{consignee.F_ProblemGoods}}">
+            </input>
+            <text class="{{selectIcon?'icon-shang9':'icon-xia3'}} iconfont"></text>
+          </view>
+        </view>
+        <view class="name">
+          <view class="left">
+            <text>姓名</text>
+            <text class="start"> *</text>
+          </view>
+          <view class="right">
+            <input disabled='{{ban}}' placeholder-style='color:#888' maxlength="10" name="name" value="{{consignee.F_Name||F_YF_CLIENTNAME}}"></input>
+          </view>
+        </view>
+        <view class="phone">
+          <view class="left">
+            <text>手机号码</text>
+            <text class="start"> *</text>
+          </view>
+          <view class="right">
+            <input confirm-type="next" type="number" maxlength='11' disabled='{{ban}}' name="phone" placeholder-style='color:#888' value="{{consignee.F_PhoneNumber||Mobile}}" class="{{showError?'error':'phoneIpt'}}"></input>
+          </view>
+        </view>
+        <view class="transaction">
+          <view class="left">
+            <text>交易平台</text>
+            <text class="start"> *</text>
+          </view>
+
+          <view class="right">
+            <picker mode="selector" range="{{array}}" disabled='{{ban}}'>
+              <view class="picker">
+                <text class="{{chooseIcon?'icon-shang9':'icon-xia3'}} iconfont"></text>
+                <input disabled="true" placeholder-style='color:#888' value="{{consignee.F_SalesPlatform}}">
+                </input>
+              </view>
+            </picker>
+          </view>
+
+        </view>
+        <view class="serviceDescribe">
+          <view class="serviceTitle">
+            <text>服务描述</text>
+            <text class="start"> *</text>
+          </view>
+          <view class="textArea {{installTextArea?'frame':''}}">
+            <textarea hidden="{{installTextArea}}" maxlength="125" disabled='{{ban}}' name="serviceDetail" value="{{consignee.F_Remark}}"></textarea>
+            <text hidden="{{!installTextArea}}">{{textAreaData}}</text>
+          </view>
+        </view>
+        <view class="uploadPic">
+          <view class="title">
+            <text>上传图片</text>
+            <text class="noMoreThan">(不能超过5张)</text>
+          </view>
+          <view class="photoList">
+            <block wx:for="{{picList}}" wx:key="index">
+              <view class="photo {{index !=4?'marginRight':''}}" data-num="{{index}}" data-id="1">
+                <view class="Img">
+                  <image mode="scaleToFill" src='{{item}}'></image>
+                </view>
+              </view>
+            </block>
+            <view class="addPhoto {{changeColor?'changeColor':''}}" wx:if="{{picList.length<=4}}" data-id="2">
+              <view class="icon-add iconfont"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="footer">
+      <view class="reply" hidden='{{hiddenReply}}'>
+        <view class="title">商家回复:</view>
+        <view class="replayArea">
+          <textarea disabled='true' maxlength="255" value="{{consignee.F_Reply}}"></textarea>
+        </view>
+      </view>
+    </view>
+  </form>
+</view>
+<view class="wenjuanWrapper" hidden='{{state == 1}}'>
+  <view class="message">
+    <form>
+      <view class="buy">
+        <view class="text">
+          <text>购买产品</text>
+          <text class="red"> *</text>
+        </view>
+        <view class="ipt">
+          <view class="goodsName">{{consignee.F_BuyProduct}}</view>
+          <view class="{{slectedMore?'icon-shang9':'icon-xia3'}} iconfont"></view>
+        </view>
+      </view>
+      <view class="chooseItem">
+        <view class="item">
+          <view class="text">
+            <text><text style='color:#888'>1</text> 导购服务质量</text>
+            <text class="red"> *</text>
+          </view>
+          <view class="satrt">
+            <text class="icon-xingxing1 iconfont {{colorIndex>=index?'start':''}}" wx:for="{{start}}" wx:key="index" data-id="{{index}}" data-state="1"></text>
+          </view>
+        </view>
+        <view class="item">
+          <view class="text">
+            <text><text style='color:#888'>2</text> 3D设计方案</text>
+            <text class="red"> *</text>
+          </view>
+          <view class="satrt">
+            <text class="icon-xingxing1 iconfont {{colorIndex1>=index?'start':''}}" wx:for="{{start}}" wx:key="index" data-id="{{index}}" data-state="2"></text>
+          </view>
+        </view>
+        <view class="item">
+          <view class="text">
+            <text><text style='color:#888'>3</text> 三包配送服务</text>
+            <text class="red"> *</text>
+          </view>
+          <view class="satrt">
+            <text class="icon-xingxing1 iconfont {{colorIndex2>=index?'start':''}}" wx:for="{{start}}" wx:key="index" data-id="{{index}}" data-state="3"></text>
+          </view>
+        </view>
+        <view class="item">
+          <view class="text">
+            <text><text style='color:#888'>4</text> 家具到货质量</text>
+            <text class="red"> *</text>
+          </view>
+          <view class="satrt">
+            <text class="icon-xingxing1 iconfont {{colorIndex3>=index?'start':''}}" wx:for="{{start}}" wx:key="index" data-id="{{index}}" data-state="4"></text>
+          </view>
+        </view>
+        <view class="item">
+          <view class="text">
+            <text><text style='color:#888'>5</text> 售后服务</text>
+            <text class="red"> *</text>
+          </view>
+          <view class="satrt">
+            <text class="icon-xingxing1 iconfont {{colorIndex4>=index?'start':''}}" wx:for="{{start}}" wx:key="index" data-id="{{index}}" data-state="5"></text>
+          </view>
+        </view>
+        <view class="item">
+          <view class="text">
+            <text><text style='color:#888'>6</text> 愿意推荐优梵</text>
+            <text class="red"> *</text>
+          </view>
+          <view class="satrt radioGroup">
+            <view class="true iconfont {{consignee.F_IsRecommendUvanart==1?'icon-radio2':'icon-radio1'}}" data-id="1" data-name="是" catchtap='chooseRadio'>
+              <text>是</text>
+            </view>
+            <view class="false iconfont {{consignee.F_IsRecommendUvanart==0?'icon-radio2':'icon-radio1'}}" data-id="0" data-name="否" catchtap='chooseRadio'>
+              <text>否</text>
+            </view>
+          </view>
+        </view>
+        <view class="channel">
+          <view class="text">
+            <text style='color:#888'>7</text> 知晓门店的渠道</view>
+          <view class="ipt">
+            <picker mode="selector" class="picker2" range="{{channel}}" disabled='true'>
+              <text class="goodsName">{{!channelValue?'未选择':channelValue}}</text>
+              <text class="{{chooseIcon2?'icon-shang9':'icon-xia3'}} iconfont"></text>
+            </picker>
+          </view>
+        </view>
+      </view>
+      <view class="mySuggest">
+        <view class="text">
+          <text> 我的建议：</text>
+        </view>
+        <view class="textArea {{installWenJuanTextArea?'frame2':''}}">
+          <textarea name="suggest" wx:if="{{!installWenJuanTextArea}}" maxlength="125" value="{{consignee.F_Suggest}}" disabled='true'></textarea>
+          <text wx:if="{{installWenJuanTextArea}}">{{textWenJuanAreaData}}</text>
+        </view>
+      </view>
+    </form>
+  </view>
+</view>

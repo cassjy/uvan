@@ -1,0 +1,380 @@
+page{
+	/*height: 100%;*/
+	/*background-color: #f4f4f4;*/
+}
+.container{
+	width: 100%;
+	height: 100%;
+	/*background-color: #f4f4f4;*/
+}
+/*header*/
+/* .container .header{
+	box-sizing: border-box;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	background-color: #fff;
+	font-size: 30rpx;
+	padding: 0 20rpx; 
+	margin-bottom: 10rpx;
+}
+.container .header view{
+	flex: 1;
+	margin-left: 20rpx;
+	margin-right: 20rpx;
+	padding: 20rpx 0;
+	text-align: center;
+}
+.container .header .active{
+	color: #917253;
+	border-bottom: 8rpx solid #917253;
+} */
+
+.nav {
+  width: 100%;
+  color: #888;
+  display: flex;
+  font-size: 30rpx;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 95rpx;
+  z-index: 100;
+  border-top: 1rpx solid #f2f2f2;
+  border-bottom: 1rpx solid #e6e4e4;
+}
+
+.nav .label {
+  flex: 1;
+  height: 94rpx;
+  line-height: 94rpx;
+  text-align: center;
+  padding: 0 15rpx;
+  box-sizing: border-box;
+}
+
+.label.on {
+  color: #424242;
+  border-bottom: 4rpx solid #666;
+}
+/*list*/
+.list{
+	width: 100%;
+	background-color: #fff;
+  padding-top: 98rpx;
+}
+.list .line{
+	height: 20rpx;
+	background-color: #f4f4f4;
+}
+.list .order-box{
+	position: relative;
+}
+.container .list .orderHeader{
+	overflow: hidden;
+	box-sizing: border-box;
+	/*width: 100%;*/
+	background-color: #fff;
+	padding-top: 20rpx;
+	padding-bottom: 30rpx;
+	margin-left: 40rpx;
+	margin-right: 40rpx;
+	margin-top: 20rpx;
+	font-size: 28rpx;
+	color: #888;
+	border-bottom: 2rpx solid #eee;
+}
+.container .list .orderHeader .orderNum{
+	float: left;
+}
+.container .list .orderHeader .orderTime{
+	/*float: right;*/
+	position: absolute;
+	bottom: 0;
+	right: 40rpx;
+	line-height: 122rpx;
+}
+.container .list .order{
+	box-sizing: border-box;
+	background-color: #fff;
+	margin-left: 40rpx;
+	margin-right: 40rpx;
+	border-bottom: 2rpx solid #eee;
+}
+.container .list .order .listTop{
+	box-sizing: border-box;
+	width: 100%;
+	padding-top: 20rpx;
+	padding-bottom: 10rpx;
+	font-size: 28rpx;
+	overflow: hidden;
+}
+.container .list .order .listTop .time{
+	float: left;
+	color: #888;
+}
+.container .list .order .listTop .status{
+	float: right;
+	color: #917253;
+}
+.container .list .order .listMid{
+	box-sizing: border-box;
+	width: 100%;
+	/*padding-top: 10rpx;*/
+	/*padding-bottom: 10rpx;*/
+	font-size: 28rpx;
+	overflow: hidden;
+	margin-top: 30rpx;
+	margin-bottom: 30rpx;
+}
+.container .list .order .listMid .left{
+	float: left;
+	width: 70%;
+	overflow: hidden;
+}
+.container .list .order .listMid .left .image{
+	float: left;
+}
+.container .list .order .listMid .left .image image{
+	height: 130rpx;
+	width: 130rpx;
+	position: relative;
+	top: 10rpx;
+}
+.container .list .order .listMid .left .name{
+	box-sizing: border-box;
+	float: left;
+	width: 330rpx;
+	padding-left: 20rpx;
+}
+.container .list .order .listMid .left .name .orderName{
+	box-sizing: border-box;
+	padding-bottom: 10rpx;
+	color: #666666;
+}
+.container .list .order .listMid .left .name .orderAttr{
+	color: #888;
+	float: left;
+}
+.container .list .order .listMid .realPrice{
+	/*width: 140rpx;*/
+	float: right;
+	text-align: right;
+	color: #222222;
+	font-size: 26rpx;
+	font-weight: bold;
+}
+.container .list .order .listMid .realPrice .orderAttr{
+	margin-top: 20rpx;
+	color: #888;
+	font-weight: normal;
+}
+.container .list .order .listMid .realPrice .reward{
+	margin-top: 20rpx;
+	font-weight: normal;
+}
+.container .list .order .listMid .price{
+	float: right;
+	width: 20%;
+	text-align: right;
+}
+.container .list .order .listMid .price .orderPrice{
+
+}
+.container .list .order .listMid .price .orderCount{
+	color: #888;
+}
+
+
+.container .list .client-info-win{
+	box-sizing: border-box;
+	padding-left: 40rpx;
+	padding-right: 40rpx;
+	padding-top: 20rpx;
+	padding-bottom: 20rpx;
+	font-size: 24rpx;
+	border-bottom: 1px solid #f4f4f4;
+}
+.container .list .client-info-win .client-info{
+	
+}
+.container .list .client-info-win .client-info .client-info-title{
+	float: left;
+	display: inline-block;
+	width: 120rpx;
+	color: #888888;
+	line-height: 62rpx;
+}
+.container .list .client-info-win .client-info .client-info-value{
+	float: left;
+	display: inline-block;
+	width: 550rpx;
+	color: #424242;
+	line-height: 62rpx;
+}
+.container .list .client-info-win .client-info .clearfloat{
+	clear: both;
+}
+
+.container .list .listBottom{
+	box-sizing: border-box;
+	background-color: #fff;
+	margin-left: 40rpx;
+	margin-right: 40rpx;
+	font-size: 28rpx;
+	overflow: hidden;
+}
+.hiddentext{
+	display: none;
+}
+.container .list .listBottom .allPrice{
+	float: left;
+	box-sizing: border-box;
+	/*width: 100%;*/
+	text-align: left;
+	padding-top: 10rpx;
+	padding-bottom: 10rpx;
+	line-height: 103rpx;
+}
+.container .list .order .listBottom .allPrice text{
+	font-size: 32rpx;
+	font-weight: bold;
+	color: #917253;
+}
+.container .list .listBottom .orderstatus{
+	float: right;
+	box-sizing: border-box;
+	/*padding-top: 10rpx;*/
+	/*padding-bottom: 10rpx;*/
+	position: absolute;
+	top: 0;
+	right: 40rpx;
+	line-height: 70rpx;
+	color: #424242;
+}
+
+.noOrder {
+  color: #b6b6b6;
+  width: 100%;
+  display: flex;
+  font-size: 28rpx;
+  text-align: center;
+  justify-content: center;
+  margin-top: 380rpx;
+}
+
+.noOrder .wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.noOrder .wrapper .icon-zanwujilu1 {
+  font-size: 200rpx;
+  margin-bottom: 20rpx;
+  color: #b6b6b6;
+}
+
+.icon-order::before {
+  content: '\e62a';
+}
+
+.icon-order {
+  font-family: "iconfont" !important;
+  font-size: 38rpx;
+  font-style: normal;
+  color: #aaa;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*loading*/
+.loading{
+  width: 100%;
+  background-color: #fff;
+  height: 40rpx;
+  /*padding-bottom: 20rpx;*/
+  margin-top: 20rpx;
+  padding-top: 20rpx;
+  position: relative;
+}
+.loading image{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -100rpx; 
+  width: 32rpx;
+  height: 32rpx;
+}
+.loading text{
+  font-size: 28rpx;
+  position: absolute;
+  top: 0;
+  left: 45%;
+}
+
+/*旋转动画*/
+@keyframes moveover {
+  0%   {transform:rotate(0deg);}
+  100% {transform:rotate(360deg);}
+}
+.box{
+  position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -26rpx;
+	margin-left: -80rpx;
+  width:16px;
+  height:16px;
+  /*整体旋转*/
+  animation:moveover 3s linear infinite;
+}
+.box1{
+  position:absolute;
+  width: 8px;
+  height: 16px;
+  border-radius:50px 0 0 50px;
+  /* 起始最深颜色为 #999，过渡到中间颜色为 #d0cfcf */
+  background: linear-gradient(#999, #d0cfcf);
+  background-color: red;
+  z-index:2;
+}
+.box2{
+  position:absolute;
+  width: 8px;
+  height: 16px;
+  border-radius:0 50px 50px 0;
+  left:50%;
+  /* 过渡到中间颜色为 #d0cfcf 最终末尾颜色为 #eee */
+  background: linear-gradient(#eee,#d0cfcf);
+  z-index:1;
+}
+.box3{
+  position:absolute;
+  width: 10px;
+  height: 10px;
+  top:3px;
+  left:3px;
+  border-radius:50%;
+  background-color: #fff;
+  z-index:2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

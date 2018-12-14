@@ -1,0 +1,6 @@
+<view class="container">
+	<image class="image1" src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/1c460bf2ed244f9cb324947b67396973" />
+	<image class="image2" src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/fd8bcdfda5114556b77c44d9549c1304" />
+  <navigator url='../dandelion1/enable/enable'>蒲公英有什么特权？</navigator>
+	<view class="button" bindtap="toBecomeD">成为蒲公英</view>
+</view>

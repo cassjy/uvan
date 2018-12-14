@@ -1,0 +1,140 @@
+<!-- 新品特惠 -->
+<view class="pic">
+  <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/Oldpkbf2TW-7VlThrHZzBQAAAT1wZDIE'></image>
+</view>
+
+<view class="cont-t">
+  <view class="x"></view>
+  <text class="tx">生活需要新意和灵感，家也是。 
+    然而，海量的市场，
+    从不缺匠“新”之作，
+    优梵新品的诞生， 
+    从无到有，从有到脱颖而出
+    需要更多慧眼识珠的“吃螃蟹者” 
+    为它买单，为它写下最初的留言。
+  </text>
+  <view class="x marb-80"></view>
+
+  <view class="bj">
+    <text class="txCont">经多番交涉
+    优梵艺术成功携手制造工厂
+    在蝉鸣阵阵的淡季，以超低利润
+    为新品创造一片价格竞争的蓝海
+    <text class="bj-x"></text>新品上市特惠期，
+    期待梵星们为新设计添彩纳言
+    助力它们冲出重围。
+    抢“鲜”体“惠”，开始尝“新”之旅吧！
+    </text>
+
+  </view>
+</view>
+
+<view class="x"></view>
+
+<!-- 一见倾新必购系列 -->
+<view class="title marb-40">
+  <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/vmZVZte7RQGM9lV9x9ZaCwAAAT1wZDIE'></image>
+  <text>New product series</text>
+</view>
+
+<view class="item">
+  <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/JzBC3-_PRuW-pdIC4XKFAgAAAT1wZDIE'
+    class="item-img1"></image>
+  <text class="tx">天猫春夏潮流趋势展大热展品
+    高密度回弹海绵，丰盈柔弹
+    曼妙“美人靠”，舒适贴身</text>
+
+  <view class="pro">
+    <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/VlvCwp9xSP2X3x4MURoJ-AAAAT1wZDIE'></image>
+    <text class="h4">Sophie单人绒布沙发</text>
+  </view>
+</view>
+
+<view class="item">
+  <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/hluJHE8kSCuDrtqtkHxZxQAAAT1wZDIE'
+    class="item-img1"></image>
+  <text class="tx">国内前五沙发外贸工厂制造
+    通体拉点设计，比肩欧美知名品牌
+    进口土耳其绒布，质感非凡</text>
+
+  <view class="pro">
+    <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/didaRLXEQW-cBSXi_-odWwAAAT1wZDIE'></image>
+    <text class="h4">Robot美式拉扣绒布沙发</text>
+  </view>
+</view>
+
+<view class="item">
+  <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/dafb5302e1cc43428c78e47fc7678fb1'
+    class="item-img1"></image>
+  <text class="tx">伸缩设计·自由就餐
+  北美红橡木贴皮，绚烂纹理
+  15年美式家具外贸工厂制造</text>
+
+  <view class="pro">
+    <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/a619f624cb224e0bbc3c426dc5a1d7b1'></image>
+    <text class="h4">Taylor美式实木餐桌椅</text>
+  </view>
+</view>
+
+<view class="item">
+  <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/1JqK93wGQ6-kCZ2ucH3WKwAAAT1wZDIE'
+    class="item-img1"></image>
+  <text class="tx">瀑布纹绒布床屏，静谧轻奢
+    手工镶嵌亮光铜钉，工整精致
+    25年美国品牌代工厂制造</text>
+
+  <view class="pro">
+    <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/Z41UKiykTe-PWht0pYwFCwAAAT1wZDIE'></image>
+    <text class="h4">NAPA美式软包布艺床</text>
+  </view>
+</view>
+
+
+<view class="x"></view>
+<view class="title title2 marb-80">
+  <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/e683c646f5064f9d8e88bd3f2a008cd4'></image>
+  <text>Limited time and quantity</text>
+</view>
+
+<!-- 匠新系列·限时限量 -->
+<view class="imgList">
+  <view class="img-item">
+    <image bindtap="tab1" src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/8c1288569b104bbdab7ac3c91db9d924'></image>
+    <text class="h4">NAPA</text>
+    <text class="tx">如纳帕谷的落日沉淀岁月气息</text>
+  </view>
+
+  <view class="img-item">
+    <image bindtap="tab1" src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/98e9d34409174bc58310eaf73330c1d9'></image>
+    <text class="h4">Payne</text>
+    <text class="tx">悠长岁月酝酿的经典质感</text>
+  </view>
+
+  <view class="img-item">
+    <image bindtap="tab1" src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/0dc9a2501ceb4bf3ae974e605be7ff14'></image>
+    <text class="h4">Plato</text>
+    <text class="tx">把美好和雅致,带给拥有它的每
+      一个人</text>
+  </view> 
+
+  <view class="img-item">
+    <image bindtap="tab1" src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/2fc7ec7d9c2e4cec813f855d06c39570'></image>
+    <text class="h4">Taylor</text>
+    <text class="tx">跨越时空的复古魅力</text>
+  </view>
+
+  <view class="img-item marb-0">
+    <image bindtap="tab1" src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/28b7ff5dc7074132adfbd3cccdcbc2ea'></image>
+    <text class="h4">Vinsion</text>
+    <text class="tx">工匠之心，重塑百年美式风范</text>
+  </view>
+
+  <view class="img-item marb-0">
+    <image bindtap="tab1" src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/073e2ad380114c629710df634ccc367e'></image>
+    <text class="h4">疏野</text>
+    <text class="tx">林下踏月相逢，共酌疏野清欢</text>
+  </view>
+</view>
+
+
+<view class="foot">uvanart•做生活的艺术家</view>

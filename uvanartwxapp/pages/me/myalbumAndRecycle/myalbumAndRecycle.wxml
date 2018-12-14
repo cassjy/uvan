@@ -1,0 +1,83 @@
+<!--pages/me/myalbumAndRecycle/myalbumAndRecycle.wxml-->
+<!-- 相册有图 -->
+<view class='has-picture'><!-- wx:if="{{ishaveimage}}" --> 
+  <view class='edit-tapbar'>
+    <view class='{{albumclass}} ' bindtap='toAlbum'>我的相册</view>
+    <view class='{{recycleclass}}' bindtap='toRecycle'>回收站</view>
+    <view class='{{videoclass}}' bindtap='toVideo'>我的视频</view>
+    <view class="iconfont icon-xiugai" wx:if="{{showEdit}}" bindtap='toedit'></view>
+  </view>
+  <!-- 相册-->
+  <checkbox-group bindchange="checkalbum" wx:if="{{albumclass=='album'}}">
+  <view class='masonry'>
+    <view class='item' wx:if="{{index1!=0}}" wx:for="{{imgUrlList}}" wx:for-index="index1" wx:key="index1">
+      <view wx:for="{{item}}" wx:key="index">
+        <image lazy-load="true" data-id="{{index}}" data-style="0" data-item="{{index1-1}}" data-src="{{item.Path}}" mode="widthFix" binderror="imgerror" src="{{item.Path}}" bindload="getImg" bindtap="showImg"></image>
+        <checkbox wx:if="{{albumEdit}}" value="{{item.id}}" checked="{{item.checked}}">
+          <image mode="widthFix" src="{{item.checked?'https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/L74OvLkhS8iGp50glwd0fwAAAT1wZDIE':'https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/CmPNiOfhTwqgOyJqIwwW7wAAAT1wZDIE'}}"></image>
+        </checkbox>
+
+      </view>
+    </view>
+  </view>
+  </checkbox-group>
+  <!-- 回收站-->
+  <checkbox-group bindchange="checkdelete" wx:if="{{recycleclass=='recycle'}}">
+  <view class='masonry'>
+    <view class='item' wx:if="{{index1!=0}}" wx:for="{{deleteImages}}" wx:for-index="index1" wx:key="index1">
+      <view wx:for="{{item}}" wx:key="index">
+        <image lazy-load="true" data-id="{{index}}" data-style="1" data-item="{{index1-1}}" data-src="{{item.Path}}" mode="widthFix" binderror="imgerror" src="{{item.Path}}" bindload="getImg2" bindtap="showImg"></image>
+        <checkbox wx:if="{{albumEdit}}" value="{{item.id}}" checked="{{item.checked}}"><image mode="widthFix" src="{{item.checked?'https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/L74OvLkhS8iGp50glwd0fwAAAT1wZDIE':'https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/CmPNiOfhTwqgOyJqIwwW7wAAAT1wZDIE'}}"></image></checkbox>
+      </view>
+    </view>
+  </view>
+  </checkbox-group>
+  <!-- 视频 -->
+  <checkbox-group bindchange="checkdelete" wx:if="{{videoclass=='video'}}">
+  <!-- <view class='masonry'> -->
+    <block wx:for="{{videos}}" wx:key="{{index}}">
+      <video src="{{item.F_AliYunVideoUrl}}" class="videolist" controls >
+          <cover-image class="download-img" src="../../../images/myalbumAndRecycle/download.png" data-src="{{item.F_AliYunVideoUrl}}" bindtap="downloadvideo"></cover-image>
+      </video>
+    </block>
+    <cover-view class="progress-mode" hidden="{{downloadvideo}}"></cover-view>
+    <cover-view class="progress" hidden="{{downloadvideo}}">
+      <cover-view class="title">{{percenttext}}</cover-view>
+      <cover-view class="progress-length">
+        <cover-view style="width:{{percent}}%;background:{{percentcolor}}"></cover-view>
+      </cover-view>
+    </cover-view>
+    
+  <!-- </view> -->
+  </checkbox-group>
+  <!-- 回收站没有照片时 -->
+  <view wx:if="{{recycleclass=='recycle'&&!deleteImages[0].length}}" class='no-picture'>
+    <view style="height:234rpx; width:181.5rpx;background:url('https://uvpt.uvanart.com/upload/static/me/album/no-picture.png') no-repeat center;background-size:100% 100%; margin:220rpx auto 0;"></view>
+  </view>
+  <!--相册没有照片时 -->
+  <view wx:if="{{albumclass=='album'&&!imgUrlList[0].length}}" class='no-picture'>
+    <view style="height:234rpx; width:181.5rpx;background:url('https://uvpt.uvanart.com/upload/static/me/album/no-picture.png') no-repeat center;background-size:100% 100%; margin:220rpx auto 0;"></view>
+  </view>
+  <!--相册没有视频时 -->
+  <view wx:if="{{videoclass=='video'&&videos.length==0}}" class='no-picture'>
+    <!-- <view class="iconfont icon-zanwushipin" style="height:234rpx; width:181.5rpx;color: #e4e4e4;font-size: 120rpx;position: absolute;top: 50%;left: 50%;margin-top: -250rpx;margin-left: -80rpx;"></view> -->
+    <image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/b585bf4f953f4f1095e11b5bf06f6506" mode="widthFix" style="width:150rpx;position: absolute;top: 50%;left: 50%;margin-top: -230rpx;margin-left: -75rpx;" />
+    <view style="font-size: 32rpx; color: #999;text-align: center;position: absolute;top: 50%;left: 50%;margin-top: -70rpx;margin-left: -70rpx;">暂无视频...</view>
+  </view>
+  <!-- 回到顶部 -->
+  <view class="icon-shangla iconfont" bindtap="totop"></view>
+  <view class="bottom"></view>
+  <view class="delete {{albumEdit?'':'hideDelete'}}">
+    <checkbox-group bindchange="checkboxall">
+      <checkbox checked="{{allcheck}}">
+        <image mode="widthFix" src="{{allcheck?'https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/L74OvLkhS8iGp50glwd0fwAAAT1wZDIE':'https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/CmPNiOfhTwqgOyJqIwwW7wAAAT1wZDIE'}}"></image>
+      </checkbox>全 选
+    </checkbox-group>
+    <view bindtap="deleteimg" data-value="{{albumclass=='album'?true:false}}">{{albumclass=='album'?'删除':'恢复'}}</view>
+  </view>
+</view>
+<!-- 相册无图 -->
+<!-- <view wx:else class='no-picture'>
+  <view  style="height:360rpx;background:url('https://uvpt.uvanart.com/upload/static/me/album/yfxcbanner.png') no-repeat center;background-size:100% 100%;"></view>
+  <view style="height:234rpx; width:181.5rpx;background:url('https://uvpt.uvanart.com/upload/static/me/album/no-picture.png') no-repeat center;background-size:100% 100%; margin:220rpx auto 0;"></view>
+</view> -->

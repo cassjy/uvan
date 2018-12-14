@@ -1,0 +1,46 @@
+<view class="poster">
+	<swiper 
+	next-margin="110rpx" 
+	bindchange="changePoster" wx:if="{{downLoading}}">
+	  <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+	    <swiper-item class="{{index==nowIndex+1?'swiper-item2':'swiper-item'}}">
+	    	<canvas canvas-id="{{'share'+index}}" class="canvas {{index==nowIndex?'canvas-scale':''}}">
+	    		<!-- <cover-view class="saved-tip" wx:if="{{savedTip}}">已保存</cover-view> -->
+	    	</canvas>
+	    </swiper-item>
+	  </block>
+	</swiper>
+	<!-- <view class="btn-win">
+		<view class="save-btn" catchtap="savePoster" wx:if="{{!savedTip&authorizationNotExist}}">一键保存</view>
+		<button class="save-btn" 
+		open-type="openSetting" 
+		bindopensetting="savePoster"
+		wx:if="{{!savedTip&!authorizationNotExist&&didnotAccredit}}"
+		>一键保存</button>
+		<view class="save-btn save-btn-fake" wx:if="{{savedTip}}">一键保存</view>
+	</view> -->
+	<cover-view class="downLoading" wx:if="{{downLoading}}"></cover-view>
+	<view class="loading">
+		<swiper 
+		class="swiper"
+		next-margin="{{posterList.length==1?'0rpx':'124rpx'}}" 
+		bindchange="changePoster">
+		  <block wx:for="{{posterList}}" wx:key="{{index}}">
+		    <swiper-item class="swiper-item {{index==nowIndex+1?'swiper-item2':''}} {{posterList.length==1?'swiper-item-middle':''}}">
+		    	<image class="image {{index==nowIndex?'image-scale':''}}" src="{{item}}" mode="widthFix"/>
+		    	<view class="saved-tip {{posterList.length==1?'saved-tip-middle':''}} {{index!=nowIndex?'saved-tip-others':''}}" wx:if="{{savedTip}}">已保存</view>
+		    </swiper-item>
+		  </block>
+		</swiper>
+	</view>
+	<view class="btn-win" wx:if="{{!downLoading}}">
+		<!-- <view class="save-btn" catchtap="savePoster" wx:if="{{!savedTip&&authorizationNotExist}}">一键保存</view> -->
+		<button class="save-btn" 
+		open-type="{{!authorizationNotExist&&didnotAccredit?openSetting:''}}" 
+		bindopensetting="getAuthor"
+		catchtap="savePoster"
+		wx:if="{{!savedTip}}"
+		>一键保存</button><!-- &&!authorizationNotExist&&didnotAccredit -->
+		<view class="save-btn save-btn-fake" wx:if="{{savedTip}}">一键保存</view>
+	</view>
+</view>

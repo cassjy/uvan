@@ -1,0 +1,106 @@
+<wxs module="filters" src="../../../lib/js/toFixed.wxs"></wxs>
+<view class="uvposter">
+	<scroll-view scroll-y bindscrolltolower="getMoreList" style="height: 1334rpx;">
+		<view bindtap="chooseIMG" class="chooseIMG">
+			<view class="iconfont icon-tianjiatupian1"></view>
+		</view>
+		<view class="listwrapper">
+			<view class="allList"><!-- 用日期分列 -->
+				<view class="list" wx:for="{{list}}" wx:key="{{index}}"><!-- 内容列表 -->
+					<view class="line" wx:if="{{index!=0}}"></view>
+					<view class="date">
+						<view class="year">{{filters.splitDate(item.releaseTime,'年')}}</view>
+						<view class="monthAndDay">{{filters.splitDate(item.releaseTime,'')}}</view>
+					</view>
+					<view class="listitem listitem-border" 
+					wx:for="{{item.contextlist}}" 
+					wx:for-item='contextlist' 
+					wx:for-index='contextlistIndex' 
+					wx:key="{{contextlist.id}}"><!-- 内容 -->
+						<view class="title">{{contextlist.title}}</view>
+						<view class="contentlist"><!-- 文案列表 最多三段 -->
+							<view
+							wx:for="{{contextlist.copywriting}}" 
+							wx:if="{{copywriting}}"
+							wx:for-item="copywriting"
+							wx:for-index="copywritingIndex"
+							wx:key="{{copywritingIndex}}">
+								<view
+								class="content {{copywritingIndex!=contextlist.copywriting.length-1&&!contextlist.packup?'content-margin':''}} {{contextlist.packup&&(copywritingIndex==1||copywritingIndex==2)?'content-hide':''}}" 
+								>
+									<view 
+									class="content-span"
+									catchtap="copyText" 
+									hover-class="content-hover"
+									data-content="{{copywriting}}"
+									data-id="{{contextlist.id}}"
+									data-type="copywriting">{{copywritingIndex==0&&contextlist.packup?filters.splitContent(copywriting):copywriting}}</view>
+								</view>
+								<view data-id="{{contextlist.copywriting.length}}" wx:if="{{!contextlist.packup}}" 
+								class="dashed {{contextlist.copywriting.length-1==copywritingIndex||contextlist.copywriting[copywritingIndex+1]==''?'dashed-none':''}} {{contextlist.packup&&(copywritingIndex==1||copywritingIndex==2)?'content-hide':''}}" ></view>
+							</view>
+						</view>
+						<view class="showAll" 
+						bindtap="showAll" 
+						data-aindex="{{index}}"
+						data-index="{{contextlistIndex}}" 
+						wx:if="{{contextlist.packup&&contextlist.copywriting[0].length>92||contextlist.packup&&contextlist.copywriting[1]!=''}}">显示全部</view>
+						<view class="hideSome" 
+						bindtap="hideSome" 
+						data-aindex="{{index}}"
+						data-index="{{contextlistIndex}}"
+						wx:if="{{!contextlist.packup}}">收起</view> 
+						<view class="tips">
+							<span class="point">·</span>
+							<span class="tipstext">点击文案自动复制</span>
+						</view>
+						<view class="imglist" ><!-- 图片列表 2 5 8 添加img-margin样式 -->
+							<image 
+							wx:for="{{contextlist.imageUrls}}" 
+							wx:for-index='imageUrlsIndex' 
+							wx:for-item='imageurl' 
+							wx:key="{{imageUrlsIndex}}"
+							class="img {{imageUrlsIndex==1||imageUrlsIndex==4||imageUrlsIndex==7?'img-margin':''}}" 
+							src="{{imageurl}}"
+							data-src="{{imageurl}}"
+							data-urls="{{contextlist.imageUrls}}"
+							bindtap="previewImg"
+							mode="aspectFill"/>
+						</view>
+						<view class="btn">
+							<button class="savebtn" 
+							open-type="{{!authorizationNotExist&&didnotAccredit?openSetting:''}}" 
+							bindopensetting="getAuthor"
+							bindtap="saveAllPic" 
+							data-urls="{{contextlist.imageUrls}}"
+							data-id="{{contextlist.id}}"
+							data-type="onesave">
+								<image class="wenjian" src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/8e3e96198b134687bc91b81a3bdecc6b" mode="widthFix"/>
+								<view class="save">一键保存</view>
+							</button>
+							<view class="qrcodebtn" 
+							bindtap="toPoster" 
+							data-urls="{{contextlist.imageUrls}}"
+							data-id="{{contextlist.id}}"
+							data-type="addtc">
+								<image class="shuju" src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/4ff0c4c0f2b9411893a28ab129575ef2" mode="widthFix"/>
+								<view class="qrcode">添加二维码</view>
+							</view>
+						</view>
+					</view>	
+				</view>	
+				
+
+				<view class="loading" wx:if="{{showLoading}}">
+					<view class="box">
+				    <view class="box1"></view>
+				    <view class="box2"></view>
+				    <view class="box3"></view>
+					</view>
+					<text>正在加载</text>
+				</view>
+
+			</view>
+		</view>
+	</scroll-view>
+</view>

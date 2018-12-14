@@ -1,0 +1,52 @@
+.historical {
+  color: #333;
+}
+
+.item {
+  padding: 0 15rpx;
+}
+
+.itemWrapper {
+  padding: 20rpx 0 15rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+
+.itemTitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 28rpx;
+}
+
+.itemTime {
+  font-size: 24rpx;
+  margin-top: 10rpx;
+}
+
+.noMore {
+  color: #666;
+  font-size: 24rpx;
+  margin: 15rpx 0;
+  display: flex;
+  justify-content: center;
+}
+
+/*暂无历史记录  */
+.noRecord{
+  position: fixed;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.noRecord .icon-M-zanwujilu{
+  color: #999;
+  font-size: 90rpx;
+}
+
+.noRecord .text{
+  color: #999;
+  margin-top: 30rpx;
+}

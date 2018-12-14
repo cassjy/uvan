@@ -1,0 +1,2 @@
+<!--pages/privilege/h5report/h5report.wxml-->
+<web-view src="{{url}}"></web-view>

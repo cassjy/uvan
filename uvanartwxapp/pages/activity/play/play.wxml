@@ -1,0 +1,43 @@
+<!-- pages/brand/play/play.wxml--> 
+<view hidden='{{pagehidden}}'>
+  <view class="container-bg">
+    <view class="container-out">
+      <view class="container-in">
+        <view class="content-out {{(index==indexSelect)?'content-out-light':''}}" wx:for="{{awardList}}" style="top:{{item.topAward}}rpx;left:{{item.leftAward}}rpx;background-color: {{(index==indexSelect)?colorAwardSelect:colorAwardDefault}};">
+          <image class="award-image" src="{{item.imageAward}}"></image>
+        </view>
+        <view class="start-btn" bindtap="startGame" style=" background-color:{{isRunning?'#d87139':'#ffe442'}};color:{{isRunning?'#ffe442':'#d80014'}}">立即抽奖</view>
+      </view>
+    </view>
+  </view>
+  <navigator url='/pages/activity/play/prize/prize' class='gift'>我的奖品</navigator>
+  <view class="rule">
+    <view class='rule-head'>活动说明</view>
+    <view class='rule-body'>
+      <text class="rule-list">
+        <text>1</text>   活动期间用户免费参与，每天有三次抽奖机会 \n
+        <text>2</text>   点击转盘进行抽奖，每次抽奖需消耗一次抽奖次数\n
+        <text>3</text>   活动中奖结果均以系统下发的中奖通知为准\n
+        <text>4</text>   礼品兑奖成功后会在30个工作日内寄出\n
+        <text>5</text>   活动时间：即日起止2018年11月11日零点
+      </text>
+      <view class="tips"><text>*</text>最终解释权归优梵艺术所有</view>
+    </view>
+  </view>
+  <view style="height:40rpx;"></view>
+  <view class='shadow' bindtap="hiddenPrize" hidden='{{shadow}}'></view>  
+  <view class='prize-modal' hidden='{{hiddenPrize}}'>
+      <view class="m-title">恭喜你</view>
+      <view class='m-prize'>
+          <view class='m-prize-pic'> <image src='{{thisimageAward}}'></image></view>
+          <view class='m-prize-dec'>
+            <view>{{prizename}}</view>
+            <view style='font-size:24rpx; color:#b1b1b1'>在【我的奖品】进行兑奖</view>
+          </view>
+      </view>
+      <view class='m-dec1'>你已获得奖品--{{prizename}}</view>
+      <view class='m-dec2'>你可以在【我的奖品】中查看并兑奖</view>
+      <view></view>
+      <view class="close-modal iconfont icon-guanbi" bindtap="hiddenPrize"></view>
+  </view> 
+</view>

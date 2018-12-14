@@ -1,0 +1,1244 @@
+/*引入字体样式  */
+
+@font-face {
+  font-family: myApple;
+  src: url('https://uvpt.uvanart.com/upload/static/yingdaotu/jiantou.png');
+}
+
+page {
+  width: 100%;
+  height: 100%;
+  background: #f4f4f4;
+}
+
+.top {
+  height: 107rpx;
+}
+
+/* 头部导航 */
+
+.top-banner {
+  height: 107rpx;
+  line-height: 107rpx;
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  justify-content: space-around;
+  background: #fff;
+  font-size: 34rpx;
+  color: #424242;
+  border-top: 1rpx solid #f2f2f2;
+  /* box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.2); */
+}
+
+.topbanner {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.top-banner .title {
+  color: #888;
+  width: 109rpx;
+  height: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.top-banner .checked {
+  color: #222;
+  border-bottom: 4rpx solid #222;
+}
+
+.top-banner .bottom-line {
+  width: 0;
+  height: 8rpx;
+  margin: 0 auto;
+  background: #e8364c;
+  transition: all 0.5s ease;
+}
+
+/* .show-banner {
+  width: 60rpx !important;
+} */
+
+/* 梵星 */
+
+.stars {
+  margin-top: 20rpx;
+  transition: all 0.5s ease;
+}
+
+/* 头部卡片 */
+
+.stars .stars-top {
+  background: #fff;
+  /* border-radius: 16rpx;
+  box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.2); */
+  color: #424242;
+  padding: 40rpx;
+  box-sizing: border-box;
+}
+
+.stars .stars-top .list-1 {
+  margin-bottom: 31rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stars .stars-top .list-1 .person-data {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex: 1;
+}
+
+.stars .stars-top .list-1 .person-data image {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+  /* border: 1px solid #eee;  */
+}
+
+.stars .stars-top .list-1 .person-data>view {
+  width: 300rpx;
+  padding-top: 10rpx;
+  box-sizing: border-box;
+  /* display: flex;
+  flex-wrap: wrap;
+  align-content: space-between; */
+}
+
+.stars .stars-top .list-1 .person-data .nickname {
+  color: #424242;
+  font-size: 30rpx;
+  font-weight: bold;
+  width: 300rpx;
+  line-height: 1;
+  margin-top: 2rpx;
+}
+
+.stars .stars-top .list-1 .person-data .date {
+  font-size: 22rpx;
+  color: #c7c7c7;
+  /* background: #f1f1f1; */
+  border-radius: 16rpx;
+  height: 38rpx;
+  line-height: 38rpx;
+  width: 280rpx;
+  margin-top: 18rpx;
+  letter-spacing: 2rpx;
+  /* text-align: center; */
+}
+
+.stars .stars-top .list-1 .right {
+  font-size: 28rpx;
+  color: #fff;
+  width: 98rpx;
+  height: 98rpx;
+  line-height: 98rpx;
+  text-align: center;
+  border-radius: 100%;
+  /* border: 1rpx solid #ececec; */
+  background-color: #424242;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+}
+
+.stars .stars-top .list-1 .right image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+}
+
+/*高亮  */
+
+.hightLight {
+  background-color: #ececec;
+  background: linear-gradient(to bottom right, rgba(236, 236, 236, 1), rgba(243, 243, 243, 0.9));
+}
+
+/* changecolor */
+
+.changecolor {
+  background-color: #aaa;
+  background: linear-gradient(to bottom right, rgba(164, 165, 168, 1), rgba(220, 220, 220, 0.9));
+}
+
+.stars .stars-top .list-2 {
+  height: 88rpx;
+  color: #424242;
+  border-bottom: 1px solid #dedede;
+  /* border-top: 1px solid #dedede; */
+  font-size: 32rpx;
+  line-height: 88rpx;
+}
+
+.stars .stars-top .list-2 view {
+  font-size: 28rpx;
+  display: inline;
+}
+
+.stars .stars-top .list-2 navigator {
+  font-size: 22rpx;
+  color: #888;
+  float: right;
+  display: flex;
+  align-items: center;
+}
+
+.icon-more {
+  font-size: 30rpx;
+}
+
+.stars .stars-top .list-3 {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40rpx;
+  font-size: 22rpx;
+  color: #424242;
+}
+
+.stars .stars-top .list-3>view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 108rpx;
+  height: 90rpx;
+  box-sizing: border-box;
+}
+
+.stars .stars-top .list-3 .img {
+  color: #2c2c2c;
+  /* width: 40rpx;
+  height: 40rpx; */
+  margin-bottom: 20rpx;
+  font-size: 40rpx;
+}
+
+/* .stars .stars-top .list-3 .icon-daifahuo2 {
+  font-size: 42rpx;
+}  */
+
+/* 中间卡片 */
+
+.stars-icon {
+  background: #fff;
+  /* border-radius: 16rpx;
+  box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.2); */
+  color: #666;
+  padding: 0 0 92rpx 0;
+  margin-top: 20rpx;
+  display: flex;
+  flex-flow: wrap;
+  box-sizing: border-box;
+}
+
+.stars-icon>view, .stars-icon>navigator {
+  margin: 40rpx 0 0;
+  display: flex;
+  width: 187.5rpx;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.stars-icon view view:first-child, .stars-icon navigator  view:first-child {
+  height: 60rpx;
+  width: 60rpx;
+  background: #f1f1f1;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 19rpx;
+}
+
+.stars-icon>view .face {
+  font-size: 40rpx;
+}
+
+.stars-icon>view .ablumn {
+  font-size: 40rpx;
+}
+
+.stars-icon>view .smile {
+  font-size: 46rpx;
+}
+
+.stars-icon>view>button {
+  position: absolute;
+  height: 108rpx;
+  width: 120rpx;
+  opacity: 0;
+}
+
+.stars-icon>view>text, .stars-icon>navigator>text {
+  color: #424242;
+  font-size: 22rpx;
+}
+
+/* 蒲公英页 */
+
+.shopInfo {
+  transition: all 0.5s ease;
+}
+
+/* 注册蒲公英 */
+
+.shopInfo .Infologin {
+  background: #fff;
+  /* border-radius: 16rpx;
+  box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.2); */
+  color: #424242;
+  padding: 40rpx;
+  margin-top: 20rpx;
+}
+
+.Infologin  .title {
+  font-size: 34rpx;
+  /* padding: 42rpx 0 22rpx; */
+  display: inline-block;
+  text-align: left;
+  width: 100%;
+  height: 34rpx;
+  line-height: 34rpx;
+  font-weight: bold;
+  margin-bottom: 26rpx;
+}
+
+.Infologin  .title2 {
+  width: 100%;
+  height: 58rpx;
+  text-align: left;
+  font-size: 22rpx;
+  color: #666;
+  box-sizing: border-box;
+  padding-bottom: 38rpx;
+  border-bottom: 1rpx solid #dedede;
+}
+
+.k3-customer .customer-dec, .customer-photo .customer-dec {
+  font-size: 22rpx;
+  color: #919191;
+  line-height: 40rpx;
+  font-weight: 500;
+}
+
+.k3-customer button, .customer-photo button {
+  width: 300rpx;
+  height: 68rpx;
+  line-height: 68rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  /* background-color: #424242; */
+  color: #222;
+  border-radius: 35rpx;
+  margin: 36rpx auto 0;
+  border: 1rpx solid #c7c7c7;
+}
+
+.Infologin .contact {
+  font-size: 24rpx;
+  color: #888;
+  text-align: center;
+  margin-top: 77rpx;
+  margin-bottom: 30rpx;
+  /* padding: 52rpx 0 40rpx; */
+}
+
+.Infologin .contact .phone {
+  display: inline-block;
+  padding: 0 20rpx;
+  color: #222;
+}
+
+.Infologin  .icon-16pxtishi {
+  font-size: 32rpx;
+  color: #e8364c;
+  padding-right: 20rpx;
+}
+
+.Infologin  .icon-zhineng {
+  font-size: 32rpx;
+  color: #fde350;
+}
+
+.Infologin .icon-zhifeiji-copy {
+  font-size: 25rpx;
+  color: #fde350;
+  display: inline-block;
+}
+
+.icon-yiwen {
+  color: #f35c5c;
+  font-size: 36rpx;
+  display: inline-block;
+  padding-left: 5rpx;
+}
+
+.Infologin .k3-customer, .customer-photo {
+  width: 100%;
+  /* background-color: #fafafa; */
+  margin-top: 40rpx;
+  /* padding: 0 30rpx; */
+}
+
+.customer-photo {
+  margin-top: 66rpx;
+}
+
+.k3-customer .head, .customer-photo .head {
+  color: #424242;
+  font-size: 28rpx;
+  height: 28rpx;
+  /* font-weight: bold; */
+  margin-bottom: 32rpx;
+}
+
+.customer-photo .head {
+  padding-top: 40rpx;
+  border-top: 1rpx solid #dedede;
+}
+
+.k3-customer .head .icon-bg, .customer-photo .head .icon-bg {
+  display: inline-block;
+  background-color: #424242;
+  width: 45rpx;
+  height: 45rpx;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 45rpx;
+  margin-right: 15rpx;
+}
+
+.customer-photo .head .icon-bg {
+  line-height: 40rpx;
+}
+
+/* 蒲公英 */
+
+.container1 {
+  margin-top: 20rpx;
+}
+
+.container1 .person-data {
+  background: #fff;
+  color: #424242;
+  padding: 43rpx 40rpx 40rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.container1 .invitation-wrapper {
+  color: #888;
+  font-size: 28rpx;
+  width: 100%;
+  height: 110rpx;
+  line-height: 110rpx;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+}
+
+.invitation-wrapper .right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.container1 .invitation-wrapper .num {
+  color: #222;
+  font-weight: bold;
+  margin-right: 4rpx;
+  font-size: 36rpx;
+}
+
+.container1 .person-data .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 50rpx;
+}
+
+.container1 .person-data .header .mesg {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.container1 .person-data .header .right {
+  font-size: 24rpx;
+  color: #666;
+  width: 146rpx;
+  height: 66rpx;
+  line-height: 66rpx;
+  text-align: center;
+  border: 1rpx solid #b2b1b1;
+}
+
+.container1 .person-data .header .mesg image {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.container1 .person-data .header .mesg>view {
+  display: flex;
+  flex-wrap: wrap;
+  width: 300rpx;
+  align-content: space-between;
+  padding-top: 10rpx;
+  box-sizing: border-box;
+}
+
+.container1 .person-data .header .mesg .nickname {
+  color: #424242;
+  font-size: 30rpx;
+  font-weight: bold;
+  width: 300rpx;
+  line-height: 1;
+  margin-top: 2rpx;
+}
+
+.container1 .person-data .header .mesg .number {
+  font-size: 22rpx;
+  color: #c7c7c7;
+  border-radius: 16rpx;
+  height: 38rpx;
+  line-height: 38rpx;
+  width: 280rpx;
+  margin-top: 18rpx;
+  letter-spacing: 2rpx;
+}
+
+.container1 .person-data .header .icon-more {
+  font-size: 36rpx;
+  border: 1px solid #c5c5c5;
+  border-radius: 100%;
+  display: flex;
+  width: 50rpx;
+  height: 50rpx;
+  color: #888;
+  justify-content: center;
+  align-items: center;
+}
+
+.container1 .person-data .cart {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 40rpx;
+}
+
+.container1 .person-data .cart>view {
+  height: 48rpx;
+  font-size: 26rpx;
+  color: #222;
+  display: flex;
+  align-items: center;
+  width: 312rpx;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+.container1 .person-data .cart>view:last-child {
+  box-sizing: border-box;
+  width: 325rpx;
+  height: 120rpx;
+  background-color: #fafafa;
+  position: relative;
+  overflow: hidden;
+}
+
+.container1 .person-data .cart .left-cart {
+  box-sizing: border-box;
+  width: 325rpx;
+  height: 120rpx;
+  background-color: #fafafa;
+  position: relative;
+  overflow: hidden;
+}
+
+.container1 .person-data .cart .img {
+  color: #2c2c2c;
+  font-size: 40rpx;
+}
+
+.container1 .person-data .activity {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.container1 .person-data .activity button {
+  box-sizing: border-box;
+  height: 100rpx;
+  width: 325rpx;
+  border-radius: 0 !important;
+  background: #fff;
+  font-size: 24rpx !important;
+  border: 1rpx solid #eee;
+  display: flex;
+  color: #222 !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.container1 .person-data .activity button:last-child {
+  margin-left: 20rpx;
+  box-sizing: border-box;
+}
+
+.container1 .person-data .activity button::after {
+  border: none;
+}
+
+.container1 .person-data .activity button:last-child .icon-jia {
+  color: #2c2c2c;
+  font-size: 32rpx;
+  margin-top: 4rpx;
+  margin-right: 40rpx;
+}
+
+.container1 .person-data .activity button:first-child .icon-jia {
+  color: #2c2c2c;
+  font-size: 32rpx;
+  margin-top: 4rpx;
+  margin-right: 40rpx;
+}
+
+.person-data .sales-module .month-sales-title {
+  color: #aaa;
+  font-size: 24rpx;
+  letter-spacing: 2rpx;
+}
+
+.person-data .sales-module .month-sales {
+  color: #222;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.sales-state .item {
+  color: #aaa;
+  font-size: 24rpx;
+  letter-spacing: 2rpx;
+}
+
+.sales-state .item .num {
+  color: #222;
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-right: 12rpx;
+  letter-spacing: 0;
+}
+
+.sales-state .item  .withdrawal {
+  width: 68rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  color: #fff;
+  font-size: 24rpx;
+  text-align: center;
+  background-color: #666;
+}
+
+.sales-state .item .account-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20rpx;
+}
+
+.sales-state .item .first {
+  margin: 17rpx 0 48rpx;
+}
+
+.item .account-wrapper.the-last {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.item .account-wrapper .check-order {
+  width: 68rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  color: #fff;
+  font-size: 24rpx;
+  text-align: center;
+  background-color: #666;
+}
+
+.person-data .sales-module  .sales-state {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.sales-module  .sales-state  .left {
+  width: 258rpx;
+}
+
+.sales-module  .sales-state .middle {
+  width: 258rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sales-module  .sales-state .right {
+  width: 154rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-right: 10rpx;
+}
+
+.container1 .order {
+  background: #fff;
+  border-radius: 16rpx;
+  box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.2);
+  color: #424242;
+  padding: 50rpx 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.container1 .order .list-top {
+  color: #424242;
+  border-bottom: 1px solid #dedede;
+  padding-bottom: 30rpx;
+  font-size: 32rpx;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30rpx;
+}
+
+.container1 .order .list-top view {
+  font-weight: 600;
+  display: inline;
+}
+
+.container1 .order .list-top navigator {
+  font-size: 24rpx;
+  color: #888;
+  display: flex;
+  align-items: center;
+}
+
+.container1 .order .list-top navigator .icon-more {
+  margin-left: 9rpx;
+}
+
+.order-list-outter {
+  box-sizing: border-box;
+  padding-top: 40rpx;
+  padding-bottom: 40rpx;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+
+.order-list-outter .all {
+  font-size: 30rpx;
+  line-height: 74rpx;
+  color: #424242;
+  border-bottom: 1px solid #dedede;
+  margin-bottom: 40rpx;
+}
+
+.order-list-outter .all .todetail {
+  font-size: 30rpx;
+  color: #888;
+  float: right;
+  line-height: 74rpx;
+}
+
+.order-list-outter .order-list {
+  overflow: hidden;
+}
+
+.order-list-outter .order-list view {
+  float: left;
+  font-size: 22rpx;
+  width: 110rpx;
+}
+
+.order-list-outter .order-list view .img {
+  color: #565656;
+  margin-bottom: 20rpx;
+  font-size: 37rpx;
+}
+
+.order-list-outter .order-list view .img.icon-daifahuo2 {
+  font-size: 42rpx;
+}
+
+.invitate-modal {
+  width: 100%;
+  padding: 40rpx 40rpx 0;
+  margin-top: 20rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.invitate-modal .left, .invitate-modal .right {
+  font-size: 0;
+  position: relative;
+}
+
+.invitate-modal image {
+  width: 325rpx;
+  height: 128rpx;
+}
+
+.invitate-modal .icon-xinghao, .invitate-modal .icon-youfanyishulogomin {
+  position: absolute;
+  left: 40rpx;
+  top: 40rpx;
+  color: #d6d6d6;
+  font-size: 44rpx;
+}
+
+.invitate-modal .invitate-title {
+  position: absolute;
+  left: 125rpx;
+  top: 30rpx;
+  color: #fff;
+  font-size: 28rpx;
+  font-weight: bold;
+  letter-spacing: 2rpx;
+}
+
+.invitate-modal .invitate-reward {
+  position: absolute;
+  left: 125rpx;
+  top: 75rpx;
+  color: #d6d6d6;
+  font-size: 22rpx;
+}
+
+.icon-youfanyishulogomin {
+  font-size: 56rpx !important;
+}
+
+.Info-icon {
+  background: #fff;
+  color: #424242;
+  height: 230rpx;
+  padding: 0 40rpx;
+}
+
+.Info-icon>view {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.Info-icon>view>view, .Info-icon>view>navigator, .Info-icon>view>button {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 230rpx;
+}
+
+.Info-icon view view view:first-child,
+.Info-icon view navigator view:first-child {
+  height: 60rpx;
+  line-height: 60rpx;
+  width: 60rpx;
+  background: #f1f1f1;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.Info-icon>view button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Info-icon button .icon {
+  height: 60rpx;
+  line-height: 60rpx;
+  width: 60rpx;
+  background: #f1f1f1;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+button {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  line-height: 1;
+  background-color: #fff;
+  border: none;
+  color: #424242;
+  font-size: 24rpx;
+  margin-left: 0;
+  margin-right: 0;
+  border-radius: 0;
+}
+
+button::after {
+  border: none;
+}
+
+.Info-icon button .link {
+  font-size: 24rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+}
+
+.icon-28pxkefu {
+  font-size: 40rpx;
+}
+
+.Info-icon>view>view>text, .Info-icon>view>navigator>text {
+  color: #424242;
+  font-size: 22rpx;
+}
+
+.Info-icon>view>view .icon-haibaoicon {
+  font-size: 46rpx;
+}
+
+.Info-icon>view>navigator .icon-yanjing1 {
+  font-size: 42rpx;
+}
+
+.icon-chuanbolujing {
+  font-size: 40rpx;
+}
+
+.Info-icon>view>view .icon-guanli, .Info-icon>view>view .icon-28pxkefu,
+.icon-eye {
+  font-size: 44rpx;
+}
+
+.bottom-data {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #fff;
+  padding: 0 40rpx 80rpx 40rpx;
+  box-sizing: border-box;
+}
+
+.bottom-data .only {
+  width: 100%;
+  margin: 0;
+  border: 1px solid #dedede;
+  height: 92rpx;
+  line-height: 92rpx;
+}
+
+.bottom-data>view, .bottom-data>button {
+  height: 78rpx;
+  width: 324rpx;
+  line-height: 78rpx;
+  background: #fff;
+  border-radius: 0 !important;
+  text-align: center;
+  color: #666;
+  font-size: 24rpx;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.bottom-data>view {
+  margin-left: 20rpx;
+}
+
+.bottom-data>view text, .bottom-data>button text {
+  margin-right: 24rpx;
+  color: #424242;
+}
+
+/* 梵星蒲公英转换动画 */
+
+.hide-body {
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.hide {
+  display: none;
+}
+
+/* 未登录样式 */
+
+.unlogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  color: #acacac;
+  text-align: center;
+}
+
+.unlogin .iconfont {
+  font-size: 150rpx;
+}
+
+.unlogin .tip {
+  margin: 20rpx 0;
+  font-size: 28rpx;
+}
+
+.unlogin button {
+  width: 100%;
+  background-color: #000;
+  color: #917253;
+  font-size: 28rpx;
+  line-height: 80rpx;
+}
+
+/* 弹窗样式 */
+
+.shade {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  outline: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  color: white;
+}
+
+.box {
+  position: fixed;
+  z-index: 50;
+  width: 600rpx;
+  height: 600rpx;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.git {
+  width: 275rpx;
+  height: 220rpx;
+  margin: 120rpx auto;
+}
+
+.git-dec {
+  font-size: 28rpx;
+  color: #aaa;
+}
+
+/*遮罩层*/
+
+.cover {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+}
+
+/*梵星邀请函弹窗*/
+
+.shareWin {
+  width: 100%;
+  height: 320rpx;
+  display: flex;
+  position: fixed;
+  bottom: -400rpx;
+  left: 0;
+  background-color: #fff;
+  z-index: 1002;
+  transition: bottom 0.5s;
+}
+
+.sharewin1 {
+  bottom: 0rpx;
+}
+
+.shareWin .share-link {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.shareWin .share-link .iconfont {
+  width: 128rpx;
+  height: 128rpx;
+  border: 1px solid #bfbfbf;
+  border-radius: 50px;
+  font-size: 54rpx;
+  color: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.shareWin .share-link .share-way {
+  font-size: 30rpx;
+  color: #888;
+}
+
+/*二维码弹窗*/
+
+.qrcode-win {
+  width: 480rpx;
+  height: 542rpx;
+  /*height: 590rpx;*/
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -271rpx;
+  margin-left: -240rpx;
+  background-color: #fff;
+  z-index: 1002;
+  text-align: center;
+}
+
+.qrcode-win .qrcode-close {
+  width: 46rpx;
+  height: 46rpx;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  font-size: 20rpx;
+  color: #fff;
+  position: absolute;
+  top: -86rpx;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.qrcode-win .qrcode-img {
+  width: 320rpx;
+  height: 320rpx;
+  margin-top: 38rpx;
+}
+
+.qrcode-win .qrcode-text {
+  font-size: 18rpx;
+  color: #959595;
+  text-align: center;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.qrcode-win .qrcode-btn {
+  height: 88rpx;
+  border-top: 1px solid #ededed;
+  font-size: 30rpx;
+  color: #000;
+  text-align: center;
+  line-height: 88rpx;
+}
+
+/* 蒲公英特权弹框 */
+
+.mtk {
+  position: fixed;
+  z-index: 1001;
+  background-color: #000;
+  width: 100%;
+  height: 100vh;
+  opacity: 0.5;
+  top: 0;
+}
+
+.scroll-view {
+  color: #424242;
+  height: 400rpx;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.sale-content {
+  position: fixed;
+  z-index: 1002;
+  background-color: #fff;
+  width: 80%;
+  top: 18%;
+  height: 608rpx;
+  border-radius: 20rpx;
+  right: 10%;
+}
+
+.sale-content .title {
+  text-align: center;
+  padding: 4%;
+  border-bottom: 1px solid #eee;
+  font-size: 30rpx;
+  color: #c39d62;
+}
+
+.sale-content .mode {
+  color: #000;
+  font-size: 28rpx;
+  text-align: center;
+  padding: 20rpx 0 0 10rpx;
+}
+
+.sale-content .content {
+  margin: 4% 6% 0;
+  font-size: 26rpx;
+  line-height: 42rpx;
+  color: #424242;
+}
+
+.cancel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: #1aad19;
+  font-size: 30rpx;
+  padding: 4%;
+  text-align: center;
+  border-top: 1px solid #eee;
+  background-color: #fff;
+  box-sizing: border-box;
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+}

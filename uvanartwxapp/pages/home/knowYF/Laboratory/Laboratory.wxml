@@ -1,0 +1,28 @@
+<!-- 优梵实验室 -->
+<view class="pic"><image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/lTyACW47SfCPXeSn9PLRWQAAAT1wZDIE'></image></view>
+
+<view class="content">
+	<view class="title">
+        <image src='https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/zMAuPc6GS--6aOF7RLd1QQAAAT1wZDIE'></image>
+        <text>uvanart laboratory</text>
+    </view>
+
+    <text class="tx1">孤独而枯燥的实验，意味着材质的严格试炼</text>
+    <text class="tx1">精确而完整的数据足以说明一切，领先行业，让质量担起良心</text>
+    <view class="video">
+        <video src="http://cloud.video.taobao.com//play/u/872353151/p/2/e/6/t/1/50013192491.mp4" poster="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/aa2ciPY4QEOVXtnIXDQAbAAAAT1wZDIE" controls="true" objectFit="cover"></video>
+        <text class="tx2">深夜课堂第一讲,深度剖析外包装保护强度</text>
+    </view>
+
+    <view class="video">
+        <video src="http://cloud.video.taobao.com//play/u/872353151/p/2/e/6/t/1/50015846927.mp4" poster="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/yETKIjlfTTixpB-CnYnyXQAAAT1wZDIE" controls="true" objectFit="cover"></video>
+        <text class="tx2 ">深夜课堂第二讲,教你识别沙发布料的好坏</text>
+    </view>
+
+    <view class="video">
+        <video src="http://cloud.video.taobao.com//play/u/872353151/p/2/e/6/t/1/50015856967.mp4" poster="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/-Bcb61auQD-1wxK9ah9LTQAAAT1wZDIE" controls="true" objectFit="cover"></video>
+    </view>
+</view>  
+
+
+<view class="foot">uvanart•做生活的艺术家</view>

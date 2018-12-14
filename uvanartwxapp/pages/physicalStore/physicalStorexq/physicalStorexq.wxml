@@ -1,0 +1,45 @@
+<view style="height:{{height1}}px">
+	<image mode="widthFix"  data-id="1" binderror="imageError"  bindload="loadImg" src="{{topList}}"></image>
+</view>
+<view class="ps-tac">
+	<view  class="title">{{StoreName}}</view>
+	<view  class="content">{{Introduction}}</view>
+</view>
+<view class="message">
+	<view class="address">
+		<text space="emsp">地  址：</text>
+		
+		<text catchtap='goToAddress'><text class="icon-dizhi" catchtap='goToAddress'></text>{{City+District+Address}}</text>
+	</view>
+	<view>
+		<text>预约电话：</text>
+		<text>{{Phone}}</text>
+	</view>
+	<view>
+		<text>营业时间：</text>
+		<text>{{BusinessTime}}</text>
+	</view>
+</view>
+<view class="carousel" style="height:{{height2}}px">
+<swiper  style="height:{{height2}}px" indicator-dots="true" autoplay="true" circular="true" indicator-color="rgba(255,255,255,0.4)" indicator-active-color="rgba(255,255,255,0.8)" >
+  <block wx:for="{{midList}}" wx:key="index">
+    <swiper-item>
+      <image src="{{item}}"  lazy-load="true" data-id="2" binderror="imageError" bindload="loadImg" class="slide-image" />
+    </swiper-item>
+  </block>
+</swiper>
+</view>
+<view class="bottom-content" style="height:{{height3}}px">
+	<image mode="widthFix" data-id="3"  lazy-load="true" binderror="imageError" bindload="loadImg" src="{{downList}}"></image>
+</view>
+<view wx:if='{{IsCanReserve}}' class='fix-button'>
+  <view catchtap='toStore'>全国店铺</view>
+  <view catchtap='toAppointment'>预约到店</view>
+</view>
+<loading id="loading" comtype="loading">
+    <view style='text-align:center;font-size:30rpx;line-height:35rpx;margin:10rpx 0;'>{{loadingText }}</view>
+</loading>
+<!--未开发提示  -->
+<view class="tips" animation="{{animationData}}">
+  <text class="tipsWrapper">码农正在加班赶工，敬请期待</text>
+</view>

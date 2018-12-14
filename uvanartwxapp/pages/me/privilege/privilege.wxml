@@ -1,0 +1,5 @@
+<!--pages/shopInfo/privilege/privilege.wxml-->
+<view class="container">
+  <navigator url='../dandelion1/enable/enable'>蒲公英有什么特权？</navigator>
+	<button class="button" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"><text class="iconfont icon-iconfontzhizuobiaozhun47"></text><text class="text">快速成为蒲公英</text></button>
+</view>

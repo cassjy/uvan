@@ -1,0 +1,21 @@
+<view class="historical">
+  <block wx:for="{{dataList}}" wx:key="index">
+    <view class="item" data-id="{{index}}" bindtap='toCommunity' data-state="{{stateId}}">
+      <view class="itemWrapper">
+        <view class="itemTitle">
+          <text wx:if="{{stateId==2}}">购买产品:</text>
+          <text wx:if="{{stateId==1}}">{{item.F_Remark}}</text>
+          <text wx:if="{{stateId==2}}"> {{item.F_BuyProduct}}</text>
+        </view>
+        <view class="itemTime">{{item.F_CreateDate}}</view>
+      </view>
+    </view>
+  </block>
+  <view class="noRecord" hidden='{{hiddenNoRecord}}'>
+    <view class="icon-M-zanwujilu iconfont"></view>
+    <view class="text">{{noRecord}}</view>
+  </view>
+  <view class="noMore" hidden='{{hiddenNoMore}}'>
+    <text>{{tipsText}}</text>
+  </view>
+</view>

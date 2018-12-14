@@ -1,0 +1,52 @@
+<!--pages/mine/twicelogin/twicelogin.wxml-->
+<!--index.wxml-->
+<view class="page">
+  <view class='body'>
+      <!-- <view class='logo'>
+        <view class='logo-app'>梵星</view>
+        <image src='../../../images/index/logo.png'></image>
+        <view class='logo-dec'>买得起的艺术家具</view>
+        <view class="try">尝鲜版</view>
+      </view> -->
+      <view class="head-image">
+        <image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/06d95774477e41c3b11116458351a804" mode="widthFix"/>
+      </view>
+      <view class='btn'>
+        <!-- <button catchtap="{{readStatus?'phonelogin':'showAgreement'}}" disabled='{{onOff}}'><i class="iconfont icon-shouji"></i><text>手机登录</text></button> -->
+        <!-- <button hidden='{{weixinbtn}}' open-type="{{readStatus?'getPhoneNumber':''}}" bindgetphonenumber="getPhoneNumber" bindtap="{{readStatus?'':'showAgreement'}}" ><i class="iconfont icon-weixin" ></i><text>微信登录</text></button> -->
+
+        <form report-submit="true" bindsubmit="{{readStatus?'quicklogin':'showAgreement'}}" style='width:100%;'>
+          <!-- <button hover-class="btn-hover" class="lastbtn" formType="submit">
+          获取formid
+          </button>	 -->
+          <!-- <button hidden='{{!(weixinbtn)}}' formType="submit"><i class="iconfont icon-weixin"></i><text>微信登录</text></button> -->
+          <button formType="submit" hidden='{{toAuthorization}}'><i class="iconfont icon-weixin"></i><text>微信登录</text></button>
+          <button open-type="getUserInfo" hidden='{{!toAuthorization}}' lang="zh_CN" bindgetuserinfo="bindGetUserInfo"><i class="iconfont icon-weixin"></i><text>微信登录</text></button>
+        </form>	
+         <checkbox-group bindchange="checkboxChange" class="user-checkbox">
+         <checkbox value="1" checked="{{item.checked}}"/>
+          <label class="checkbox">
+            <text>点击登录，即表示已阅读并同意</text><!-- <navigator url='agreement/agreement' hover-class="none"> --><text class="agree" bindtap="agree">《用户服务协议》</text><!-- </navigator> -->
+          </label>
+        </checkbox-group> 
+      </view>
+  </view>
+    <loading id="loading" comtype="loading">
+        <view style='text-align:center;font-size:30rpx;line-height:35rpx;margin:10rpx 0;'>优梵艺术</view>
+    </loading>
+  <modal hidden="{{hiddenmodalput}}" title="重新绑定手机" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm" catchtouchmove='true'> 
+     <view class='modal-input'><text>手机</text><input id="recommend" name="recommend" bindinput="bindinput" value='{{newPhone}}' placeholder="" disabled="true" style='border:0rpx;'/></view>
+
+    <view class='modal-input'>
+        <input class="" type="number" name="code" placeholder='验证码' bindinput="bindinputCode"></input>
+        <view class="getcode" catchtap='getcode'>{{getcodetext}}</view>
+    </view>
+    <view hidden="{{vcodeTip==''?true:false}}">{{vcodeTip}}</view>
+</modal>
+<view class="bottom-image">
+  <image src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/f845daefe6e1430a968ad3aeed918a80" mode="widthFix"/>
+</view>
+</view>
+
+
+

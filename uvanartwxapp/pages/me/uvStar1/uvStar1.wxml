@@ -1,0 +1,8 @@
+<view class="container">
+	<image class="image1" src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/05beb5c571454801bfba12c65e91cd5c" />
+	<image class="image2" src="https://after-sales-photo.oss-cn-shanghai.aliyuncs.com/stores/after-ales-photo/data/e9b910c08fa9466a906f1e208ebd3e32" />
+	<view class="button" bindtap="toMine">
+		成为梵星
+	</view>
+	<!-- <view class="todetail" hidden="{{canToDetail}}" bindtap="toDetail">浏览商品</view> -->
+</view>

@@ -1,0 +1,58 @@
+<view class="tuikuan">
+  <view class="wrapper">
+    <block wx:for="{{TicketData}}" wx:key="index" wx:for-item="ticket">
+      <view class='group'>
+        <view class="header">
+          <view class="hWrapper">
+            <view class="nb">No.</view>
+            <view>{{ticket.Ticket.F_TicketNo}}</view>
+          </view>
+        </view>
+        <block wx:for="{{TicketData[index].TicketDetails}}" wx:key="index" wx:for-item="item">
+          <view class="detail">
+            <view class="middle">
+              <view class="productImg">
+                <image src="{{item.F_ProductImage}}"></image>
+              </view>
+              <view class="infoWrapper">
+                <view class="rwrapper">
+                  <view class="productDetail">
+                    <view class="detailText">{{item.F_ProductName}}</view>
+                  </view>
+                  <view class="productPrice">
+                    <view>￥{{item.F_ProductPrice}}</view>
+                    <view class="num">×{{item.F_ProductNumber}}</view>
+                  </view>
+                </view>
+                <view class="specification">
+                  <text>规格：</text>
+                  <text class="guige">{{item.F_ProductSpecification}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </block>
+        <view class="fooder">
+          <view class="left">
+            <view class="state">售后状态：</view>
+            <view class="tk">{{ticket.Ticket.F_TicketType}}</view>
+            <view class="tkstate">{{ticket.TicketDetails[0].F_Status}}</view>
+          </view>
+          <view class="right" catchtap="openDetail" data-index='{{index}}' hover-class='highLight'>查看详情</view>
+        </view>
+        <view class="border" wx:if="{{index<TicketData.length-1}}"></view>
+      </view>
+    </block>
+  </view>
+  <!-- <view class="dataLoading" hidden="{{hideLoading}}">
+    <image src="../../../images/index/loading.gif"></image>
+</view> -->
+</view>
+<view class="noMore" hidden="{{noMore}}">
+  <text>没有更多记录了！</text>
+</view>
+
+<view class="noRecord" hidden="{{noRecord}}">
+  <view class="icon-record"></view>
+  <view class="text">暂无退款记录</view>
+</view>
