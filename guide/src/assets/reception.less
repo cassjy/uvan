@@ -1,0 +1,41 @@
+@import "~common/css/defult.less";
+.page{
+    font-size: 28/@rem;
+}
+.headurl{
+    width: 50/@rem;
+    height: 50/@rem;
+    background: url('~common/images/index/mine.png') center center no-repeat;background-size:contain;
+    }
+.add{
+    background-color: aqua;
+}
+.delete{
+    background-color: #000;
+    color: #fff;
+    width: 80/@rem;
+}
+.person{
+    width: 100%;
+    display: flex;
+}
+.person>div{
+    flex: 1;
+}
+.person div:nth-child(2){
+    flex: 0 0 500/@rem;
+}
+button{
+    height: 80/@rem;
+    width: 100%;
+    line-height: 80/@rem;
+    background: #fff;
+    -webkit-box-shadow: 0 0 0.26666667rem rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 0.26666667rem rgba(0, 0, 0, 0.2);
+    border-radius: 10/@rem;
+    text-align: center;
+    color: #666;
+    font-size: 28/@rem;
+    padding: 0;
+    margin: 0;
+}

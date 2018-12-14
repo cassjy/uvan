@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
+  />
+  <title>梵导购</title>
+  <style>
+    .weui-cell {
+      color: #666 !important;
+      font-size: 14px !important;
+      padding: 10px 0px 10px 14px !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script>
+    //解决移动端文本框弹出键盘遮挡输入框的方法
+
+    if (/Android/.test(navigator.appVersion)) {
+      window.addEventListener("resize", function () {
+        if (document.activeElement.tagName == "INPUT" || document.activeElement.tagName == "TEXTAREA") {
+          window.setTimeout(function () {
+            document.activeElement.scrollIntoViewIfNeeded();
+          }, 0);
+        }
+      })
+    }
+  </script>
+</body>
+
+</html>
