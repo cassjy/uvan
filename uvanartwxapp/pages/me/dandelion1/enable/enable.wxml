@@ -1,4 +1,0 @@
-<!--pages/shopInfo/dandelion1/enable/enable.wxml-->
-<view style="width: 100%;height:{{height}}px">
-    <image class="img" mode="widthFix" src="https://uvpt.uvanart.com/upload/static/Dandelion/enable.jpg?time={{time}}" style="height:{{height}}px"  lazy-load="true" binderror="imageError" bindload="loadImg"></image>
-</view>

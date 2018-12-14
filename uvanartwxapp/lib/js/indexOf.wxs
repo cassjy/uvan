@@ -1,8 +1,0 @@
-var filters = {
-  indexOf: function (value,s) {
-    return value.indexOf(s)
-  }
-}
-module.exports = {
-  indexOf: filters.indexOf
-}

@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "用户登录",
-  "usingComponents": {
-    "loading": "/component/reloading/reloading"
-  }
-}

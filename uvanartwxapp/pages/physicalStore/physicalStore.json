@@ -1,6 +1,0 @@
-{
-    "navigationBarTitleText": "实体店",
-    "usingComponents": {
-      "loading": "/component/reloading/reloading"
-    }
-}

@@ -1,5 +1,0 @@
-<view class="oupai">
-  <block wx:for="{{photoList}}" wx:key="index">
-    <image mode="widthFix" src="{{item}}"></image>
-  </block>
-</view>
